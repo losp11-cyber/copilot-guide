@@ -115,6 +115,20 @@ header.hero {
   box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
 }
 .theme-toggle:hover { border-color: var(--cp-border-strong); }
+.hero-nav {
+  margin-top: 18px;
+}
+.updates-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--cp-accent); color: var(--cp-accent-fg);
+  border-radius: 0.625rem;
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.14);
+}
+.updates-link:hover { opacity: 0.9; }
 
 /* Section titles */
 .section { margin-top: 52px; }
@@ -359,6 +373,9 @@ table.matrix.lookup td.task { font-weight:600; }
       <div class="ip-tabs" id="industryTabs"></div>
     </div>
     <div class="pill-note">クリックで各シナリオの詳細が開きます</div>
+    <div class="hero-nav">
+      <a class="updates-link" href="updates.html">📅 月次アップデートを見る →</a>
+    </div>
   </header>
 
   <!-- Section 1: Overview -->

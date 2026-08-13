@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Copilot 月次アップデート</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cp-bg);
+  color: var(--cp-text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
+
+.topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; flex-wrap:wrap; }
+.back-link { display:inline-flex; align-items:center; gap:6px; font-size:0.9rem; font-weight:600; color: var(--cp-accent); text-decoration:none; padding:8px 14px; border:1px solid var(--cp-border); border-radius:0.625rem; background: var(--cp-surface); }
+.back-link:hover { border-color: var(--cp-accent); }
+.theme-toggle {
+  background: var(--cp-surface); border: 1px solid var(--cp-border); color: var(--cp-text);
+  border-radius: 0.625rem; padding: 8px 12px; font-size: 0.85rem; cursor: pointer; font-family: inherit;
+}
+.theme-toggle:hover { border-color: var(--cp-border-strong); }
+
+header.hero { text-align: center; padding: 20px 10px 8px; }
+.hero .eyebrow { display:inline-block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cp-accent); font-weight: 600; margin-bottom: 12px; }
+.hero h1 { font-size: 2rem; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 12px; }
+.hero p.sub { color: var(--cp-text-muted); font-size: 1rem; max-width: 640px; margin: 0 auto; }
+
+.posts { margin-top: 40px; display: grid; gap: 28px; }
+.post {
+  background: var(--cp-surface);
+  border: 1px solid var(--cp-border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
+}
+.post-head {
+  padding: 22px 26px 18px;
+  border-bottom: 1px solid var(--cp-border);
+  background: var(--cp-bg-elevated);
+}
+.post-date { display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color: var(--cp-accent-fg); background: var(--cp-accent); padding: 4px 12px; border-radius: 999px; margin-bottom: 10px; }
+.post-title { font-size: 1.4rem; letter-spacing:-0.01em; }
+.post-lead { color: var(--cp-text-muted); font-size: 0.95rem; margin-top: 6px; }
+.post-body { padding: 22px 26px 24px; }
+
+.upd-group { margin-bottom: 20px; }
+.upd-group:last-child { margin-bottom: 0; }
+.upd-group h3 {
+  font-size: 1.02rem; display:flex; align-items:center; gap:8px; margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--cp-accent-soft);
+}
+.upd-group h3 .tagpill { font-size:0.7rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color: var(--cp-accent); background: var(--cp-accent-soft); padding: 3px 10px; border-radius:999px; }
+.upd-list { list-style: none; display: grid; gap: 12px; }
+.upd-item { border: 1px solid var(--cp-border); border-left: 3px solid var(--cp-accent); border-radius: 10px; padding: 12px 15px; background: var(--cp-bg-elevated); }
+.upd-item .u-name { font-weight: 700; font-size: 0.96rem; margin-bottom: 3px; }
+.upd-item .u-desc { font-size: 0.9rem; color: var(--cp-text-muted); }
+.upd-item .u-meta { margin-top: 6px; display:flex; flex-wrap:wrap; gap:6px; }
+.u-chip { font-size:0.72rem; font-weight:600; padding: 2px 9px; border-radius:999px; background: var(--cp-surface-soft); border:1px solid var(--cp-border); color: var(--cp-text-soft); }
+.u-chip.ga { color: var(--cp-success); border-color: var(--cp-success); }
+.u-chip.preview { color: var(--cp-warning); border-color: var(--cp-warning); }
+
+.post-source { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--cp-border); font-size: 0.86rem; }
+.post-source a { color: var(--cp-link); font-weight: 600; text-decoration: none; }
+.post-source a:hover { text-decoration: underline; }
+.post-source .note { color: var(--cp-text-soft); margin-top: 4px; font-size: 0.8rem; }
+
+footer.foot { margin-top: 50px; padding-top: 22px; border-top: 1px solid var(--cp-border); color: var(--cp-text-soft); font-size: 0.82rem; text-align:center; }
+footer.foot p { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back-link" href="index.html">← 製品使い分けガイドに戻る</a>
+    <button class="theme-toggle" id="themeBtn" type="button">🌙 ダーク</button>
+  </div>
+
+  <header class="hero">
+    <span class="eyebrow">Monthly Update</span>
+    <h1>Microsoft Copilot 月次アップデート</h1>
+    <p class="sub">Microsoft 365 Copilot の毎月の新機能・強化点を、営業目線でピックアップして要約します。各回に公式ブログへのリンクを付けています。</p>
+  </header>
+
+  <div class="posts" id="posts"></div>
+
+  <footer class="foot">
+    <p>Microsoft Copilot 月次アップデート</p>
+    <p>© Microsoft. 公開情報に基づく参考まとめです。正式な内容・提供状況は各公式ブログをご確認ください。</p>
+  </footer>
+
+</div>
+
+<script>
+// 新しい月を配列の先頭に追加していく（新しい順に表示）
+const POSTS = [
+  {
+    date: "2026年6月",
+    title: "Copilot Cowork 一般提供、モデル選択・プラグイン・モバイル対応が拡充",
+    lead: "6月はCopilot Coworkの一般提供(GA)が最大のトピック。実行系エージェントの機能が一気に強化されました。",
+    source: "https://blogs.windows.com/japan/2026/07/07/whats-new-in-microsoft-365-copilot-june-2026/",
+    sourceNote: "米国版「What’s New in Microsoft 365 Copilot | June 2026」の日本語抄訳ブログ",
+    groups: [
+      {
+        tag: "Copilot Cowork",
+        items: [
+          { name: "Copilot Cowork が一般提供(GA)", desc: "計画→実行→成果物提供までを担うエージェント型システムが全世界でGA。従量課金で、管理センターの新「コスト管理ダッシュボード」で使用状況・予算・支出を制御可能。", chips: ["GA"] },
+          { name: "Chat ⇄ Cowork 切替トグル", desc: "Microsoft 365 Copilotアプリに、「回答を得る作業(Chat)」と「アクションを実行する作業(Cowork)」を切り替えるトグルを追加。", chips: ["GA"] },
+          { name: "タスクに応じたモデル選択（GPT-5.5 Thinking）", desc: "視覚的作業(PPT/グラフィック)はAnthropic、引用付きの深いリサーチはGPT-5.5、と作業種別に最適モデルを自動選択。", chips: ["Frontier"] },
+          { name: "プラグイン拡充", desc: "Enosix, Harvey, LSEG, Miro, monday.com, Moody's, Morningstar, S&P Global Energy, TeamsMaestro などが追加。Microsoft Fabric、Dynamics 365(Sales/Customer Service/ERP)もサポート。", chips: ["GA"] },
+          { name: "カスタムスキルの作成・編集・管理", desc: "Coworkの[カスタマイズ]タブから、繰り返し作業を標準化する独自スキルを構築・改良。組織全体やパートナー提供スキルと組み合わせ可能。", chips: ["GA"] },
+          { name: "ビジュアル生成＋ブランドPPTテンプレート", desc: "ChatGPT Images 2.0基盤でデッキ画像やイラストを直接生成・編集。組織のブランドPowerPointテンプレート（承認済みの色/フォント/ロゴ）も適用可能。", chips: ["GA"] },
+          { name: "Edge ブラウザでの実行", desc: "業務システム・Webサイト・イントラをまたいでCoworkがEdgeで作業を実行。", chips: ["Frontier"] },
+          { name: "モバイル対応（iOS / Android）", desc: "あるデバイスで開始した作業を、同じコンテキストと会話のまま別デバイスで継続可能に。", chips: ["GA"] },
+          { name: "プッシュ通知", desc: "承認・入力依頼・完了など、時間のかかるタスクの状況を通知。常時監視が不要に。", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Copilot Chat / 引用・推論",
+        items: [
+          { name: "Power BI エンタープライズデータの推論", desc: "Work IQにより、Power BIのレポート/セマンティックモデルから根拠に基づく回答を自然言語で取得。", chips: ["Frontier"] },
+          { name: "Dataverse ビジネスデータの検索・クエリ", desc: "基幹の構造化データにCopilotの対応範囲が拡大。6月パブリックプレビュー、9月GA予定。", chips: ["Preview"] },
+          { name: "ディープ シテーション（詳細な引用）", desc: "参照元ファイル全体でなく、該当箇所へ直接リンク。まずWord/PPTから対応、会議/Web/PDFも順次。", chips: ["GA"] },
+          { name: "[再生成] アクション", desc: "「もう一度試す」「モデルを切り替える」で、直前プロンプトの別回答を素早く取得。", chips: ["GA"] },
+        ]
+      }
+    ]
+  }
+];
+
+const chipClass = c => c === "GA" ? "ga" : (c === "Preview" || c === "Frontier") ? "preview" : "";
+const postsEl = document.getElementById("posts");
+POSTS.forEach(p => {
+  const el = document.createElement("article");
+  el.className = "post";
+  el.innerHTML = `
+    <div class="post-head">
+      <span class="post-date">${p.date}</span>
+      <div class="post-title">${p.title}</div>
+      <div class="post-lead">${p.lead}</div>
+    </div>
+    <div class="post-body">
+      ${p.groups.map(g => `
+        <div class="upd-group">
+          <h3><span class="tagpill">${g.tag}</span></h3>
+          <ul class="upd-list">
+            ${g.items.map(it => `
+              <li class="upd-item">
+                <div class="u-name">${it.name}</div>
+                <div class="u-desc">${it.desc}</div>
+                <div class="u-meta">${(it.chips||[]).map(c=>`<span class="u-chip ${chipClass(c)}">${c}</span>`).join("")}</div>
+              </li>`).join("")}
+          </ul>
+        </div>`).join("")}
+      <div class="post-source">
+        📎 出典: <a href="${p.source}" target="_blank" rel="noopener">${p.source}</a>
+        <div class="note">${p.sourceNote}</div>
+      </div>
+    </div>`;
+  postsEl.appendChild(el);
+});
+
+// Theme toggle
+const btn = document.getElementById("themeBtn");
+function syncBtn(){ const dark = document.documentElement.getAttribute("data-theme")==="dark"; btn.textContent = dark ? "☀️ ライト" : "🌙 ダーク"; }
+btn.addEventListener("click", () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  document.documentElement.setAttribute("data-theme", cur==="dark" ? "light" : "dark");
+  syncBtn();
+});
+syncBtn();
+</script>
+</body>
+</html>
