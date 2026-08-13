@@ -523,12 +523,12 @@ table.matrix.lookup td.task { font-weight:600; }
     </div>
 
     <div class="price-note" style="margin-top:20px;">
-      <div class="pn-title">🎯 決め手は「ファイルの置き場所」に集約される</div>
-      <p><b>ローカルPC版のまま（＝今回のケース）</b>：クラウド型のCoworkはローカルのファイルを直接編集できません（公式に <i>"Cloud hosting means files are not stored locally"</i> と明記）。<b>ローカルPCのファイルまで手を動かせるのはScoutだけ</b>。だから今回はScoutが自然にハマります。</p>
-      <p><b>ファイルをOneDrive/SharePointに移すと</b>：<b>Coworkのスケジュール実行でもこの業務は成立します</b>。Coworkには「指定時刻に定期実行するスケジュールプロンプト」と「メール/Teams着信で起動するイベントトリガー」が公式機能として備わっています。Studioも定時フローで組めますが<b>開発・保守が必要</b>です。</p>
-      <p><b>“実際に手を動かす”範囲もScoutが最大</b>：Scoutは<b>ローカルのファイル・ブラウザ・M365・シェルを横断して操作</b>できます（ブラウザは自動操作に対応）。ログインが要る社内WebやSaaS画面をまたいだ作業も一気通貫。CoworkのブラウザはEdge経由ですが公式ブログで<b>「Frontier限定」</b>と明記されており、GAでの一般提供範囲は要確認です。</p>
-      <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>一言でいうと</b> ── <b>作って全社展開なら Studio</b>／<b>頼んで任せるなら Cowork</b>／<b>ほっといて先回りするなら Scout</b>。本質的な差は「クラウドで動くか、自分のPC上で動くか」。</p>
-      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Copilot Cowork のクラウドホスト／ローカル非保存・USL＋Copilot Credits従量課金は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。スケジュールプロンプト／イベントトリガー／承認チェックポイント／Deep Researchスキルは <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn「Use Copilot Cowork」</a>。ScoutのローカルPC操作・常時稼働は Microsoft Scout 公式ドキュメントに基づく参考整理です。</p>
+      <div class="pn-title">🎯 Scout と Cowork、どこで選び分けるか</div>
+      <p>両者は「定時に自律実行してくれる」点は共通です。<b>分かれ目は2つ ── ①ファイルの置き場所（ローカルPCか、クラウドか）／②ブラウザを"実際に"自動操作するか</b>。</p>
+      <p><b>① ローカルPCのファイルを触るなら Scout</b>（＝今回のケース）：クラウド型のCoworkはローカルのファイルを直接編集できません（公式に <i>"Cloud hosting means files are not stored locally"</i> と明記）。<b>自分のPC上のファイルまで手を動かせるのはScoutだけ</b>。ファイルをOneDrive/SharePointに移せば<b>Coworkのスケジュール実行でも成立</b>します（Coworkにも定期スケジュール／イベントトリガーが公式機能としてあります）。</p>
+      <p><b>② ブラウザを完全自動操作するなら Scout</b>：ログインが要る社内WebやSaaS画面をまたいで“実際にクリック・入力して操作”するのはScoutの領域です（ローカルのファイル・ブラウザ・M365・シェルを横断）。CoworkのブラウザはEdge経由で公式ブログに記載がありますが<b>「Frontier限定」</b>で、<b>GAの公式機能一覧（2026/7/27時点のLearn）には未記載</b>。一般提供の自動ブラウザ操作としては当てにしない方が安全です。</p>
+      <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>一言でいうと</b> ── <b>作って全社展開なら Studio</b>／<b>クラウド完結で頼んで任せるなら Cowork</b>／<b>自分のPC・ブラウザまで先回りで動かすなら Scout</b>。</p>
+      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Copilot Cowork のクラウドホスト／ローカル非保存・USL＋Copilot Credits従量課金は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。スケジュールプロンプト／イベントトリガー／承認チェックポイント／Deep Researchスキルは <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn「Use Copilot Cowork」（2026/7/27更新。同ページの機能一覧にブラウザ自動操作の記載なし）</a>。ScoutのローカルPC操作・ブラウザ自動操作・常時稼働は Microsoft Scout 公式ドキュメントに基づく参考整理です。</p>
     </div>
   </section>
 
@@ -543,19 +543,61 @@ table.matrix.lookup td.task { font-weight:600; }
     </div>
   </section>
 
-  <!-- Section 7: FAQ / rebuttals -->
+  <!-- Section 8: Security & governance -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">8</span>FAQ・反論対応集</h2>
+      <h2><span class="num">8</span>セキュリティ・データガバナンス</h2>
+      <p>情シス・法務が必ず確認する「データはどこへ？勝手に動かない？止められる？」への回答。<b>すべて公開情報（Microsoft公式ブログ・Learn）に基づく整理</b>です。</p>
+    </div>
+
+    <div class="price-note">
+      <div class="pn-title">🛡️ 4製品に共通する大前提</div>
+      <p>・<b>お客様の既存のアクセス権・IDを尊重</b>：各製品は「そのユーザーが見える情報」しか扱いません。権限のないデータには到達しません。</p>
+      <p>・<b>重要操作の前に人間の承認</b>：メール送信・投稿・ファイル書き込み・コマンド実行などの前に、承認チェックポイントが入ります（Cowork／Scout）。</p>
+      <p>・<b>テナントのデータは基盤モデルの学習に使われません</b>（Microsoft 365 Copilot の公開コミットメント）。</p>
+    </div>
+
+    <div style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:20px;">
+      <div class="price-note" style="margin:0;border-top:4px solid #b11f4b;">
+        <div class="pn-title">Copilot Cowork ― クラウドで“ガバナンス済み”に実行</div>
+        <p>・<b>既定でオフ</b>。管理者が有効化する対象ユーザーを決めます。</p>
+        <p>・プロンプト・応答・生成物は<b>既存のMicrosoft 365統制を通過</b>し、監査・保持・検索の対象に。<b>秘密度ラベルもend-to-endで継承・表示</b>。</p>
+        <p>・GA時点の保護面：<b>監査ログ／DSPM／eDiscovery／インサイダーリスク管理／データライフサイクル管理／コミュニケーションコンプライアンス</b>（DLPは近日対応）。</p>
+        <p>・クラウドのサンドボックスで実行し<b>ファイルはローカル非保存</b>、M365トラスト境界内で動作。</p>
+        <p>・<b>テナント／グループ／ユーザー単位の予算上限・使用量アラート・利用レポート</b>でコストも統制。</p>
+      </div>
+      <div class="price-note" style="margin:0;border-top:4px solid #0f8a6a;">
+        <div class="pn-title">Microsoft Scout ― ローカルを“粒度の細かい権限”で制御</div>
+        <p>・<b>重要操作の前に必ず承認</b>（メール送信・コマンド実行・ファイル書き込みなど）。</p>
+        <p>・<b>細かい権限設定</b>：ファイル／シェル／ブラウザ／M365を<b>カテゴリ単位でオン・オフ</b>。自動承認するシェルコマンドを限定でき、<b>機微なフォルダは常に明示承認</b>。</p>
+        <p>・エージェント固有の<b>独自のEntra ID</b>を持ち、誰が何をしたか追跡しやすい設計。</p>
+        <p>・アクセスできるのは<b>ユーザーが許可したファイルシステム／シェルのみ</b>。</p>
+        <p>・現在は<b>Frontierプレビュー（プレリリース）</b>。仕様は変更の可能性あり。</p>
+      </div>
+    </div>
+
+    <div class="price-note" style="margin-top:20px;">
+      <div class="pn-title">❓ お客様からよく出る3つの不安</div>
+      <p><b>Q. 入力したデータがAIの学習に使われませんか？</b><br>A. いいえ。テナントのデータは基盤モデルの学習には使われません（M365 Copilotの公開コミットメント）。</p>
+      <p><b>Q. 自律的に動く＝勝手に危険な操作をしませんか？</b><br>A. 重要操作の前に必ず人間の承認が入ります。Scoutはさらに「カテゴリ単位の権限」「機微フォルダの明示承認」「自動承認コマンドの限定」で制御可能。Coworkは<b>既定オフ</b>で管理者が有効化対象を決めます。</p>
+      <p><b>Q. 情シスで統制・監査できますか？</b><br>A. できます。Coworkは既定オフ＋監査ログ／eDiscovery／インサイダーリスク管理などPurview系の保護面が対象で、予算上限も設定可。Scoutは粒度の細かい権限で範囲を絞れます。</p>
+      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Coworkのセキュリティ／コンプライアンス（既定オフ・監査ログ・DSPM・eDiscovery・インサイダーリスク管理・データライフサイクル管理・コミュニケーションコンプライアンス・DLP近日、秘密度ラベル継承、予算上限）は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。Scoutの承認・粒度権限・機微フォルダ・Frontierプレビューは <a href="https://learn.microsoft.com/en-us/microsoft-scout/overview" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Scout 公式ドキュメント（Learn）</a>。基盤モデル非学習・アクセス権尊重・秘密度ラベルはMicrosoft 365 Copilotの公開情報に基づく整理です。正式・最新の内容は各公式情報をご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- Section 9: FAQ / rebuttals -->
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="num">9</span>FAQ・反論対応集</h2>
       <p>商談でよく出る疑問・反論への切り返し。クリックで回答が開きます。</p>
     </div>
     <div class="faq" id="faq"></div>
   </section>
 
-  <!-- Section 8: Japan customer cases -->
+  <!-- Section 10: Japan customer cases -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">9</span>国内導入事例（4製品）</h2>
+      <h2><span class="num">10</span>国内導入事例（4製品）</h2>
       <p>Microsoft 365 Copilot／Copilot Studio の、公式に公開された日本企業の事例です（出典リンク付き）。</p>
     </div>
     <div class="cases" id="cases"></div>
