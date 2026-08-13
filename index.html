@@ -438,10 +438,104 @@ table.matrix.lookup td.task { font-weight:600; }
     <div class="flow" id="flow"></div>
   </section>
 
-  <!-- Section 6: Quick reverse-lookup -->
+  <!-- Section 6: Worked example — same task, 4 products -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">6</span>逆引き早見表 ― 「こんな時はコレ」</h2>
+      <h2><span class="num">6</span>実例：同じ定型業務を4製品でやると何が違うか</h2>
+      <p>「毎月の情報収集 → 要約 → 社内サイト(HTML)を更新 → Teams通知」という<b>定型業務の自動化</b>を題材に、4製品の“できる／できない”を分解します。<span style="color:var(--cp-accent);font-weight:600;">※ この使い分けガイドの「月次アップデート」ページ自体を、実際にScoutが自動更新しています。</span></p>
+    </div>
+    <div class="matrix-scroll">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>この業務に必要な力</th>
+            <th class="prodcol">M365 Copilot</th>
+            <th class="prodcol">Copilot Studio</th>
+            <th class="prodcol">Copilot Cowork</th>
+            <th class="prodcol">Microsoft Scout</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="task"><span class="tasknum">1</span>定時に自動起動（スケジュール実行）</td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-ok">○</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+          <tr>
+            <td class="task"><span class="tasknum">2</span>Webを調べて営業目線で要約</td>
+            <td class="mark"><b class="mk-ok">○</b></td>
+            <td class="mark"><b class="mk-ok">○</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+          <tr>
+            <td class="task"><span class="tasknum">3</span>ローカルPC上のファイルを直接編集</td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+          <tr>
+            <td class="task"><span class="tasknum">4</span>クラウド(OneDrive/SharePoint)のファイル更新</td>
+            <td class="mark"><b class="mk-part">△</b></td>
+            <td class="mark"><b class="mk-ok">○</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+          <tr>
+            <td class="task"><span class="tasknum">5</span>Teams通知＋人間の承認チェックポイント</td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+          <tr>
+            <td class="task"><span class="tasknum">6</span>構築ゼロで使える（開発・保守が不要）</td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+          <tr>
+            <td class="task"><span class="tasknum">7</span>ブラウザを実際に操作（ログイン先・社内Web・SaaS画面を自動操作）</td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-part">△</b></td>
+            <td class="mark"><b class="mk-part">△</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+          <tr>
+            <td class="task"><span class="tasknum">8</span>ローカルPC・ブラウザ・M365を横断して一気通貫で実行</td>
+            <td class="mark"><b class="mk-no">×</b></td>
+            <td class="mark"><b class="mk-part">△</b></td>
+            <td class="mark"><b class="mk-ok">○</b></td>
+            <td class="mark"><b class="mk-best">◎</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span><b class="mk-best">◎</b>最適</span>
+      <span><b class="mk-ok">○</b>できる（一部、開発や都度依頼が必要）</span>
+      <span><b class="mk-part">△</b>部分的・自動化不可</span>
+      <span><b class="mk-no">×</b>不可・不向き</span>
+    </div>
+
+    <div class="price-note" style="margin-top:20px;">
+      <div class="pn-title">🎯 決め手は「ファイルの置き場所」に集約される</div>
+      <p><b>ローカルPC版のまま（＝今回のケース）</b>：クラウド型のCoworkはローカルのファイルを直接編集できません（公式に <i>"Cloud hosting means files are not stored locally"</i> と明記）。<b>ローカルPCのファイルまで手を動かせるのはScoutだけ</b>。だから今回はScoutが自然にハマります。</p>
+      <p><b>ファイルをOneDrive/SharePointに移すと</b>：<b>Coworkのスケジュール実行でもこの業務は成立します</b>。Coworkには「指定時刻に定期実行するスケジュールプロンプト」と「メール/Teams着信で起動するイベントトリガー」が公式機能として備わっています。Studioも定時フローで組めますが<b>開発・保守が必要</b>です。</p>
+      <p><b>“実際に手を動かす”範囲もScoutが最大</b>：Scoutは<b>ローカルのファイル・ブラウザ・M365・シェルを横断して操作</b>できます（ブラウザは自動操作に対応）。ログインが要る社内WebやSaaS画面をまたいだ作業も一気通貫。CoworkのブラウザはEdge経由ですが公式ブログで<b>「Frontier限定」</b>と明記されており、GAでの一般提供範囲は要確認です。</p>
+      <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>一言でいうと</b> ── <b>作って全社展開なら Studio</b>／<b>頼んで任せるなら Cowork</b>／<b>ほっといて先回りするなら Scout</b>。本質的な差は「クラウドで動くか、自分のPC上で動くか」。</p>
+      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Copilot Cowork のクラウドホスト／ローカル非保存・USL＋Copilot Credits従量課金は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。スケジュールプロンプト／イベントトリガー／承認チェックポイント／Deep Researchスキルは <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn「Use Copilot Cowork」</a>。ScoutのローカルPC操作・常時稼働は Microsoft Scout 公式ドキュメントに基づく参考整理です。</p>
+    </div>
+  </section>
+
+  <!-- Section 7: Quick reverse-lookup -->
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="num">7</span>逆引き早見表 ― 「こんな時はコレ」</h2>
       <p>お客様の“ひとこと”から、おすすめ製品を素早く引くためのチートシート。商談中の即答に。</p>
     </div>
     <div class="matrix-scroll">
@@ -452,7 +546,7 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 7: FAQ / rebuttals -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">7</span>FAQ・反論対応集</h2>
+      <h2><span class="num">8</span>FAQ・反論対応集</h2>
       <p>商談でよく出る疑問・反論への切り返し。クリックで回答が開きます。</p>
     </div>
     <div class="faq" id="faq"></div>
@@ -461,7 +555,7 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 8: Japan customer cases -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">8</span>国内導入事例（4製品）</h2>
+      <h2><span class="num">9</span>国内導入事例（4製品）</h2>
       <p>Microsoft 365 Copilot／Copilot Studio の、公式に公開された日本企業の事例です（出典リンク付き）。</p>
     </div>
     <div class="cases" id="cases"></div>
