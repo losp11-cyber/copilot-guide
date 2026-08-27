@@ -115,6 +115,8 @@ header.hero {
   box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
 }
 .theme-toggle:hover { border-color: var(--cp-border-strong); }
+.top-controls { position: fixed; top: 16px; right: 16px; z-index: 50; display: flex; gap: 8px; }
+.top-controls .theme-toggle { position: static; }
 .hero-nav {
   margin-top: 18px;
 }
@@ -361,42 +363,45 @@ table.matrix.lookup td.task { font-weight:600; }
 </style>
 </head>
 <body>
-<button class="theme-toggle" id="themeBtn" type="button">🌙 ダーク</button>
+<div class="top-controls">
+  <button class="theme-toggle" id="langBtn" type="button">🌐 EN</button>
+  <button class="theme-toggle" id="themeBtn" type="button">🌙 ダーク</button>
+</div>
 <div class="wrap">
 
   <header class="hero">
-    <span class="eyebrow">Microsoft Copilot ファミリー</span>
-    <h1>製品使い分けガイド<br>― 業務シナリオで見る「どれが100点か」―</h1>
-    <p class="sub">M365 Copilot・Copilot Studio・Copilot Cowork・Microsoft Scout。同じ業務でも「どの製品が、どこまで解決できるか」は役割レベルによって変わります。代表的な業務を例に可視化しました。</p>
+    <span class="eyebrow" data-i18n="hero_eyebrow">Microsoft Copilot ファミリー</span>
+    <h1 data-i18n="hero_h1">製品使い分けガイド<br>― 業務シナリオで見る「どれが100点か」―</h1>
+    <p class="sub" data-i18n="hero_sub">M365 Copilot・Copilot Studio・Copilot Cowork・Microsoft Scout。同じ業務でも「どの製品が、どこまで解決できるか」は役割レベルによって変わります。代表的な業務を例に可視化しました。</p>
     <div class="industry-picker">
       <span class="ip-label">業種を選ぶ：</span>
       <div class="ip-tabs" id="industryTabs"></div>
     </div>
-    <div class="pill-note">クリックで各シナリオの詳細が開きます</div>
+    <div class="pill-note" data-i18n="hero_pill">クリックで各シナリオの詳細が開きます</div>
     <div class="hero-nav">
-      <a class="updates-link" href="updates.html">📅 月次アップデートを見る →</a>
+      <a class="updates-link" href="updates.html" data-i18n="hero_updates">📅 月次アップデートを見る →</a>
     </div>
   </header>
 
   <!-- Section 1: Overview -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">1</span>各製品の概要 ― そもそも何なのか</h2>
-      <p>使い分けの前に、まず4製品が「何をするものか・誰のためか・どう提供されるか」を押さえます。</p>
+      <h2 data-i18n="s1_h"><span class="num">1</span>各製品の概要 ― そもそも何なのか</h2>
+      <p data-i18n="s1_p">使い分けの前に、まず4製品が「何をするものか・誰のためか・どう提供されるか」を押さえます。</p>
     </div>
     <div class="overview" id="overview"></div>
     <div class="price-note">
-      <div class="pn-title">💡 価格の読み方（Copilot Credits とは）</div>
-      <p><b>Copilot Credits</b> は <b>Cowork・Copilot Studio 共通</b>の従量課金の単位です。使った分（モデル応答・ツール/スキル呼び出し・画像生成・ブラウザ操作など）に応じてクレジットを消費します。クレジット単価は共通で <b>$0.01/クレジット</b>、または <b>25,000クレジット/月のプリペイドパック</b>で購入します。<b>M365 Copilotライセンス保有者による社内利用は多くが0円</b>で、Cowork等の重い実行分だけが従量対象になるイメージです。</p>
-      <p class="disclaimer">※ 価格は2026年8月時点でインターネット/Microsoft公式ドキュメントを基にした<b>参考値</b>です。M365 Copilot(約$30)やStudioパック(約$200)の金額は公式の動的ページ由来で変動の可能性あり。クレジット単価($0.01)は共通ですが、<b>Coworkの「1タスクあたりの消費クレジット数」は公式に固定値の公開なし</b>（「Copilot Credits Guide」PDF/見積ツール参照）。正式な見積・最新価格は必ず公式または担当窓口でご確認ください。</p>
+      <div class="pn-title" data-i18n="pn_title">💡 価格の読み方（Copilot Credits とは）</div>
+      <p data-i18n="pn_body"><b>Copilot Credits</b> は <b>Cowork・Copilot Studio 共通</b>の従量課金の単位です。使った分（モデル応答・ツール/スキル呼び出し・画像生成・ブラウザ操作など）に応じてクレジットを消費します。クレジット単価は共通で <b>$0.01/クレジット</b>、または <b>25,000クレジット/月のプリペイドパック</b>で購入します。<b>M365 Copilotライセンス保有者による社内利用は多くが0円</b>で、Cowork等の重い実行分だけが従量対象になるイメージです。</p>
+      <p class="disclaimer" data-i18n="pn_disc">※ 価格は2026年8月時点でインターネット/Microsoft公式ドキュメントを基にした<b>参考値</b>です。M365 Copilot(約$30)やStudioパック(約$200)の金額は公式の動的ページ由来で変動の可能性あり。クレジット単価($0.01)は共通ですが、<b>Coworkの「1タスクあたりの消費クレジット数」は公式に固定値の公開なし</b>（「Copilot Credits Guide」PDF/見積ツール参照）。正式な見積・最新価格は必ず公式または担当窓口でご確認ください。</p>
     </div>
   </section>
 
   <!-- Section 2: Roles -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">2</span>4製品の「役割レベル」</h2>
-      <p>4つは競合ではなく、担う役割の"高さ"が違います。ここを押さえると使い分けが一気にクリアになります。</p>
+      <h2 data-i18n="s2_h"><span class="num">2</span>4製品の「役割レベル」</h2>
+      <p data-i18n="s2_p">4つは競合ではなく、担う役割の"高さ"が違います。ここを押さえると使い分けが一気にクリアになります。</p>
     </div>
     <div class="roles" id="roles"></div>
   </section>
@@ -404,13 +409,13 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 2: Matrix -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">3</span>業務タスク × 製品カバレッジ</h2>
-      <p>代表的な業務ごとに、各製品の適合度をマッピング。◎が「その製品の100点シナリオ」です。</p>
+      <h2 data-i18n="s3_h"><span class="num">3</span>業務タスク × 製品カバレッジ</h2>
+      <p data-i18n="s3_p">代表的な業務ごとに、各製品の適合度をマッピング。◎が「その製品の100点シナリオ」です。</p>
     </div>
     <div class="matrix-scroll">
       <table class="matrix" id="matrix"></table>
     </div>
-    <div class="legend">
+    <div class="legend" data-i18n="s3_legend">
       <span><b class="mk-best">◎</b>最適（100点）</span>
       <span><b class="mk-ok">○</b>できる</span>
       <span><b class="mk-part">△</b>部分的・工夫要</span>
@@ -421,8 +426,8 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 3: 100-point scenarios -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">4</span>各製品が「100点」を取るシナリオ</h2>
-      <p>それぞれが最も輝く瞬間を、具体的な業務の場面で。各製品3シナリオずつ掲載しています。カードをクリックすると詳細が開きます。</p>
+      <h2 data-i18n="s4_h"><span class="num">4</span>各製品が「100点」を取るシナリオ</h2>
+      <p data-i18n="s4_p">それぞれが最も輝く瞬間を、具体的な業務の場面で。各製品3シナリオずつ掲載しています。カードをクリックすると詳細が開きます。</p>
     </div>
     <div class="scenarios" id="scenarios"></div>
   </section>
@@ -430,8 +435,8 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 4: How each product works -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">5</span>補足：各製品の「動き方」</h2>
-      <p>同じ“AI”でも、動き方＝仕事の進め方がまったく違います。タブで各製品の流れを切り替えてご覧ください。</p>
+      <h2 data-i18n="s5_h"><span class="num">5</span>補足：各製品の「動き方」</h2>
+      <p data-i18n="s5_p">同じ“AI”でも、動き方＝仕事の進め方がまったく違います。タブで各製品の流れを切り替えてご覧ください。</p>
     </div>
     <div class="flow-tabs" id="flowTabs"></div>
     <div class="flow-caption" id="flowCaption"></div>
@@ -441,9 +446,10 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 6: Worked example — same task, 4 products -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">6</span>実例：同じ定型業務を4製品でやると何が違うか</h2>
-      <p>「毎月の情報収集 → 要約 → 社内サイト(HTML)を更新 → Teams通知」という<b>定型業務の自動化</b>を題材に、4製品の“できる／できない”を分解します。<span style="color:var(--cp-accent);font-weight:600;">※ この使い分けガイドの「月次アップデート」ページ自体を、実際にScoutが自動更新しています。</span></p>
+      <h2 data-i18n="s6_h"><span class="num">6</span>実例：同じ定型業務を4製品でやると何が違うか</h2>
+      <p data-i18n="s6_p">「毎月の情報収集 → 要約 → 社内サイト(HTML)を更新 → Teams通知」という<b>定型業務の自動化</b>を題材に、4製品の“できる／できない”を分解します。<span style="color:var(--cp-accent);font-weight:600;">※ この使い分けガイドの「月次アップデート」ページ自体を、実際にScoutが自動更新しています。</span></p>
     </div>
+    <div data-i18n="cmp_body">
     <div class="matrix-scroll">
       <table class="matrix">
         <thead>
@@ -530,13 +536,14 @@ table.matrix.lookup td.task { font-weight:600; }
       <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>一言でいうと</b> ── <b>作って全社展開なら Studio</b>／<b>クラウド完結で頼んで任せるなら Cowork</b>／<b>自分のPC・ブラウザまで先回りで動かすなら Scout</b>。</p>
       <p class="disclaimer">※ 出典（2026年8月時点で確認）：Copilot Cowork のクラウドホスト／ローカル非保存・USL＋Copilot Credits従量課金は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。スケジュールプロンプト／イベントトリガー／承認チェックポイント／Deep Researchスキルは <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn「Use Copilot Cowork」（2026/7/27更新。同ページの機能一覧にブラウザ自動操作の記載なし）</a>。ScoutのローカルPC操作・ブラウザ自動操作・常時稼働は Microsoft Scout 公式ドキュメントに基づく参考整理です。</p>
     </div>
+    </div>
   </section>
 
   <!-- Section 7: Quick reverse-lookup -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">7</span>逆引き早見表 ― 「こんな時はコレ」</h2>
-      <p>お客様の“ひとこと”から、おすすめ製品を素早く引くためのチートシート。商談中の即答に。</p>
+      <h2 data-i18n="s7_h"><span class="num">7</span>逆引き早見表 ― 「こんな時はコレ」</h2>
+      <p data-i18n="s7_p">お客様の“ひとこと”から、おすすめ製品を素早く引くためのチートシート。商談中の即答に。</p>
     </div>
     <div class="matrix-scroll">
       <table class="matrix lookup" id="lookup"></table>
@@ -546,10 +553,11 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 8: Security & governance -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">8</span>セキュリティ・データガバナンス</h2>
-      <p>情シス・法務が必ず確認する「データはどこへ？勝手に動かない？止められる？」への回答。<b>すべて公開情報（Microsoft公式ブログ・Learn）に基づく整理</b>です。</p>
+      <h2 data-i18n="s8_h"><span class="num">8</span>セキュリティ・データガバナンス</h2>
+      <p data-i18n="s8_p">情シス・法務が必ず確認する「データはどこへ？勝手に動かない？止められる？」への回答。<b>すべて公開情報（Microsoft公式ブログ・Learn）に基づく整理</b>です。</p>
     </div>
 
+    <div data-i18n="sec_body">
     <div class="price-note">
       <div class="pn-title">🛡️ 4製品に共通する大前提</div>
       <p>・<b>お客様の既存のアクセス権・IDを尊重</b>：各製品は「そのユーザーが見える情報」しか扱いません。権限のないデータには到達しません。</p>
@@ -597,13 +605,14 @@ table.matrix.lookup td.task { font-weight:600; }
       <p><b>Q. 情シスで統制・監査できますか？</b><br>A. できます。Coworkは既定オフ＋監査ログ／eDiscovery／インサイダーリスク管理などPurview系の保護面が対象で、予算上限も設定可。Scoutは粒度の細かい権限で範囲を絞れます。</p>
       <p class="disclaimer">※ 出典（2026年8月時点で確認）：Coworkのセキュリティ／コンプライアンス（既定オフ・監査ログ・DSPM・eDiscovery・インサイダーリスク管理・データライフサイクル管理・コミュニケーションコンプライアンス・DLP近日、秘密度ラベル継承、予算上限）は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。Scoutの承認・粒度権限・機微フォルダ・Frontierプレビューは <a href="https://learn.microsoft.com/en-us/microsoft-scout/overview" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Scout 公式ドキュメント（Learn）</a>。基盤モデル非学習・アクセス権尊重・秘密度ラベルはMicrosoft 365 Copilotの公開情報に基づく整理です。正式・最新の内容は各公式情報をご確認ください。</p>
     </div>
+    </div>
   </section>
 
   <!-- Section 9: FAQ / rebuttals -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">9</span>FAQ・反論対応集</h2>
-      <p>商談でよく出る疑問・反論への切り返し。クリックで回答が開きます。</p>
+      <h2 data-i18n="s9_h"><span class="num">9</span>FAQ・反論対応集</h2>
+      <p data-i18n="s9_p">商談でよく出る疑問・反論への切り返し。クリックで回答が開きます。</p>
     </div>
     <div class="faq" id="faq"></div>
   </section>
@@ -611,15 +620,15 @@ table.matrix.lookup td.task { font-weight:600; }
   <!-- Section 10: Japan customer cases -->
   <section class="section">
     <div class="section-head">
-      <h2><span class="num">10</span>国内導入事例（4製品）</h2>
-      <p>Microsoft 365 Copilot／Copilot Studio の、公式に公開された日本企業の事例です（出典リンク付き）。</p>
+      <h2 data-i18n="s10_h"><span class="num">10</span>国内導入事例（4製品）</h2>
+      <p data-i18n="s10_p">Microsoft 365 Copilot／Copilot Studio の、公式に公開された日本企業の事例です（出典リンク付き）。</p>
     </div>
     <div class="cases" id="cases"></div>
-    <a class="more-cases" href="https://www.microsoft.com/ja-jp/customers/search?q=Copilot&filters=language%3Ajapanese" target="_blank" rel="noopener">
+    <a class="more-cases" href="https://www.microsoft.com/ja-jp/customers/search?q=Copilot&filters=language%3Ajapanese" target="_blank" rel="noopener" data-i18n="more_cases">
       <span class="mc-text"><b>掲載事例以外も見る</b><br><span class="mc-sub">Microsoft公式サイトで、日本語のCopilot導入事例を検索</span></span>
       <span class="mc-arrow">↗</span>
     </a>
-    <div class="price-note" style="margin-top:18px;">
+    <div class="price-note" style="margin-top:18px;" data-i18n="cases_note">
       <div class="pn-title">ℹ️ Copilot Cowork・Microsoft Scout の国内事例について</div>
       <p>Cowork（2026年6月GA）・Scout（2026年提供開始）は登場して間もないため、<b>日本企業の公開導入事例は現時点で確認されていません</b>。</p>
       <p class="disclaimer">※ 掲載事例はすべてMicrosoft公式ブログ・顧客事例ページ等の公開情報に基づく参考情報です（各カードに出典リンク）。数値・利用者数は出典公表時点のもので、最新状況は変動する可能性があります。提案時は必ず出典と最新情報をご確認ください。</p>
@@ -627,8 +636,8 @@ table.matrix.lookup td.task { font-weight:600; }
   </section>
 
   <footer class="foot">
-    <p>Microsoft Copilot 製品使い分けガイド（業務シナリオ）</p>
-    <p>本サイトはインターネット上の公開情報（Microsoft公式ブログ・Microsoft Learn 等）を基にした参考まとめです。最新の提供状況・価格は各公式情報をご確認ください。</p>
+    <p data-i18n="foot1">Microsoft Copilot 製品使い分けガイド（業務シナリオ）</p>
+    <p data-i18n="foot2">本サイトはインターネット上の公開情報（Microsoft公式ブログ・Microsoft Learn 等）を基にした参考まとめです。最新の提供状況・価格は各公式情報をご確認ください。</p>
   </footer>
 
 </div>
@@ -663,7 +672,9 @@ const PRODUCTS = {
 
 // Section 1: Overview
 const overviewEl = document.getElementById("overview");
-Object.values(PRODUCTS).forEach(p => {
+function renderOverview(){
+  overviewEl.innerHTML = "";
+  Object.values(D('PRODUCTS')).forEach(p => {
   const d = document.createElement("div");
   d.className = "ov-card";
   d.style.setProperty("--prod", p.color);
@@ -674,29 +685,57 @@ Object.values(PRODUCTS).forEach(p => {
     </div>
     <p class="ov-what">${p.what}</p>
     <div class="ov-meta">
-      <div class="ov-row"><span class="ov-k">誰のため</span><span class="ov-v">${p.who}</span></div>
-      <div class="ov-row"><span class="ov-k">提供形態</span><span class="ov-v">${p.form}</span></div>
-      <div class="ov-row ov-price"><span class="ov-k">価格</span><span class="ov-v">${p.price}</span></div>
+      <div class="ov-row"><span class="ov-k">${UI('ov_who')}</span><span class="ov-v">${p.who}</span></div>
+      <div class="ov-row"><span class="ov-k">${UI('ov_form')}</span><span class="ov-v">${p.form}</span></div>
+      <div class="ov-row ov-price"><span class="ov-k">${UI('ov_price')}</span><span class="ov-v">${p.price}</span></div>
     </div>
     <div class="chips">${p.tags.map(t=>`<span class="chip">${t}</span>`).join("")}</div>`;
   overviewEl.appendChild(d);
-});
+  });
+}
 
 // Section 2: Roles
 const rolesEl = document.getElementById("roles");
-Object.values(PRODUCTS).forEach(p => {
+function renderRoles(){
+  rolesEl.innerHTML = "";
+  Object.values(D('PRODUCTS')).forEach(p => {
   const d = document.createElement("div");
   d.className = "role-card";
   d.style.setProperty("--prod", p.color);
   d.innerHTML = `<div class="prod-name">${p.name}</div><span class="level">${p.level}</span><div class="desc">${p.desc}</div>`;
   rolesEl.appendChild(d);
-});
+  });
+}
 
 // Section 3 matrix
-// ===== Industry switching state =====
-const INDUSTRIES = { generic: "汎用（業種を問わない）", manufacturing: "製造業" };
+// ===== Language + Industry switching state =====
+let currentLang = "ja";
 let currentIndustry = "generic";
+const INDUSTRIES = { generic: 1, manufacturing: 1 };
+// UI label dictionary (static JS-side labels), language-keyed.
+const UISTR = {
+  ind_generic: { ja:"汎用（業種を問わない）", en:"Generic (any industry)" },
+  ind_manufacturing: { ja:"製造業", en:"Manufacturing" },
+  ind_label: { ja:"業種を選ぶ：", en:"Industry:" },
+  ov_who: { ja:"誰のため", en:"For whom" },
+  ov_form: { ja:"提供形態", en:"How it's offered" },
+  ov_price: { ja:"価格", en:"Price" },
+  mx_task: { ja:"業務タスク", en:"Business task" },
+  lk_say: { ja:"お客様の“ひとこと”", en:"What the customer says" },
+  lk_rec: { ja:"おすすめ", en:"Best fit" },
+  lk_why: { ja:"理由", en:"Why" },
+  scn_badge: { ja:"シナリオ", en:"Scenario" },
+  scn_lead: { ja:"シナリオ", en:"Scenario" },
+  scn_win: { ja:"◎ 100点の理由", en:"◎ Why it scores 100" },
+  scn_limit: { ja:"△ ここは別製品の領域", en:"△ Where another product fits" },
+  case_src: { ja:"公式出典を見る ↗", en:"View official source ↗" },
+  theme_dark: { ja:"🌙 ダーク", en:"🌙 Dark" },
+  theme_light: { ja:"☀️ ライト", en:"☀️ Light" },
+  lang_btn: { ja:"🌐 EN", en:"🌐 日本語" },
+};
+const UI = k => (UISTR[k] ? (UISTR[k][currentLang] ?? UISTR[k].ja) : k);
 // pick(): resolves a value that may be industry-keyed { generic, manufacturing }.
+// Language is resolved earlier via D() selecting the language-specific data object.
 // Arrays and plain strings pass through unchanged.
 const pick = v => (v && typeof v === "object" && !Array.isArray(v)) ? (v[currentIndustry] ?? v.generic) : v;
 
@@ -714,14 +753,14 @@ const matrix = document.getElementById("matrix");
 function renderMatrix(){
   matrix.innerHTML = `
     <thead><tr>
-      <th>業務タスク</th>
+      <th>${UI('mx_task')}</th>
       <th class="prodcol">M365<br>Copilot</th>
       <th class="prodcol">Copilot<br>Cowork</th>
       <th class="prodcol">Copilot<br>Studio</th>
       <th class="prodcol">Microsoft<br>Scout</th>
     </tr></thead>
     <tbody>
-    ${TASKS.map(t => `<tr>
+    ${D('TASKS').map(t => `<tr>
       <td class="task"><span class="tasknum">${t.n}</span>${pick(t.label)}</td>
       <td class="mark ${markClass(t.m365)}">${t.m365}</td>
       <td class="mark ${markClass(t.cowork)}">${t.cowork}</td>
@@ -845,8 +884,8 @@ const SCEN = [
 const scnEl = document.getElementById("scenarios");
 function renderScenarios(){
   scnEl.innerHTML = "";
-  SCEN.forEach((grp, gi) => {
-  const p = PRODUCTS[grp.key];
+  D('SCEN').forEach((grp, gi) => {
+  const p = D('PRODUCTS')[grp.key];
   const groupEl = document.createElement("div");
   groupEl.className = "scn-group";
   groupEl.style.setProperty("--prod", p.color);
@@ -861,15 +900,15 @@ function renderScenarios(){
     const chips = pick(s.chips);
     el.innerHTML = `
       <div class="scn-head">
-        <span class="badge">シナリオ ${si + 1}</span>
+        <span class="badge">${UI('scn_badge')} ${si + 1}</span>
         <div class="titles"><div class="pn">${pick(s.tag)}</div></div>
         <span class="chev">▶</span>
       </div>
       <div class="scn-body"><div class="scn-body-inner">
-        <div class="story"><div class="lead">シナリオ</div>${pick(s.story)}</div>
+        <div class="story"><div class="lead">${UI('scn_lead')}</div>${pick(s.story)}</div>
         <div class="scn-row">
-          <div class="scn-box win"><h4>◎ 100点の理由</h4><p>${pick(s.win)}</p></div>
-          <div class="scn-box limit"><h4>△ ここは別製品の領域</h4><p>${pick(s.limit)}</p></div>
+          <div class="scn-box win"><h4>${UI('scn_win')}</h4><p>${pick(s.win)}</p></div>
+          <div class="scn-box limit"><h4>${UI('scn_limit')}</h4><p>${pick(s.limit)}</p></div>
         </div>
         <div class="chips">${chips.map(c=>`<span class="chip">${c}</span>`).join("")}</div>
         ${s.rebuttal ? `<div class="rebuttal">
@@ -923,8 +962,10 @@ const flowOrder = ["m365","cowork","studio","scout"];
 const flowTabsEl = document.getElementById("flowTabs");
 const flowCaptionEl = document.getElementById("flowCaption");
 const flowEl = document.getElementById("flow");
+let currentFlow = "m365";
 function renderFlow(key){
-  const f = FLOWS[key], p = PRODUCTS[key];
+  currentFlow = key;
+  const f = D('FLOWS')[key], p = D('PRODUCTS')[key];
   flowEl.style.setProperty("--prod", p.color);
   flowCaptionEl.textContent = f.caption;
   flowCaptionEl.style.setProperty("--prod", p.color);
@@ -937,18 +978,20 @@ function renderFlow(key){
   });
   Array.from(flowTabsEl.children).forEach(b => b.classList.toggle("active", b.dataset.key === key));
 }
-flowOrder.forEach((key, i) => {
-  const p = PRODUCTS[key];
-  const b = document.createElement("button");
-  b.type = "button";
-  b.className = "flow-tab" + (i === 0 ? " active" : "");
-  b.dataset.key = key;
-  b.style.setProperty("--prod", p.color);
-  b.innerHTML = `<span class="tdot"></span>${p.name}`;
-  b.addEventListener("click", () => renderFlow(key));
-  flowTabsEl.appendChild(b);
-});
-renderFlow("m365");
+function renderFlowTabs(){
+  flowTabsEl.innerHTML = "";
+  flowOrder.forEach((key, i) => {
+    const p = D('PRODUCTS')[key];
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "flow-tab" + (key === currentFlow ? " active" : "");
+    b.dataset.key = key;
+    b.style.setProperty("--prod", p.color);
+    b.innerHTML = `<span class="tdot"></span>${p.name}`;
+    b.addEventListener("click", () => renderFlow(key));
+    flowTabsEl.appendChild(b);
+  });
+}
 
 // Section 6: reverse-lookup cheat sheet
 const LOOKUP = [
@@ -969,17 +1012,17 @@ const lookupEl = document.getElementById("lookup");
 function renderLookup(){
   lookupEl.innerHTML = `
   <thead><tr>
-    <th>お客様の“ひとこと”</th>
-    <th style="white-space:nowrap;">おすすめ</th>
-    <th>理由</th>
+    <th>${UI('lk_say')}</th>
+    <th style="white-space:nowrap;">${UI('lk_rec')}</th>
+    <th>${UI('lk_why')}</th>
   </tr></thead>
   <tbody>
-  ${LOOKUP.map(r => {
-    const p = PRODUCTS[r.prod];
+  ${D('LOOKUP').map(r => {
+    const p = D('PRODUCTS')[r.prod];
     return `<tr>
       <td class="task">${pick(r.say)}</td>
       <td style="white-space:nowrap;"><span class="lk-pill" style="--prod:${p.color}">${p.name}</span></td>
-      <td style="font-size:0.88rem; color:var(--cp-text-muted);">${r.why}</td>
+      <td style="font-size:0.88rem; color:var(--cp-text-muted);">${pick(r.why)}</td>
     </tr>`;
   }).join("")}
   </tbody>`;
@@ -1001,7 +1044,9 @@ const FAQ = [
     a:"各製品はM365のテナント境界・権限（アクセス権/機密ラベル等）の中で動作し、<b>ユーザーが見られないデータは参照しません</b>。Coworkは重要操作の前に<b>承認ポイント</b>を挟み、Studio/Scoutも管理者ポリシーで制御可能。まずは限定スコープのPoCから始められます。" },
 ];
 const faqEl = document.getElementById("faq");
-FAQ.forEach((f, i) => {
+function renderFaq(){
+  faqEl.innerHTML = "";
+  D('FAQ').forEach((f, i) => {
   const el = document.createElement("div");
   el.className = "scn faq-item" + (i === 0 ? " open" : "");
   el.innerHTML = `
@@ -1013,7 +1058,8 @@ FAQ.forEach((f, i) => {
     <div class="scn-body"><div class="scn-body-inner"><p class="faq-a">${f.a}</p></div></div>`;
   el.querySelector(".scn-head").addEventListener("click", () => el.classList.toggle("open"));
   faqEl.appendChild(el);
-});
+  });
+}
 
 // Section 8: Japan cases
 const CASES = [
@@ -1043,8 +1089,10 @@ const CASES = [
     src:"https://www.microsoft.com/ja-jp/customers/story/25118-the-ritsumeikan-trust-microsoft-365-copilot" },
 ];
 const casesEl = document.getElementById("cases");
-CASES.forEach(c => {
-  const p = PRODUCTS[c.prod];
+function renderCases(){
+  casesEl.innerHTML = "";
+  D('CASES').forEach(c => {
+  const p = D('PRODUCTS')[c.prod];
   const el = document.createElement("div");
   el.className = "case-card" + (c.featured ? " featured" : "");
   el.style.setProperty("--prod", p.color);
@@ -1056,42 +1104,450 @@ CASES.forEach(c => {
     <span class="case-prod">${p.name}</span>
     <p class="case-use">${c.use}</p>
     <ul class="case-metrics">${c.metrics.map(m=>`<li>${m}</li>`).join("")}</ul>
-    <a class="case-src" href="${c.src}" target="_blank" rel="noopener">公式出典を見る ↗</a>`;
+    <a class="case-src" href="${c.src}" target="_blank" rel="noopener">${UI('case_src')}</a>`;
   casesEl.appendChild(el);
-});
+  });
+}
 
-// ===== Industry selector wiring =====
+// ===== Language data selector =====
+const JA_DATA = { PRODUCTS, TASKS, SCEN, FLOWS, LOOKUP, FAQ, CASES };
+let EN_DATA = {
+  PRODUCTS: {
+    m365: { name:"M365 Copilot", color:"#0078d4", level:"Assist",
+      desc:"A person stays in control, working conversationally inside Office to get daily tasks done — the company-wide productivity foundation.",
+      what:"An AI assistant built into everyday Office apps (Word, Excel, PowerPoint, Outlook, Teams). It supports summarizing, drafting, analysis, and meeting notes right in the flow of a conversation, grounded in your work data (Work IQ).",
+      who:"All employees (general knowledge workers)",
+      form:"Per-user monthly subscription (USL)",
+      price:"~$30/user/month (annual commit) | Japan ~¥4,497/user/month",
+      tags:["Built into Office","Conversational assist","For everyone"] },
+    cowork: { name:"Copilot Cowork", color:"#b11f4b", level:"Execute",
+      desc:"Hand off heavy, multi-step work in one go and receive finished deliverables (docs, reports, a full email set) — the execution layer.",
+      what:"The “execution layer” of M365 Copilot. Delegate a long, multi-step task and it combines multiple skills and AI models behind the scenes, runs in the background, and returns finished artifacts (PPT/Excel/Word/email). It pauses for approval before important actions.",
+      who:"Individuals & teams offloading heavy, complex tasks",
+      form:"M365 Copilot (USL) + usage-based (Copilot Credits)",
+      price:"M365 Copilot (USL) + Copilot Credits usage ($0.01/credit or prepaid pack). Credits per task vary",
+      tags:["Task delegation","Background execution","Returns deliverables"] },
+    studio: { name:"Copilot Studio", color:"#7a2fb0", level:"Automate",
+      desc:"Build custom agents wired to your own systems and run them repeatedly, at company-wide scale — the build platform.",
+      what:"A development/build platform for creating custom agents connected to your own data and business systems (ERP/CRM/core systems). The agents you build are published to Teams, Web, and external channels for repeated, company-wide use.",
+      who:"Developers & business power users (the makers)",
+      form:"Build platform (consumes Copilot Credits)",
+      price:"Usage $0.01/credit, or prepaid pack 25,000 credits/month ≈ $200/tenant/month",
+      tags:["Agent building","Connect your systems","Company-wide rollout"] },
+    scout: { name:"Microsoft Scout", color:"#0f8a6a", level:"Proactive",
+      desc:"Always on and proactive. Works across your local PC, browser, and M365, acting autonomously without waiting to be asked.",
+      what:"An always-on “personal autonomous agent.” It actually takes action across your local PC files, the browser, and M365 — via monitoring, condition triggers, and scheduled runs — moving before you ask.",
+      who:"Individuals (who want their own work done for them)",
+      form:"Always-on personal agent (preview / early access)",
+      price:"GA pricing not announced (Frontier preview). Requires M365 Copilot + GitHub Copilot Business ($19/user/month), etc.",
+      tags:["Always on","Local execution","Proactive autonomy"] },
+  },
+  TASKS: [
+    { n:"①", label:{ generic:"Conversationally analyze sales/performance data in Excel", manufacturing:"Conversationally analyze sales/defect data in Excel" }, m365:"◎", cowork:"○", studio:"△", scout:"×" },
+    { n:"②", label:"Generate analysis → report + exec deck + full email set", m365:"△", cowork:"◎", studio:"○", scout:"○" },
+    { n:"③", label:{ generic:"Internal Q&A (core-system integration, company-wide)", manufacturing:"Equipment-maintenance Q&A (MES/CMMS integration, company-wide)" }, m365:"△", cowork:"△", studio:"◎", scout:"×" },
+    { n:"④", label:{ generic:"Automate request → approval → core-system entry", manufacturing:"Automate order → stock allocation → delivery-date reply" }, m365:"×", cowork:"△", studio:"◎", scout:"△" },
+    { n:"⑤", label:"Every-morning customer monitoring & pre-meeting briefing (proactive)", m365:"×", cowork:"○", studio:"△", scout:"◎" },
+    { n:"⑥", label:{ generic:"Personal work across local files/browser", manufacturing:"Personal work across local quotes/browser" }, m365:"×", cowork:"△", studio:"×", scout:"◎" },
+    { n:"⑦", label:"Knowledge search across internal documents (individual)", m365:"◎", cowork:"○", studio:"○", scout:"○" },
+  ],
+  SCEN: [
+    { key:"m365", scenarios:[
+      { tag:"On the spot, personal, all within Office",
+        story:{ generic:"30 minutes before a department meeting. The owner opens last month's results in Excel: “Identify where performance declined and give me hypotheses for the causes” → analyzed on the spot. Related Teams/Outlook threads are summarized and the meeting notes are formatted in Word.",
+                manufacturing:"30 minutes before a production meeting. The owner opens last month's production Excel: “Identify which lines saw defect rates worsen and give me hypotheses for the causes” → analyzed on the spot. Related Teams/Outlook threads are summarized and meeting notes formatted in Word." },
+        win:"Everyday work a person drives, in real time, conversationally inside familiar apps. The “foundation” you can give every employee.",
+        limit:"Running the whole chain “analyze → report → deck → send” end-to-end still needs a person to move through each step.",
+        chips:["Excel analysis","Teams/Outlook summary","Word formatting","Conversational"] },
+      { tag:{ generic:"Summarize long emails/materials and draft replies", manufacturing:"Summarize long emails/specs and draft replies" },
+        story:{ generic:"A long contract-change email from a partner with a PDF attachment: “Summarize the 3 key points and draft a reply noting the impact and items to confirm” → Outlook instantly summarizes and drafts the reply. The owner just tweaks it and sends.",
+                manufacturing:"A long spec-change email from a supplier with a drawing PDF: “Summarize the 3 key points and draft a reply noting the impact and items to confirm” → Outlook instantly summarizes and drafts the reply. The owner just tweaks it and sends." },
+        win:"Stays inside the inbox and drastically cuts the read/write back-and-forth. Streamlines an individual's daily communication.",
+        limit:{ generic:"It won't auto-query the partner's core systems or auto-send (a person sends).", manufacturing:"It won't auto-query the supplier's core systems or auto-send (a person sends)." },
+        chips:["Email summary","PDF reading","Reply draft","In Outlook"] },
+      { tag:"Minutes & task extraction (Teams meeting)",
+        story:{ generic:"From the Teams recording of a recurring meeting, automatically extract “decisions, action items, owners, due dates” and format the minutes in Word. For members who couldn't attend, summarize just the key points to share.",
+                manufacturing:"From the Teams recording of a production-planning meeting, automatically extract “decisions, action items, owners, due dates” and format the minutes in Word. For members who couldn't attend, summarize just the key points to share." },
+        win:"Accurate records right after the meeting, while memory is fresh. A staple use case for every employee.",
+        limit:"Operationalizing continuous auto-registration of extracted tasks into Planner, etc., is Studio/Cowork territory.",
+        chips:["Meeting summary","Task extraction","Word minutes","Teams integration"] },
+    ]},
+    { key:"cowork", scenarios:[
+      { tag:"Delegate a heavy, complex task in full and receive a complete deliverable set",
+        story:{ generic:"“Analyze the quarter's revenue and cost and produce ① an exec Excel ② a cause-analysis memo (Word) ③ a board deck (PPT) ④ a status-update email draft for key customers” → runs in the background, you only check the approval points, and the full set of deliverables comes back.",
+                manufacturing:"“Analyze the quarter's revenue and production cost and produce ① an exec Excel ② a cause-analysis memo (Word) ③ a board deck (PPT) ④ a status-update email draft for key customers” → runs in the background, you only check the approval points, and the full set of deliverables comes back." },
+        win:"One request spans multiple skills all the way to finished deliverables. Solves M365 Copilot's “can't build the whole report.”",
+        limit:"For infrequent, one-off heavy composite tasks. Light everyday conversation is fine with M365 Copilot.",
+        chips:["Deep Research","Excel","PowerPoint","Word","Email draft","Background run"] },
+      { tag:"Deep research on competitors/market → proposal package",
+        story:{ generic:"“Research 3 major competitors' new services, pricing, and strategy from public info, and compile a comparison table (Excel) + differentiation points (Word) + a customer proposal deck (PPT)” → spans dozens of sources and generates the full set with citations.",
+                manufacturing:"“Research 3 major competitors' new products, pricing, and production capacity from public info, and compile a comparison table (Excel) + differentiation points (Word) + a customer proposal deck (PPT)” → spans dozens of sources and generates the full set with citations." },
+        win:"Turns days of research-to-deliverable work into a finished set via background execution. Takes over the heavy prep of sales and planning.",
+        limit:"Repeated work deeply rooted in your confidential data is better made into a dedicated agent with Studio.",
+        chips:["Deep Research","Comparison table","Proposal deck","With citations"] },
+      { tag:"Cross-compare large file sets & change-impact analysis",
+        story:{ generic:"“Compare ~2,000 old vs. new contract/spec files and produce a diff list and a flow chart of impacted items” → reconciles all files in the background and returns a change report and dependency diagram.",
+                manufacturing:"“Compare ~2,000 old vs. new design/BOM files and produce a diff list and a flow chart of impacted processes” → reconciles all files in the background and returns a change report and dependency diagram." },
+        win:"Turns weeks of manual comparison into hours. Long-running, multi-tool heavyweight tasks are Cowork's forte.",
+        limit:"For quick interactive checks or editing a single file on the spot, M365 Copilot is faster.",
+        chips:["Bulk file compare","Diff report","Flow chart","Long-running"] },
+      { tag:"(Contrast) If you built this very guide with Cowork",
+        story:"“Make a proposal deck (PPT) explaining the four products, including ① role levels ② a task × product coverage table ③ three 100-point scenarios per product ④ how-they-work flows, plus a comparison-matrix Excel and a one-page Word overview” → one request returns a PPT + Excel + Word set.",
+        win:"A polished, ready-to-share Office set in a short time. Strong for exec submission, email attachment, company-wide distribution.",
+        limit:"It can't offer interactivity (click-to-expand, tabs), instant conversational tweaks, or local-only operation. “Touchable / built-on-the-spot” deliverables are Scout's territory.",
+        chips:["PowerPoint","Excel matrix","Word overview","Set generation"],
+        rebuttal:{
+          q:"How is it different from the Scout (HTML) version? — choosing the deliverable format",
+          points:[
+            "<b>If you go with Cowork, translate deliverables into Office formats</b>: PPT as the lead, with a comparison Excel and a one-page Word as support. You give up the two-way interactivity of interactive HTML.",
+            "<b>The build style is “delegate once → fix in batches”</b>: one request generates the set. Revisions are re-requested in <b>meaningful chunks</b> (e.g., “add a scenario”), not a tweak-every-few-seconds loop.",
+            "<b>Rule of thumb</b>: <b>for “materials to distribute,” Cowork (PPT/Excel/Word); for “a deliverable you build together and can touch on the spot,” Scout (HTML)</b>.",
+            "<b>Same content, different intent</b>: Cowork makes static materials for submission/distribution; Scout makes a living demo you show and let people touch in the meeting. Choose by purpose."
+          ]
+        } },
+    ]},
+    { key:"studio", scenarios:[
+      { tag:"A dedicated agent: own-system integration, repeated, company-wide use",
+        story:{ generic:"An employee asks in Teams “What's the application process for this policy and past decisions?” → build and distribute an “internal help-desk agent” that answers instantly, grounded in internal rules + core systems. It also automates request → approval → registration.",
+                manufacturing:"A field worker asks in Teams “What's the failure history and procedure for this equipment code?” → build and distribute an “equipment-maintenance assistant” that answers instantly, grounded in maintenance manuals + CMMS/MES. It also automates order → stock allocation → delivery-date reply." },
+        win:"Your own data, unique processes, company-wide scale, repeated use. A domain where the build itself is the value.",
+        limit:"Requires build and operations effort. Overkill for one-off analysis or report creation.",
+        chips:{ generic:["Own-data integration","Core systems","Process automation","Company-wide rollout","Repeated use"], manufacturing:["Own-data integration","MES/CMMS","Process automation","Company-wide rollout","Repeated use"] } },
+      { tag:{ generic:"External-facing 24/7 support bot", manufacturing:"External-facing 24/7 product-support bot" },
+        story:{ generic:"Publish a “customer-support agent” on your site or in Teams, integrated with service manuals, FAQs, and inventory/contract APIs. It answers inquiries instantly and escalates complex cases to a human.",
+                manufacturing:"Publish a “customer-support agent” on your site or in Teams, integrated with product manuals, FAQs, and parts-inventory APIs. It answers compatible parts and lead times from a model number instantly and escalates complex inquiries to a human." },
+        win:"Deploy to external channels and automate first-line response 24/7 and multilingual. Directly cuts inquiry volume.",
+        limit:"It's not doing an individual's work “on their PC.” Proactive personal work is Scout's territory.",
+        chips:{ generic:["External publishing","FAQ/API integration","Multilingual","Escalation"], manufacturing:["External publishing","FAQ/inventory API","Multilingual","Escalation"] } },
+      { tag:"Core-process automation flow (approval & ticketing)",
+        story:{ generic:"Build a workflow that, when an issue occurs, auto-creates a response ticket from records, routes approver sign-off via a Teams Adaptive Card, and registers it in the core system. People just press the approve button.",
+                manufacturing:"Build a workflow that, when a defect occurs, auto-creates a corrective-action (CAPA) ticket from quality records, routes approver sign-off via a Teams Adaptive Card, and registers it in the ERP. People just press the approve button." },
+        win:"With Power Automate integration, approval, ticketing, and registration become unattended. Strong for standardizing routine processes and internal controls company-wide.",
+        limit:"Not suited to non-routine one-off tasks or on-the-spot material creation (M365 Copilot/Cowork fit those).",
+        chips:{ generic:["Workflow","Adaptive Card","Core-system entry","Approval automation"], manufacturing:["Workflow","Adaptive Card","ERP entry","Approval automation"] } },
+    ]},
+    { key:"scout", scenarios:[
+      { tag:"Always on and proactive, executing autonomously across your personal environment",
+        story:{ generic:"A salesperson's personal Scout, every morning automatically — monitors related emails/Teams for accounts, gathers relevant news via the browser, prepares a pre-meeting briefing, and alerts on at-risk accounts. It also directly operates proposal files on the local PC.",
+                manufacturing:"A salesperson's personal Scout, every morning automatically — monitors emails/Teams about customers' production troubles, gathers relevant news via the browser, prepares a pre-meeting briefing, and alerts on at-risk accounts. It also directly operates quote files on the local PC." },
+        win:"Proactive, without being asked. The only one that can act on your behalf across local/browser and keep monitoring continuously.",
+        limit:{ generic:"Not needed for one-off tasks like performance analysis. Team-wide automation is Studio's territory.", manufacturing:"Not needed for one-off tasks like sales analysis. Team-wide automation is Studio's territory." },
+        chips:["Always on","Proactive","Local operation","Cross-browser","Continuous monitoring"] },
+      { tag:"Condition-triggered auto-response (acts when it arrives)",
+        story:{ generic:"“When a quote-request email arrives from a specific customer, find similar past quotes locally, transcribe into the template, reference the internal price list in the browser, and prepare a draft” → runs autonomously on receipt, and by morning the draft is ready.",
+                manufacturing:"“When an RFQ (quote request) email arrives from a specific customer, find similar past quotes locally, transcribe into the template, reference the internal price list in the browser, and prepare a draft” → runs autonomously on receipt, and by morning the draft is ready." },
+        win:"Event-driven, “already prepared before you noticed.” Completes an individual's repetitive work proactively, without instructions.",
+        limit:"Work you want standardized and governed company-wide is better as a dedicated agent in Studio.",
+        chips:["Event-driven","Local search","Browser reference","Draft prep"] },
+      { tag:"Auto-assembling a recurring report (local × Web × M365)",
+        story:{ generic:"Every Friday, Scout automatically — aggregates local results CSVs, fetches the latest figures from the intranet and external sites via the browser, factors in related M365 emails, assembles a “weekly summary,” and prepares a share-ready draft for your manager.",
+                manufacturing:"Every Friday, Scout automatically — aggregates local production-results CSVs, fetches the latest figures from the intranet and supplier sites via the browser, factors in related M365 emails, assembles a “weekly summary,” and prepares a share-ready draft for your manager." },
+        win:"Takes action across local, Web, and M365 to continuously automate recurring work. Your “second self.”",
+        limit:"Cloud-only heavyweight one-shots suit Cowork; company-wide systematization suits Studio.",
+        chips:["Scheduled run","CSV aggregation","Web fetch","Weekly report"] },
+      { tag:"Real-time co-creation of local materials (← this guide was made this way)",
+        story:"“Make an interactive product-comparison HTML” → generates the file locally. Then, conversationally: “add three scenarios,” “include each product's flow,” editing and saving the file directly on the spot. Changes land in seconds, ready for sales to take to a customer.",
+        win:"Directly operates local files and iterates at the pace of conversation. This very guide is a “living demo” built with Scout.",
+        limit:"Cowork's “throw it and wait” model is good at cloud generation, but direct local-file operation and the interactive tweak loop are Scout's territory (a bit beyond Cowork).",
+        chips:["Direct local editing","Iterate by conversation","Instant reflection","Code exec / cross-browser"],
+        rebuttal:{
+          q:"If someone says “couldn't Cowork do this too?”",
+          points:[
+            "<b>The deliverable type differs</b>: Cowork excels at Office deliverables (Word/Excel/PPT/PDF). This was a “developer-style” build spanning <b>arbitrary HTML + code execution (PowerShell) + browser checks</b> — outside Cowork's assumptions.",
+            "<b>The build style differs (delegate vs. co-create)</b>: Cowork is delegation — “throw it, run in the background, return a deliverable.” This was a tight loop of <b>diff-edit → check → edit again every few seconds</b>. That conversational loop is Scout's turf.",
+            "<b>The runtime differs</b>: this work directly edited files <b>on your PC</b> and ran local tools. Cowork runs on the cloud (M365) side, so it doesn't operate the local environment itself.",
+            "<b>Moving to the cloud doesn't remove the core gap</b>: putting files on OneDrive gets you “access,” but only fills the “location” gap. <b>The “how you build” gap — arbitrary code execution × conversational iteration — doesn't disappear by changing location</b>."
+          ]
+        } },
+    ]},
+  ],
+  FLOWS: {
+    m365: { caption:"A person leads, moving one step at a time conversationally inside Office (Assist style).",
+      steps:[
+        { n:"STEP 1", t:"Call it inside the app", d:"Instruct Copilot inside Word/Excel/Teams, etc." },
+        { n:"STEP 2", t:"Understand context", d:"References the open document and M365 data (Work IQ)." },
+        { n:"STEP 3", t:"Generate on the spot", d:"Instantly presents summaries, drafts, and analysis." },
+        { n:"STEP 4", t:"Person reviews & adjusts", d:"Sees the result, refines conversationally, gives the next instruction." },
+        { n:"STEP 5", t:"Person finalizes", d:"Sending, saving, and executing are done by the person." },
+      ]},
+    cowork: { caption:"Delegate a heavy composite task in full; it runs in the background and returns the deliverables (Execute style).",
+      steps:[
+        { n:"STEP 1", t:"State the result", d:"Describe the outcome you want in natural language." },
+        { n:"STEP 2", t:"Make a plan", d:"Breaks the task into multiple steps and plans." },
+        { n:"STEP 3", t:"Run in background", d:"Spans multiple skills/models. Progresses even with your PC closed." },
+        { n:"STEP 4", t:"Approval points", d:"Confirms before important actions like sending (with risk shown)." },
+        { n:"STEP 5", t:"Return deliverables", d:"Receive the full set: documents, reports, emails, and more." },
+      ]},
+    studio: { caption:"Build once, then have it work automatically, repeatedly, at company-wide scale (Automate style).",
+      steps:[
+        { n:"STEP 1", t:"Design the agent", d:"Define purpose, topics, and answer rules." },
+        { n:"STEP 2", t:"Connect data/systems", d:"Integrate internal docs and core systems (ERP/CRM, etc.) via connectors." },
+        { n:"STEP 3", t:"Publish & distribute", d:"Deploy to Teams/Web/external channels." },
+        { n:"STEP 4", t:"Users run it", d:"Employees or customers call it repeatedly." },
+        { n:"STEP 5", t:"Operate & improve", d:"Tune based on usage; standardize company-wide." },
+      ]},
+    scout: { caption:"Always on, monitoring without being asked, and acting autonomously once conditions are met (Proactive style).",
+      steps:[
+        { n:"STEP 1", t:"Set goals/conditions", d:"Specify what to watch, triggers, and recurring schedules." },
+        { n:"STEP 2", t:"Monitor always-on", d:"Continuously watches email/Teams/local/Web." },
+        { n:"STEP 3", t:"Fire on trigger", d:"Auto-fires on events like receipt, time, or changes." },
+        { n:"STEP 4", t:"Execute across", d:"Works across local operations, the browser, and M365." },
+        { n:"STEP 5", t:"Deliver proactively", d:"Prepares drafts, alerts, and reports ahead of time." },
+      ]},
+  },
+  LOOKUP: [
+    { say:"“I want to analyze Excel data on the spot”", prod:"m365", why:"Conversational analysis in-app. Everyday work a person drives." },
+    { say:"“Summarize a long email/spec and draft a reply”", prod:"m365", why:"Instant summary + reply draft inside Outlook." },
+    { say:"“Capture meeting minutes and tasks”", prod:"m365", why:"Auto-extracts decisions and action items from a Teams recording." },
+    { say:"“Build everything from analysis to report/deck/email”", prod:"cowork", why:"Spans multiple skills and returns a full deliverable set." },
+    { say:"“Research competitors/market into a proposal”", prod:"cowork", why:"Deep research → PPT/Excel/Word." },
+    { say:"“Compare a large set of files and show change impact”", prod:"cowork", why:"Long-running, multi-tool heavyweight task." },
+    { say:{ generic:"“Make internal Q&A usable company-wide”", manufacturing:"“Make field equipment Q&A usable company-wide”" }, prod:"studio", why:"A dedicated agent integrated with internal data." },
+    { say:{ generic:"“Automate request → approval → registration”", manufacturing:"“Automate order → inventory → delivery-date reply”" }, prod:"studio", why:"A core-system-integrated process-automation flow." },
+    { say:"“Publish a 24/7 support bot for external users”", prod:"studio", why:"Deploy to external channels, multilingual." },
+    { say:"“Prepare my sales meetings proactively every morning”", prod:"scout", why:"Always-on monitoring and proactive execution." },
+    { say:"“When an email arrives, auto-prepare a draft”", prod:"scout", why:"Event-driven autonomous response." },
+    { say:"“Work on my PC files together with me”", prod:"scout", why:"Direct local operation + conversational iteration." },
+  ],
+  FAQ: [
+    { q:"“Isn't M365 Copilot enough on its own?”",
+      a:"M365 Copilot is the foundation for “everyday work a person drives inside Office.” But <b>delegating the whole analyze→report→deck→send set</b> is Cowork; <b>a company-wide agent integrated with your systems</b> is Studio; <b>always-on, proactive + local execution</b> is Scout. It's foundation-plus-α — a division of roles, not competition." },
+    { q:"“What's the difference between Cowork and Scout?”",
+      a:"<b>Cowork = “throw it and wait” delegation</b> (generates an Office deliverable set in the cloud). <b>Scout = “work hands-on together” proactive</b> (always on, spanning local PC/browser, iterating conversationally). Materials to distribute → Cowork; deliverables you build/touch on the spot and continuous monitoring → Scout. That keeps it clear." },
+    { q:"“Where's the line between Copilot Studio and Cowork?”",
+      a:"<b>Studio = build</b> (create a dedicated agent integrated with your data, used repeatedly, company-wide). <b>Cowork = execute</b> (delegate a heavy composite task on the spot and get a deliverable). “Repeated, company-wide standard” → Studio; “one-off heavy task” → Cowork." },
+    { q:"“How is this different from other AI like ChatGPT?”",
+      a:"The biggest difference is <b>Work IQ (the engine that understands your work context) and operating within M365's permission and security boundary</b>. It answers grounded in your emails, meetings, files, and org data, and acts while keeping confidentiality. That “work grounding” is the strength a generic chat lacks." },
+    { q:"“Pay-as-you-go pricing feels unpredictable / worrying”",
+      a:"<b>Internal use by M365 Copilot license holders is largely $0</b>; only heavy execution like Cowork consumes Copilot Credits ($0.01/credit). <b>Prepaid packs and spending limits</b> keep budgets in control. The standard play is to start small on a focused set of tasks." },
+    { q:"“I'm worried about security / data leakage”",
+      a:"Each product operates within M365's tenant boundary and permissions (access rights, sensitivity labels, etc.) and <b>never references data the user can't see</b>. Cowork inserts <b>approval checkpoints</b> before important actions, and Studio/Scout are controllable via admin policies. You can start from a limited-scope PoC." },
+  ],
+  CASES: [
+    { company:"Santen Pharmaceutical", sector:"Manufacturing / Pharma", prod:"m365", featured:true,
+      use:"Rolled out to all researchers. Used for literature review and report writing; decided global company-wide rollout from October 2025.",
+      metrics:["Literature review cut to under half the time","~70 hours/person/year saved across ~650 early users","98% adoption"],
+      src:"https://www.microsoft.com/ja-jp/microsoft-cloud/blog/microsoft-in-business/2025/10/27/microsoft-ai-tour-osaka-keynote-report/" },
+    { company:"Toshiba", sector:"Manufacturing / Electronics", prod:"m365", featured:true,
+      use:"Company-wide AI democratization, top-down × bottom-up. Executive education, a use-case catalog, and shop-floor workshops.",
+      metrics:["Targeting 10,000 users for now"],
+      src:"https://www.microsoft.com/ja-jp/microsoft-cloud/blog/manufacturing/2024/10/31/manufacturing-dx-forum-2024/" },
+    { company:"Sumitomo Corporation", sector:"Trading (sogo shosha)", prod:"m365", featured:false,
+      use:"Global rollout to all 8,800 people incl. contractors. A champions program and prompt library drive adoption.",
+      metrics:["~¥1.2B/year cost reduction"],
+      src:"https://www.microsoft.com/ja-jp/customers/story/1799870297941010991-sumitomo-corporation-azure-ai-studio-professional-services-ja-japan" },
+    { company:"SoftBank", sector:"Telecom", prod:"m365", featured:false,
+      use:"~20,000 people use M365 Copilot. Efficiency gains such as summarizing complex RFPs.",
+      metrics:["~20,000 M365 Copilot users"],
+      src:"https://www.microsoft.com/ja-jp/microsoft-cloud/blog/microsoft-in-business/2025/05/12/microsoft-ai-tour2025-keynotes/" },
+    { company:"NTT West", sector:"Telecom", prod:"m365", featured:false,
+      use:"Expanded from a 400-person pilot to 4,100. Used mainly by sales/SEs for materials, market research, and minutes.",
+      metrics:["Reduced work time in 71% of created use cases"],
+      src:"https://www.microsoft.com/ja-jp/microsoft-cloud/blog/microsoft-in-business/2025/10/27/microsoft-ai-tour-osaka-keynote-report/" },
+    { company:"Ritsumeikan", sector:"Education", prod:"studio", featured:false,
+      use:"Copilot Studio for administrative efficiency and M365 Copilot for teaching/student guidance. A co-creation hub set up on campus.",
+      metrics:["Uses M365 Copilot + Copilot Studio together"],
+      src:"https://www.microsoft.com/ja-jp/customers/story/25118-the-ritsumeikan-trust-microsoft-365-copilot" },
+  ],
+};
+const D = k => (currentLang === "en" && EN_DATA[k]) ? EN_DATA[k] : JA_DATA[k];
+
+// ===== Static (hardcoded HTML) i18n swap =====
+// STATIC holds ONLY English innerHTML per key. The original DOM (Japanese) is
+// captured on first pass, so we never risk mis-reproducing the JA source.
+let STATIC = {
+  hero_eyebrow: `The Microsoft Copilot family`,
+  hero_h1: `Product Selection Guide<br>— “Which one scores 100?”, seen through business scenarios —`,
+  hero_sub: `M365 Copilot, Copilot Studio, Copilot Cowork, Microsoft Scout. Even for the same work, “which product solves it, and how far” changes by role level. We've visualized it through representative tasks.`,
+  hero_pill: `Click each scenario to expand the details`,
+  hero_updates: `📅 View monthly updates →`,
+  s1_h: `<span class="num">1</span>Product overview — what each one actually is`,
+  s1_p: `Before choosing between them, get clear on what the four products do, who they're for, and how they're offered.`,
+  pn_title: `💡 How to read the pricing (what are Copilot Credits)`,
+  pn_body: `<b>Copilot Credits</b> are the <b>shared usage-based unit for Cowork and Copilot Studio</b>. You consume credits based on usage (model responses, tool/skill calls, image generation, browser operations, etc.). The rate is a shared <b>$0.01/credit</b>, or you buy a <b>prepaid pack of 25,000 credits/month</b>. <b>Internal use by M365 Copilot license holders is largely $0</b> — only heavy execution such as Cowork is metered.`,
+  pn_disc: `※ Prices are <b>reference values</b> based on the internet and Microsoft official docs as of August 2026. M365 Copilot (~$30) and the Studio pack (~$200) come from official dynamic pages and may change. The credit rate ($0.01) is shared, but <b>the “credits consumed per Cowork task” is not published as a fixed value</b> (see the “Copilot Credits Guide” PDF / estimator). Always confirm formal quotes and the latest pricing via official sources or your account contact.`,
+  s2_h: `<span class="num">2</span>The four products' “role levels”`,
+  s2_p: `The four aren't competitors — they differ in the “height” of the role they play. Grasp this and the way to choose between them becomes clear at once.`,
+  s3_h: `<span class="num">3</span>Business task × product coverage`,
+  s3_p: `For each representative task, we map how well each product fits. ◎ marks “that product's 100-point scenario.”`,
+  s3_legend: `<span><b class="mk-best">◎</b>Best fit (100 pts)</span><span><b class="mk-ok">○</b>Can do</span><span><b class="mk-part">△</b>Partial / needs effort</span><span><b class="mk-no">×</b>Not suited / not needed</span>`,
+  s4_h: `<span class="num">4</span>Scenarios where each product scores “100”`,
+  s4_p: `The moment each one shines, shown through concrete work situations — three scenarios per product. Click a card to expand.`,
+  s5_h: `<span class="num">5</span>Extra: how each product “works”`,
+  s5_p: `Even the same “AI” works — i.e., gets the job done — in completely different ways. Switch tabs to see each product's flow.`,
+  s6_h: `<span class="num">6</span>In practice: the same routine task across the four products`,
+  s6_p: `Taking <b>automating a routine task</b> — “monthly info gathering → summarize → update an internal site (HTML) → notify in Teams” — we break down what each of the four products can and can't do. <span style="color:var(--cp-accent);font-weight:600;">※ The “monthly updates” page of this very guide is actually auto-updated by Scout.</span>`,
+  s7_h: `<span class="num">7</span>Reverse lookup — “in this case, use this”`,
+  s7_p: `A cheat sheet to quickly find the recommended product from what the customer says. For instant answers mid-meeting.`,
+  s8_h: `<span class="num">8</span>Security & data governance`,
+  s8_p: `Answers to what IT and legal always check: “Where does the data go? Won't it act on its own? Can we stop it?” <b>Everything here is based on public information (Microsoft official blogs & Learn).</b>`,
+  s9_h: `<span class="num">9</span>FAQ & objection handling`,
+  s9_p: `Comebacks for the questions and objections that come up most in deals. Click to reveal the answer.`,
+  s10_h: `<span class="num">10</span>Japan customer cases (4 products)`,
+  s10_p: `Officially published cases of Japanese companies for Microsoft 365 Copilot / Copilot Studio (with source links).`,
+  more_cases: `<span class="mc-text"><b>See more cases</b><br><span class="mc-sub">Search Japanese Copilot customer stories on Microsoft's official site</span></span><span class="mc-arrow">↗</span>`,
+  cases_note: `<div class="pn-title">ℹ️ About Japan cases for Copilot Cowork & Microsoft Scout</div><p>Because Cowork (GA June 2026) and Scout (2026 availability) are so new, <b>no publicly disclosed Japanese-company cases have been confirmed yet</b>.</p><p class="disclaimer">※ All listed cases are reference information based on public sources such as Microsoft official blogs and customer-story pages (source link on each card). Figures and user counts are as of publication and may change. Always confirm the source and the latest information when proposing.</p>`,
+  foot1: `Microsoft Copilot Product Selection Guide (by business scenario)`,
+  foot2: `This site is a reference summary based on public information on the internet (Microsoft official blogs, Microsoft Learn, etc.). Please confirm the latest availability and pricing via official sources.`,
+  cmp_body: `<div class="matrix-scroll">
+    <table class="matrix">
+      <thead><tr>
+        <th>Capability this task needs</th>
+        <th class="prodcol">M365 Copilot</th>
+        <th class="prodcol">Copilot Studio</th>
+        <th class="prodcol">Copilot Cowork</th>
+        <th class="prodcol">Microsoft Scout</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="task"><span class="tasknum">1</span>Auto-start on schedule (scheduled runs)</td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-ok">○</b></td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+        <tr><td class="task"><span class="tasknum">2</span>Research the web and summarize with a sales lens</td><td class="mark"><b class="mk-ok">○</b></td><td class="mark"><b class="mk-ok">○</b></td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+        <tr><td class="task"><span class="tasknum">3</span>Directly edit files on the local PC</td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+        <tr><td class="task"><span class="tasknum">4</span>Update files in the cloud (OneDrive/SharePoint)</td><td class="mark"><b class="mk-part">△</b></td><td class="mark"><b class="mk-ok">○</b></td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+        <tr><td class="task"><span class="tasknum">5</span>Teams notification + human approval checkpoint</td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+        <tr><td class="task"><span class="tasknum">6</span>Usable with zero build (no dev/maintenance)</td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+        <tr><td class="task"><span class="tasknum">7</span>Actually operate the browser (auto-drive logged-in / intranet / SaaS screens)</td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-part">△</b></td><td class="mark"><b class="mk-part">△</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+        <tr><td class="task"><span class="tasknum">8</span>Execute end-to-end across local PC, browser, and M365</td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-part">△</b></td><td class="mark"><b class="mk-ok">○</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="legend">
+    <span><b class="mk-best">◎</b>Best fit</span>
+    <span><b class="mk-ok">○</b>Can do (may need dev or a per-request ask)</span>
+    <span><b class="mk-part">△</b>Partial / can't automate</span>
+    <span><b class="mk-no">×</b>Not possible / not suited</span>
+  </div>
+  <div class="price-note" style="margin-top:20px;">
+    <div class="pn-title">🎯 Scout vs. Cowork — where to draw the line</div>
+    <p>Both share the ability to run autonomously on a schedule. <b>Two things separate them — ① where the files live (local PC or cloud) / ② whether it “actually” automates the browser</b>.</p>
+    <p><b>① If it touches files on the local PC, use Scout</b> (= this case): cloud-based Cowork can't directly edit local files (officially stated: <i>“Cloud hosting means files are not stored locally”</i>). <b>Only Scout can act on files on your own PC.</b> Move files to OneDrive/SharePoint and <b>Cowork's scheduled runs work too</b> (Cowork also offers recurring schedules / event triggers as official features).</p>
+    <p><b>② If it fully automates the browser, use Scout</b>: actually clicking and typing across logged-in intranet or SaaS screens is Scout's domain (spanning local files, browser, M365, and shell). Cowork's browser use via Edge is mentioned on the official blog but is <b>“Frontier-only,”</b> and <b>not listed in the GA official feature list (Learn, as of 2026/7/27)</b>. It's safer not to rely on it as generally available automated browser control.</p>
+    <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>In a nutshell</b> — <b>build & roll out company-wide → Studio</b> / <b>cloud-only, delegate-and-wait → Cowork</b> / <b>drive your own PC & browser proactively → Scout</b>.</p>
+    <p class="disclaimer">※ Sources (verified as of Aug 2026): Cowork's cloud hosting / no local storage and USL + Copilot Credits usage-based billing — <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA announcement blog (2026/6/16)</a>. Scheduled prompts / event triggers / approval checkpoints / Deep Research skill — <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn “Use Copilot Cowork” (updated 2026/7/27; the feature list on that page does not mention automated browser control)</a>. Scout's local-PC operation, browser automation, and always-on running are a reference summary based on Microsoft Scout official docs.</p>
+  </div>`,
+  sec_body: `<div class="price-note">
+    <div class="pn-title">🛡️ Shared premises across all four products</div>
+    <p>・<b>Respects your existing access rights & identity</b>: each product only handles “what that user can see.” It never reaches data you lack permission for.</p>
+    <p>・<b>Human approval before important actions</b>: an approval checkpoint precedes sending email, posting, writing files, running commands, and the like (Cowork / Scout).</p>
+    <p>・<b>Your tenant data is not used to train the foundation models</b> (Microsoft 365 Copilot's public commitment).</p>
+  </div>
+  <div style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:20px;">
+    <div class="price-note" style="margin:0;border-top:4px solid #0078d4;">
+      <div class="pn-title">M365 Copilot — “a person leads” inside Office</div>
+      <p>・<b>On-the-spot assist a person drives</b>. Supports summarizing, drafting, and analysis conversationally; it doesn't act autonomously on its own.</p>
+      <p>・Operates <b>within Microsoft 365's trust boundary</b>. Existing access rights, sensitivity labels, and Purview controls apply as-is.</p>
+      <p>・<b>Your tenant data isn't used to train the foundation models</b> (public commitment).</p>
+      <p>・<b>A foundation for all employees</b>. IT management and auditing follow your existing M365 governance.</p>
+    </div>
+    <div class="price-note" style="margin:0;border-top:4px solid #7a2fb0;">
+      <div class="pn-title">Copilot Studio — the “maker” builds with governance</div>
+      <p>・Agents are <b>designed by admins/makers</b>. Publishing scope (Teams/Web/external channels) and referenced data are <b>explicitly defined</b>.</p>
+      <p>・<b>Management mechanisms like DLP, authentication, and channel permissions</b> enable governance even for externally published bots.</p>
+      <p>・<b>Per-connector access control</b> for each connected business system (ERP/CRM, etc.).</p>
+      <p>・<b>Building means you hold the control points yourself</b> — but the design/maintenance responsibility is on the maker too.</p>
+    </div>
+    <div class="price-note" style="margin:0;border-top:4px solid #b11f4b;">
+      <div class="pn-title">Copilot Cowork — runs “already governed” in the cloud</div>
+      <p>・<b>Off by default</b>. Admins decide who to enable it for.</p>
+      <p>・Prompts, responses, and generated artifacts <b>flow through your existing Microsoft 365 controls</b> and are audited, retained, and discoverable. <b>Sensitivity labels are inherited and shown end-to-end</b>.</p>
+      <p>・Protected surface at GA: <b>audit log / DSPM / eDiscovery / Insider Risk Management / Data Lifecycle Management / Communication Compliance</b> (DLP coming soon).</p>
+      <p>・Runs in a cloud sandbox with <b>files not stored locally</b>, within the M365 trust boundary.</p>
+      <p>・<b>Spending limits, usage alerts, and usage reporting at tenant/group/user level</b> keep cost governed too.</p>
+    </div>
+    <div class="price-note" style="margin:0;border-top:4px solid #0f8a6a;">
+      <div class="pn-title">Microsoft Scout — controls local with “granular permissions”</div>
+      <p>・<b>Always requires approval before important actions</b> (sending email, running commands, writing files, etc.).</p>
+      <p>・<b>Granular permission settings</b>: turn files / shell / browser / M365 <b>on or off by category</b>. You can limit which shell commands auto-approve, and <b>sensitive folders always require explicit approval</b>.</p>
+      <p>・Has an agent-specific <b>dedicated Entra ID</b>, designed to make “who did what” easy to trace.</p>
+      <p>・It can only access <b>the file system / shell the user permitted</b>.</p>
+      <p>・Currently in <b>Frontier preview (prerelease)</b>. Specifications may change.</p>
+    </div>
+  </div>
+  <div class="price-note" style="margin-top:20px;">
+    <div class="pn-title">❓ Three worries customers raise most</div>
+    <p><b>Q. Will my input data be used to train the AI?</b><br>A. No. Tenant data is not used to train the foundation models (M365 Copilot's public commitment).</p>
+    <p><b>Q. It acts autonomously — won't it do something dangerous on its own?</b><br>A. Human approval always precedes important actions. Scout adds “per-category permissions,” “explicit approval for sensitive folders,” and “limiting auto-approved commands.” Cowork is <b>off by default</b>, with admins deciding who to enable it for.</p>
+    <p><b>Q. Can IT govern and audit it?</b><br>A. Yes. Cowork is off by default plus a Purview-based protected surface (audit log / eDiscovery / Insider Risk Management, etc.), with spending limits configurable. Scout narrows scope via granular permissions.</p>
+    <p class="disclaimer">※ Sources (verified as of Aug 2026): Cowork's security/compliance (off by default, audit log, DSPM, eDiscovery, Insider Risk Management, Data Lifecycle Management, Communication Compliance, DLP soon, sensitivity-label inheritance, spending limits) — <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA announcement blog (2026/6/16)</a>. Scout's approvals, granular permissions, sensitive folders, and Frontier preview — <a href="https://learn.microsoft.com/en-us/microsoft-scout/overview" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Scout official docs (Learn)</a>. No foundation-model training, respect for access rights, and sensitivity labels are a summary based on Microsoft 365 Copilot public information. Confirm the formal, latest details via each official source.</p>
+  </div>`,
+};
+function applyStatic(){
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (el.__jaHTML === undefined) el.__jaHTML = el.innerHTML;
+    if (currentLang === "en" && STATIC[key] != null) el.innerHTML = STATIC[key];
+    else el.innerHTML = el.__jaHTML;
+  });
+}
+
+// ===== Industry tabs =====
 const industryTabsEl = document.getElementById("industryTabs");
-function applyIndustry(key, save){
-  currentIndustry = INDUSTRIES[key] ? key : "generic";
+function renderIndustryTabs(){
+  industryTabsEl.innerHTML = "";
+  ["generic","manufacturing"].forEach(key => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "ip-tab" + (key === currentIndustry ? " active" : "");
+    b.dataset.key = key;
+    b.textContent = UI("ind_" + key);
+    b.addEventListener("click", () => { currentIndustry = key; renderAll(); writeHash(); });
+    industryTabsEl.appendChild(b);
+  });
+}
+
+// ===== Master render =====
+function renderAll(){
+  document.documentElement.setAttribute("lang", currentLang);
+  document.title = currentLang === "en"
+    ? "Microsoft Copilot Product Selection Guide | by business scenario"
+    : "Microsoft Copilot 製品使い分けガイド｜業務シナリオ";
+  renderOverview();
+  renderRoles();
   renderMatrix();
   renderScenarios();
+  renderFlowTabs();
+  renderFlow(currentFlow);
   renderLookup();
-  Array.from(industryTabsEl.children).forEach(b => b.classList.toggle("active", b.dataset.key === currentIndustry));
-  if (save) { try { location.hash = "ind=" + currentIndustry; } catch(e){} }
+  renderFaq();
+  renderCases();
+  renderIndustryTabs();
+  applyStatic();
+  const ipLabel = document.querySelector(".industry-picker .ip-label");
+  if (ipLabel) ipLabel.textContent = UI("ind_label");
+  langBtn.textContent = UI("lang_btn");
+  const ul = document.querySelector(".updates-link");
+  if (ul) ul.setAttribute("href", currentLang === "en" ? "updates.html#lang=en" : "updates.html");
+  syncThemeBtn();
 }
-Object.keys(INDUSTRIES).forEach(key => {
-  const b = document.createElement("button");
-  b.type = "button";
-  b.className = "ip-tab";
-  b.dataset.key = key;
-  b.textContent = INDUSTRIES[key];
-  b.addEventListener("click", () => applyIndustry(key, true));
-  industryTabsEl.appendChild(b);
-});
-// Restore from hash (sandbox-safe persistence), else default to generic
-const hashInd = (location.hash.match(/ind=(\w+)/) || [])[1];
-applyIndustry(hashInd && INDUSTRIES[hashInd] ? hashInd : "generic", false);
+function writeHash(){ try { location.hash = "lang=" + currentLang + "&ind=" + currentIndustry; } catch(e){} }
 
-// Theme toggle
-const btn = document.getElementById("themeBtn");
-function syncBtn(){ const dark = document.documentElement.getAttribute("data-theme")==="dark"; btn.textContent = dark ? "☀️ ライト" : "🌙 ダーク"; }
-btn.addEventListener("click", () => {
+// ===== Language toggle =====
+const langBtn = document.getElementById("langBtn");
+langBtn.addEventListener("click", () => {
+  currentLang = currentLang === "en" ? "ja" : "en";
+  renderAll();
+  writeHash();
+});
+
+// ===== Theme toggle =====
+const themeBtn = document.getElementById("themeBtn");
+function syncThemeBtn(){ const dark = document.documentElement.getAttribute("data-theme")==="dark"; themeBtn.textContent = dark ? UI("theme_light") : UI("theme_dark"); }
+themeBtn.addEventListener("click", () => {
   const cur = document.documentElement.getAttribute("data-theme");
   document.documentElement.setAttribute("data-theme", cur==="dark" ? "light" : "dark");
-  syncBtn();
+  syncThemeBtn();
 });
-syncBtn();
+
+// ===== Restore from hash (sandbox-safe persistence) & initial render =====
+// NOTE: initial render must run after EN_DATA / STATIC are assigned (see end of script).
+function initI18n(){
+  const h = location.hash;
+  const lm = h.match(/lang=(\w+)/); if (lm && (lm[1]==="ja"||lm[1]==="en")) currentLang = lm[1];
+  const im = h.match(/ind=(\w+)/); if (im && INDUSTRIES[im[1]]) currentIndustry = im[1];
+  renderAll();
+}
+
+initI18n();
+
 </script>
 </body>
 </html>
