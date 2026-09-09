@@ -119,6 +119,7 @@ header.hero {
 .top-controls .theme-toggle { position: static; }
 .hero-nav {
   margin-top: 18px;
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
 }
 .updates-link {
   display: inline-flex; align-items: center; gap: 8px;
@@ -380,6 +381,7 @@ table.matrix.lookup td.task { font-weight:600; }
     <div class="pill-note" data-i18n="hero_pill">クリックで各シナリオの詳細が開きます</div>
     <div class="hero-nav">
       <a class="updates-link" href="updates.html" data-i18n="hero_updates">📅 月次アップデートを見る →</a>
+      <a class="updates-link" id="comparisonLink" href="comparison.html" data-i18n="hero_comparison">無償・有償の機能比較 →</a>
     </div>
   </header>
 
@@ -1361,6 +1363,7 @@ let STATIC = {
   hero_sub: `M365 Copilot, Copilot Studio, Copilot Cowork, Microsoft Scout. Even for the same work, “which product solves it, and how far” changes by role level. We've visualized it through representative tasks.`,
   hero_pill: `Click each scenario to expand the details`,
   hero_updates: `📅 View monthly updates →`,
+  hero_comparison: `Compare free vs. paid features →`,
   s1_h: `<span class="num">1</span>Product overview — what each one actually is`,
   s1_p: `Before choosing between them, get clear on what the four products do, who they're for, and how they're offered.`,
   pn_title: `💡 How to read the pricing (what are Copilot Credits)`,
@@ -1516,7 +1519,16 @@ function renderAll(){
   langBtn.textContent = UI("lang_btn");
   const ul = document.querySelector(".updates-link");
   if (ul) ul.setAttribute("href", currentLang === "en" ? "updates.html#lang=en" : "updates.html");
+  syncComparisonLink();
   syncThemeBtn();
+}
+function syncComparisonLink(){
+  const comparisonLink = document.getElementById("comparisonLink");
+  if (comparisonLink) {
+    const theme = document.documentElement.getAttribute("data-theme");
+    comparisonLink.href = "comparison.html?scoutTheme=" + encodeURIComponent(theme) +
+      "#lang=" + currentLang + "&ind=" + currentIndustry;
+  }
 }
 function writeHash(){ try { location.hash = "lang=" + currentLang + "&ind=" + currentIndustry; } catch(e){} }
 
@@ -1535,6 +1547,7 @@ themeBtn.addEventListener("click", () => {
   const cur = document.documentElement.getAttribute("data-theme");
   document.documentElement.setAttribute("data-theme", cur==="dark" ? "light" : "dark");
   syncThemeBtn();
+  syncComparisonLink();
 });
 
 // ===== Restore from hash (sandbox-safe persistence) & initial render =====

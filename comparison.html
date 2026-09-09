@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Copilot Chat と Microsoft 365 Copilot の機能比較。主要10項目とアプリ別の詳細を、公式情報に基づいて整理しています。">
+<title>Copilot Chat と Microsoft 365 Copilot｜無償・有償の機能比較</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86);
+  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72);
+  --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; background: var(--cp-bg); color: var(--cp-text); line-height: 1.7; }
+.wrap { max-width: 1120px; margin: auto; padding: 28px 24px 64px; }
+a { color: var(--cp-link); text-underline-offset: 3px; }
+button, .back { font: inherit; font-size: .875rem; padding: 8px 12px; border: 1px solid var(--cp-border); border-radius: .625rem; background: var(--cp-surface); color: var(--cp-text); cursor: pointer; }
+button:hover, .back:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+:focus-visible { outline: 3px solid var(--cp-accent); outline-offset: 4px; }
+.back { text-decoration: none; }
+.topbar, .controls, .jump, .section-head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.topbar { justify-content: space-between; }
+.hero { padding: 48px 0 28px; max-width: 900px; }
+.eyebrow { color: var(--cp-accent); font-size: .75rem; font-weight: 700; letter-spacing: .12em; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.65rem); line-height: 1.3; margin: 12px 0 20px; letter-spacing: -.02em; }
+h2 { font-size: 1.45rem; margin: 0; }
+p { margin: 0 0 12px; }
+.lead { font-size: 1.05rem; color: var(--cp-text-muted); max-width: 840px; }
+.meta { font-size: .8rem; color: var(--cp-text-soft); }
+.jump a { color: var(--cp-accent); padding: 8px 14px; border-radius: .625rem; border: 1px solid var(--cp-border); background: var(--cp-surface); text-decoration: none; font-weight: 600; font-size: .875rem; }
+.scope { background: var(--cp-accent-soft); border-radius: 16px; padding: 20px 24px; margin: 0 0 32px; }
+.scope p:last-child { margin-bottom: 0; }
+.scope small { color: var(--cp-text-muted); display: block; }
+section { margin-top: 36px; scroll-margin-top: 20px; }
+.section-head { justify-content: space-between; margin-bottom: 12px; }
+.hint { color: var(--cp-text-muted); font-size: .85rem; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--cp-border); border-radius: 16px; background: var(--cp-surface); }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
+caption { text-align: left; padding: 12px 20px; color: var(--cp-text-muted); font-size: .8rem; background: var(--cp-bg-elevated); }
+th, td { padding: 18px 20px; vertical-align: top; overflow-wrap: anywhere; }
+thead th { background: var(--cp-surface-soft); font-size: .95rem; line-height: 1.5; border-bottom: 1px solid var(--cp-border); }
+thead th:first-child { width: 26%; }
+thead small { display: block; color: var(--cp-text-muted); font-weight: 400; margin-top: 4px; }
+tbody th { font-weight: 600; font-size: .95rem; }
+tbody td { font-size: .9rem; }
+tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--cp-border); }
+td:last-child, thead th:last-child { background: var(--cp-accent-soft); }
+.badge { display: inline-block; border: 1px solid var(--cp-border-strong); color: var(--cp-text); background: var(--cp-surface); font-size: .7rem; border-radius: 6px; padding: 1px 7px; margin-bottom: 8px; font-weight: 600; }
+.badge.available { color: var(--cp-accent); border-color: var(--cp-accent); }
+.cell-copy { margin: 0; }
+.detail-group { margin: 14px 0; border: 1px solid var(--cp-border); background: var(--cp-surface); border-radius: 16px; overflow: hidden; scroll-margin-top: 20px; }
+summary { padding: 20px; font-size: 1.05rem; font-weight: 600; cursor: pointer; }
+summary:hover { background: var(--cp-accent-soft); }
+.detail-group .table-wrap { border: 0; border-top: 1px solid var(--cp-border); border-radius: 0; }
+.detail-note { padding: 12px 20px; color: var(--cp-text-muted); font-size: .8rem; margin: 0; }
+.source-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; padding-left: 24px; }
+.source-list li { padding: 4px 0; font-size: .875rem; }
+.source-list small { display: block; color: var(--cp-text-muted); }
+.foot { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--cp-border); color: var(--cp-text-soft); font-size: .8rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 640px) {
+  .wrap { padding: 16px 12px 40px; }
+  .hero { padding: 28px 4px 20px; }
+  .scope { padding: 16px; }
+  table { min-width: 600px; }
+  th, td { padding: 12px 14px; }
+  .source-list { grid-template-columns: 1fr; }
+  .controls { gap: 8px; }
+}
+@media print {
+  body { background: var(--cp-surface); }
+  .topbar, .jump, #expandBtn { display: none; }
+  .wrap { max-width: none; padding: 0; }
+  .hero { padding: 8px 0; }
+  .table-wrap { overflow: visible; }
+  table { min-width: 0; }
+  tr { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topbar" aria-label="ページ移動">
+    <a id="backLink" class="back" href="index.html">← 製品使い分けガイド</a>
+    <div class="controls">
+      <button id="langBtn" type="button">EN</button>
+      <button id="themeBtn" type="button">ダーク表示</button>
+    </div>
+  </nav>
+  <main>
+    <header class="hero">
+      <span class="eyebrow">COPILOT CHAT / MICROSOFT 365 COPILOT</span>
+      <h1 id="title">無償と有償、機能はどう違う？</h1>
+      <p class="lead" id="lead">まずは主要10項目で比較。気になるアプリの詳しい機能だけ、開いて確認できます。</p>
+      <p class="meta" id="reviewDate"></p>
+      <nav class="jump" id="jump" aria-label="ページ内の移動"></nav>
+    </header>
+    <aside class="scope">
+      <p id="scopeText"></p>
+      <small id="scopeNote"></small>
+    </aside>
+    <section id="overview" aria-labelledby="overviewTitle">
+      <div class="section-head"><h2 id="overviewTitle">主要10項目の比較</h2></div>
+      <p class="hint" id="tableHint"></p>
+      <div id="overviewTable"></div>
+    </section>
+    <section id="details" aria-labelledby="detailTitle">
+      <div class="section-head">
+        <h2 id="detailTitle">詳しい機能を選んで確認</h2>
+        <button id="expandBtn" type="button" aria-controls="detailGroups" aria-expanded="false">すべて開く</button>
+      </div>
+      <div id="detailGroups"></div>
+    </section>
+    <section id="sources" aria-labelledby="sourceTitle">
+      <h2 id="sourceTitle">公式出典</h2>
+      <p class="hint" id="sourceNote"></p>
+      <ol class="source-list" id="sourceList"></ol>
+    </section>
+    <noscript><p>この比較表には JavaScript が必要です。JavaScript を有効にしてご覧ください。 / Enable JavaScript to view the comparison.</p></noscript>
+  </main>
+  <footer class="foot"><p id="footerText"></p><a id="updatesLink" href="updates.html">月次アップデートを見る →</a></footer>
+</div>
+<script>
+"use strict";
+// Stable row IDs and source keys let monthly reviews propose precise changes without applying them.
+const REVIEWED_ON = "2026-09-09";
+const SOURCES = {
+  overview: {url:"https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview", ja:"製品概要・無償 / 有償の利用範囲", en:"Product overview and licensed experiences"},
+  service: {url:"https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/microsoft-365-copilot", ja:"サービス説明・機能別の利用権", en:"Service description and feature entitlements"},
+  chat: {url:"https://learn.microsoft.com/en-us/copilot/overview", ja:"Copilot Chat・共通機能", en:"Copilot Chat and shared features"},
+  apps: {url:"https://support.microsoft.com/en-us/microsoft-365-copilot/how-copilot-chat-works-in-microsoft-365-apps", ja:"Word・Excel・PowerPoint・Outlook・OneNote", en:"Features in Word, Excel, PowerPoint, Outlook and OneNote"},
+  workiq: {url:"https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/", ja:"Work IQ・独立した API の課金", en:"Work IQ and independent API billing"},
+  teams: {url:"https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-transcription", ja:"Teams 会議の Copilot・文字起こし", en:"Copilot in Teams meetings and transcription"},
+  recap: {url:"https://learn.microsoft.com/en-us/microsoftteams/intelligent-recap-calls-meetings", ja:"インテリジェント リキャップ", en:"Intelligent recap licensing"},
+  researcher: {url:"https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-researcher-in-microsoft-365-copilot", ja:"Researcher・調査の機能", en:"Researcher capabilities"},
+  analyst: {url:"https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-analyst-in-microsoft-365-copilot", ja:"Analyst・データ分析", en:"Analyst capabilities"},
+  cowork: {url:"https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/", ja:"Cowork・複数ステップの実行", en:"Cowork capabilities"},
+  coworkLicense: {url:"https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started", ja:"Cowork・ライセンスと課金の前提", en:"Cowork licensing and billing prerequisites"},
+  scheduled: {url:"https://learn.microsoft.com/en-us/microsoft-365/copilot/scheduled-prompts", ja:"Scheduled Prompts・定期実行", en:"Scheduled Prompts"},
+  notebooks: {url:"https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-microsoft-365-copilot-notebooks", ja:"Notebooks・利用者向けの条件", en:"Notebooks eligibility"},
+  facilitator: {url:"https://learn.microsoft.com/en-us/microsoftteams/facilitator-teams", ja:"Facilitator・会議支援", en:"Facilitator licensing and features"},
+  channel: {url:"https://learn.microsoft.com/en-us/microsoftteams/set-up-channel-agent-teams", ja:"Channel Agent・プレビュー条件", en:"Channel Agent preview prerequisites"},
+  analytics: {url:"https://learn.microsoft.com/en-us/viva/insights/copilot-analytics-introduction", ja:"Copilot Analytics・利用と効果の測定", en:"Copilot Analytics and eligibility"},
+  sam: {url:"https://learn.microsoft.com/en-us/sharepoint/sharepoint-advanced-management-prerequisites", ja:"SharePoint Advanced Management・利用条件", en:"SharePoint Advanced Management prerequisites"}
+};
+// ja/en arrays contain: feature name, no-add-on description, paid-add-on description.
+const ROWS = [
+  {id:"web",group:"overview",status:["available","available"],refs:["chat","overview"],
+   ja:["Web 検索・質問回答","公開情報を基に、調査や文章作成を支援します。","Web に加え、業務情報も使って回答できます。"],
+   en:["Web research & chat","Research public information and draft text.","Use web information alongside work context."]},
+  {id:"files",group:"overview",status:["available","available"],refs:["chat"],
+   ja:["資料の添付・要約・分析","資料を添付・指定して、要約や質問ができます。","資料の分析に加え、関連する業務情報も活用できます。"],
+   en:["File upload, summaries & analysis","Attach or select files to summarize and ask questions.","Analyze files and also use related work information."]},
+  {id:"work",group:"overview",status:["limited","available"],refs:["overview","workiq","apps"],
+   ja:["業務情報の横断参照 / Work IQ","指定資料や対応アプリ内の限定的な情報を使います。","メール・会議・チャット・ファイルを権限の範囲で横断参照します。"],
+   en:["Work grounding / Work IQ","Use selected files and limited context in supported apps.","Ground answers across permitted emails, meetings, chats and files."]},
+  {id:"office",group:"overview",status:["limited","available"],refs:["overview","apps"],
+   ja:["Word・Excel・PowerPoint","Basic の対象者は、一部の作成・編集・分析を利用できます。","高度なアプリ機能と優先アクセスで作業を支援します。"],
+   en:["Word, Excel & PowerPoint","Eligible Basic users can access some creation, editing and analysis features.","Access advanced in-app capabilities and priority access."]},
+  {id:"meetings",group:"overview",status:["notIncluded","limited"],refs:["teams"],
+   ja:["Teams 会議内の Copilot","会議内 Copilot の利用権は含まれません。","会議中・会議後に質問できます。会議設定・文字起こし等の条件があります。"],
+   en:["Copilot in Teams meetings","In-meeting Copilot is not included.","Ask questions during and after meetings, subject to meeting and transcript settings."]},
+  {id:"researcher",group:"overview",status:["notIncluded","available"],refs:["service","researcher"],
+   ja:["Researcher","専用 Researcher の利用権は含まれません。","Web・業務情報を調査し、出典付きの報告書を作成します。"],
+   en:["Researcher","The dedicated Researcher agent is not included.","Research web and work sources to create a cited report."]},
+  {id:"analyst",group:"overview",status:["notIncluded","available"],refs:["service","analyst"],
+   ja:["Analyst","専用 Analyst の利用権は含まれません。一般的なファイル分析は利用できます。","複数ファイルの統計・傾向・外れ値などを分析します。"],
+   en:["Analyst","The dedicated Analyst agent is not included; general file analysis is available.","Analyze statistics, trends and outliers across data files."]},
+  {id:"agents",group:"overview",status:["metered","limited"],refs:["overview","chat","workiq"],
+   ja:["社内データのエージェント","従量課金で利用できる経路があります。","利用権に含まれる範囲があります。処理によって追加課金が発生します。"],
+   en:["Agents using work data","Available through metered usage routes.","Some usage is included; particular operations can incur additional charges."]},
+  {id:"cowork",group:"overview",status:["notIncluded","metered"],refs:["cowork","coworkLicense"],
+   ja:["Copilot Cowork","法人向け Cowork の前提条件を満たしません。","有償 Copilot が前提です。有効化と従量課金設定により複数工程を実行します。"],
+   en:["Copilot Cowork","Copilot Chat alone does not meet work-account prerequisites.","Requires paid Copilot, enablement and usage-based billing to carry out multi-step work."]},
+  {id:"access",group:"overview",status:["standard","priority"],refs:["chat","overview"],
+   ja:["モデル・機能へのアクセス","サービス容量に応じた標準アクセスです。","優先アクセスです。機能ごとの利用上限はあります。"],
+   en:["Access to models & features","Standard access, subject to available capacity.","Priority access, with feature-specific usage limits."]},
+  {id:"word-read",group:"office",status:["limited","available"],refs:["apps"],
+   ja:["Word / 文書の要約・質問","Basic の対象者は、開いた文書に質問できます。","文書の要約・質問を優先アクセスで利用できます。"],
+   en:["Word / summaries & questions","Eligible Basic users can ask about the open document.","Summarize and ask questions with priority access."]},
+  {id:"word-edit",group:"office",status:["limited","available"],refs:["apps","overview"],
+   ja:["Word / 下書き・書き換え","Basic の対象者は作成・書き換えを利用できます。","作成・編集を優先アクセスで利用し、業務文脈も活用できます。"],
+   en:["Word / drafting & rewriting","Eligible Basic users can draft and rewrite.","Draft and edit with priority access, with access to work context."]},
+  {id:"ppt",group:"office",status:["limited","available"],refs:["overview","apps"],
+   ja:["PowerPoint / 作成・編集・質問","Basic でも資料の質問や一部の作成・編集を利用できます。","作成・編集・想定問答などを優先アクセスで利用できます。"],
+   en:["PowerPoint / create, edit & ask","Basic can provide questions and some creation and editing features.","Use presentation creation, editing and preparation with priority access."]},
+  {id:"excel-basic",group:"office",status:["limited","available"],refs:["overview","apps"],
+   ja:["Excel / 傾向・数式・グラフ","Basic でも分析や数式・可視化の支援を利用できます。","分析・数式・可視化を優先アクセスで利用できます。"],
+   en:["Excel / trends, formulas & charts","Basic can assist with analysis, formulas and visualizations.","Access analysis, formulas and visualizations with priority access."]},
+  {id:"excel-agent",group:"office",status:["notIncluded","limited"],refs:["apps"],
+   ja:["Excel / Agent Mode","有償向けの高度な Agent Mode は含まれません。","複数ステップの整形・シート統合・レポート作成を支援します。提供状況に依存します。"],
+   en:["Excel / Agent Mode","The advanced paid Agent Mode is not included.","Reshape data, merge sheets and build multi-step reports, subject to availability."]},
+  {id:"onenote",group:"office",status:["limited","available"],refs:["apps"],
+   ja:["OneNote / 要約・To Do の下書き","Basic の対象者は、ページから要約や下書きを作れます。","メモから要約・To Do・計画の下書きを作れます。"],
+   en:["OneNote / summaries & task drafts","Eligible Basic users can summarize and draft from a page.","Create summaries, to-do drafts and plans from notes."]},
+  {id:"outlook-inbox",group:"outlook",status:["available","available"],refs:["apps"],
+   ja:["受信トレイへの質問・要約","限定的な範囲で、関連メールの要約や受信トレイへの質問ができます。","メールに加え、関連するチャットや文書の文脈も活用できます。"],
+   en:["Inbox questions & summaries","Ask about your inbox and summarize related emails within a limited data scope.","Use email plus context from related chats and documents."]},
+  {id:"outlook-calendar",group:"outlook",status:["available","available"],refs:["apps"],
+   ja:["予定表への質問・会議準備","次回の会議などを質問できます。","会議の確認に加え、案件・関連資料から議題の下書きを作れます。"],
+   en:["Calendar questions & preparation","Ask questions such as when your next meeting is.","Find meetings and draft agendas using project and document context."]},
+  {id:"outlook-priority",group:"outlook",status:["limited","available"],refs:["apps"],
+   ja:["文書・チャットも含む返信準備","提供した情報や限定的な参照範囲で支援します。","関連文脈を統合し、対応順の判断や返信の下書きを支援します。"],
+   en:["Replies with cross-work context","Assistance uses supplied information and limited app context.","Combine work context to help prioritize replies and draft responses."]},
+  {id:"teams-live",group:"teams",status:["notIncluded","limited"],refs:["teams"],
+   ja:["会議中だけの Copilot","会議内 Copilot は含まれません。","「会議中のみ」の設定で、一時的な音声テキストを使えます。"],
+   en:["During-meeting-only Copilot","In-meeting Copilot is not included.","Use temporary speech-to-text in the during-meeting-only mode."]},
+  {id:"teams-after",group:"teams",status:["notIncluded","limited"],refs:["teams"],
+   ja:["会議後の質問・決定事項の整理","会議後の Copilot は含まれません。","保存された文字起こしを基に質問できます。適切な設定が必要です。"],
+   en:["Post-meeting questions","Post-meeting Copilot is not included.","Ask questions using saved transcripts with appropriate meeting settings."]},
+  {id:"teams-recap",group:"teams",status:["separate","limited"],refs:["recap"],
+   ja:["インテリジェント リキャップ","別途 Teams Premium があれば利用できます。","利用権に含まれます。Teams・文字起こし等が必要です。"],
+   en:["Intelligent recap","Also available through a separate Teams Premium license.","Included, subject to Teams licensing, transcription and other prerequisites."]},
+  {id:"facilitator",group:"teams",status:["notIncluded","limited"],refs:["facilitator"],
+   ja:["Facilitator / 会議ノート","起動・操作の利用権は含まれません。","会議ノートや質問回答を利用できます。Teams・設定・容量が前提です。"],
+   en:["Facilitator / meeting notes","Activation and interaction rights are not included.","Use live meeting notes and Q&A, subject to Teams, configuration and capacity."]},
+  {id:"channel-agent",group:"teams",status:["notIncluded","preview"],refs:["channel"],
+   ja:["Channel Agent / 進捗整理","起動・操作の利用権は含まれません。","プレビューです。ライセンスと管理者の許可が必要です。"],
+   en:["Channel Agent / status tracking","Activation and interaction rights are not included.","In preview; requires licensing and administrator enablement."]},
+  {id:"pages",group:"extensions",status:["available","available"],refs:["chat"],
+   ja:["Copilot Pages","回答の編集・共同作業に使えます。","共通機能として利用できます。"],
+   en:["Copilot Pages","Edit and collaborate on responses.","Available as a shared feature."]},
+  {id:"notebooks",group:"extensions",status:["verify","available"],refs:["notebooks","service"],
+   ja:["Copilot Notebooks","利用条件は要確認です。公式資料間で記載が一致していません。","資料を集めて質問・作成できます。"],
+   en:["Copilot Notebooks","Verify eligibility: official documents currently disagree.","Gather reference materials to ask questions and create content."]},
+  {id:"web-agent",group:"extensions",status:["available","available"],refs:["overview","chat"],
+   ja:["Web・指示ベースのエージェント","対象のエージェントを作成・利用できます。","共通する利用経路として作成・利用できます。"],
+   en:["Web- and instruction-based agents","Create and use eligible agents.","Create and use agents through the shared route."]},
+  {id:"workiq-api",group:"extensions",status:["metered","metered"],refs:["workiq"],
+   ja:["Work IQ API / A2A・MCP・REST","Copilot アドオンとは独立して従量課金で利用できます。","API は独立提供です。有償ライセンスだけで無償にはなりません。"],
+   en:["Work IQ API / A2A, MCP & REST","Available with usage-based billing independently of the Copilot add-on.","A separate metered offering; a paid license alone does not make API usage free."]},
+  {id:"cowork-files",group:"execution",status:["notIncluded","metered"],refs:["cowork","coworkLicense"],
+   ja:["Cowork / 調査から資料作成","Cowork 経由の作成は利用できません。","有償 Copilot と課金設定により、調査から Word・Excel・PPT 作成まで進めます。"],
+   en:["Cowork / research to deliverables","Creation through Cowork is not available.","With paid Copilot and billing enabled, carry work through to Word, Excel and PowerPoint deliverables."]},
+  {id:"cowork-actions",group:"execution",status:["notIncluded","metered"],refs:["cowork","coworkLicense"],
+   ja:["Cowork / 送信・会議設定","Cowork 経由の実行は利用できません。","権限と承認設定に従い、メール送信・Teams 投稿・会議設定を行います。"],
+   en:["Cowork / messaging & scheduling","Execution through Cowork is not available.","Send email, post to Teams and schedule meetings under permission and approval controls."]},
+  {id:"scheduled",group:"execution",status:["notIncluded","limited"],refs:["scheduled"],
+   ja:["Scheduled Prompts","有償向けの定期実行は含まれません。","指定した時刻・頻度でプロンプトを実行できます。管理設定が前提です。"],
+   en:["Scheduled Prompts","Paid scheduled prompts are not included.","Run prompts at specified times and frequencies, subject to administrative settings."]},
+  {id:"edp",group:"governance",status:["available","available"],refs:["overview","chat"],
+   ja:["企業向けデータ保護","職場アカウントの対象利用は保護されます。","同じ企業向けデータ保護の枠組みが適用されます。"],
+   en:["Enterprise data protection","Eligible work-account usage is protected.","The same enterprise data protection framework applies."]},
+  {id:"analytics",group:"governance",status:["limited","limited"],refs:["analytics"],
+   ja:["利用状況・効果の分析","基本レポート等を利用できます。契約条件によって表示範囲が変わります。","アプリ別の利用・影響や高度な分析を利用できます。割り当て数・ロール等に依存します。"],
+   en:["Adoption & impact analytics","Basic reports are available; scope depends on eligibility.","Access app-level usage, impact and advanced analysis, depending on license counts and roles."]},
+  {id:"sam",group:"governance",status:["separate","limited"],refs:["sam"],
+   ja:["SharePoint Advanced Management","SAM Plan 1 等の別契約による取得経路があります。","対象契約で組織内1名以上に Copilot を割り当てると、導入向け機能を管理者が利用できます。一部機能は別売です。"],
+   en:["SharePoint Advanced Management","Available through separate licensing routes such as SAM Plan 1.","With an eligible base plan and at least one assigned Copilot license, admins gain deployment-related capabilities. Some features require a separate add-on."]}
+];
+const GROUPS = [
+  {id:"office",ja:"Word・Excel・PowerPoint・OneNote",en:"Word, Excel, PowerPoint & OneNote",jaNote:"Basic のアプリ内機能は対象者・クライアント・展開状況によって変わります。無償利用者全員に同じ機能があるわけではありません。",enNote:"Basic in-app access varies by eligibility, client and rollout. Not every user without an add-on has the same app capabilities."},
+  {id:"outlook",ja:"Outlook",en:"Outlook",jaNote:"無償でも受信トレイ・予定表の限定的な参照ができます。予定への質問と、招待の送信は別の機能です。",enNote:"Users without an add-on can use limited inbox and calendar context. Asking about an event is different from sending an invitation."},
+  {id:"teams",ja:"Teams・会議支援",en:"Teams & meetings",jaNote:"Teams の権利と管理者・会議設定に従います。共有ノートの閲覧と、エージェントの起動・操作は別です。",enNote:"Teams licensing and administrative/meeting settings apply. Viewing shared notes differs from activating and interacting with an agent."},
+  {id:"extensions",ja:"Pages・Notebooks・エージェント・API",en:"Pages, Notebooks, agents & APIs",jaNote:"Notebooks の無償条件は公式資料に不整合があるため確認対象です。自作エージェントの処理や外部サービスは課金条件が異なります。",enNote:"Notebooks eligibility without the add-on requires clarification due to conflicting official documents. Custom operations and external services have their own billing conditions."},
+  {id:"execution",ja:"Cowork・定期実行",en:"Cowork & scheduled work",jaNote:"法人向け Cowork は有償 Copilot・有効化・従量課金設定が前提です。通常の Chat の資料生成とは別の実行機能です。",enNote:"Work-account Cowork requires paid Copilot, enablement and usage-based billing. It is distinct from document generation in regular Chat."},
+  {id:"governance",ja:"データ保護・管理・効果測定",en:"Protection, governance & measurement",jaNote:"Purview や Power Platform の全機能が Copilot に含まれるわけではありません。正式な契約・製品条項をご確認ください。",enNote:"A Copilot license does not include every Purview or Power Platform capability. Consult the applicable contract and Product Terms."}
+];
+const UI = {
+ ja:{title:"無償と有償、機能はどう違う？",lead:"まずは主要10項目で比較。気になるアプリの詳しい機能だけ、開いて確認できます。",date:"公式情報の参照日: ",back:"← 製品使い分けガイド",overview:"主要10項目の比較",details:"詳しい機能を選んで確認",sources:"公式出典",scope:"無償 = 対象の Microsoft 365 契約に含まれる Copilot Chat。有償 = Microsoft 365 Copilot アドオンの利用権がある状態。",scopeNote:"無償でも資料の要約や一部の Office 機能を利用できます。有償では業務情報の参照範囲・高度な機能・実行の選択肢が広がります。",hint:"利用できる範囲と追加課金を区別しています。スマートフォンでは表を横にスクロールできます。",feature:"機能",free:"Copilot Chat",freeSub:"有償アドオンなし",paid:"Microsoft 365 Copilot",paidSub:"有償アドオンあり",expand:"すべて開く",collapse:"すべて閉じる",light:"ライト表示",dark:"ダーク表示",sourceNote:"本文の出典番号は省略し、参照先をここにまとめています。公式ページは別タブで開きます。",footer:"公開情報に基づく比較です。すべての機能は権限・管理設定・提供状況・利用上限に従います。一般提供とプレビュー、ライセンスと従量課金を区別しています。自動確認による変更は、人による確認後に公開します。",updates:"月次アップデートを見る →",tableLabel:"機能比較表",status:{available:"利用可能",limited:"条件付き",notIncluded:"対象外",metered:"別料金",separate:"別契約",standard:"標準アクセス",priority:"優先アクセス",preview:"プレビュー",verify:"要確認"}},
+ en:{title:"Free vs. paid: what changes?",lead:"Start with ten key capabilities. Expand only the apps and features you want to explore.",date:"Official sources reviewed: ",back:"← Product selection guide",overview:"Ten key capabilities",details:"Explore detailed features",sources:"Official sources",scope:"Free = Copilot Chat included with an eligible Microsoft 365 subscription. Paid = entitlement to the Microsoft 365 Copilot add-on.",scopeNote:"File summaries and some Office features are available without the add-on. Paid Copilot expands work context, advanced capabilities and execution options.",hint:"Included capabilities and extra billing are distinguished. On small screens, scroll tables horizontally.",feature:"Feature",free:"Copilot Chat",freeSub:"Without the paid add-on",paid:"Microsoft 365 Copilot",paidSub:"With the paid add-on",expand:"Expand all",collapse:"Collapse all",light:"Light mode",dark:"Dark mode",sourceNote:"References are collected here rather than numbered inside the tables. Official links open in a new tab.",footer:"Based on public information. Permissions, administrative settings, availability and usage limits apply. General availability and previews, as well as licenses and metered usage, are distinguished. Automated review proposals are published only after human review.",updates:"View monthly updates →",tableLabel:"Feature comparison table",status:{available:"Available",limited:"Conditional",notIncluded:"Not included",metered:"Metered",separate:"Separate license",standard:"Standard access",priority:"Priority access",preview:"Preview",verify:"Verify eligibility"}}
+};
+const $ = id => document.getElementById(id);
+let lang = "ja";
+let industry = "generic";
+function readState() {
+  const hash = new URLSearchParams(location.hash.slice(1));
+  lang = hash.get("lang") === "en" ? "en" : "ja";
+  industry = hash.get("ind") === "manufacturing" ? "manufacturing" : "generic";
+}
+function node(tag, text, className) {
+  const el = document.createElement(tag);
+  if (text !== undefined) el.textContent = text;
+  if (className) el.className = className;
+  return el;
+}
+function table(rows, title) {
+  const u = UI[lang];
+  const wrapper = node("div", undefined, "table-wrap");
+  wrapper.tabIndex = 0;
+  wrapper.setAttribute("role", "region");
+  wrapper.setAttribute("aria-label", title);
+  const t = node("table");
+  t.append(node("caption", title, "sr-only"));
+  const head = node("thead"), hr = node("tr");
+  [u.feature, u.free, u.paid].forEach((label, i) => {
+    const th = node("th", label); th.scope = "col";
+    if (i) th.append(node("small", i === 1 ? u.freeSub : u.paidSub));
+    hr.append(th);
+  });
+  head.append(hr); t.append(head);
+  const body = node("tbody");
+  rows.forEach(row => {
+    const tr = node("tr"); tr.dataset.rowId = row.id;
+    const feature = node("th", row[lang][0]); feature.scope = "row"; tr.append(feature);
+    row.status.forEach((status, i) => {
+      const td = node("td");
+      // Scope and prerequisites stay in the description, not in a generic status badge.
+      const displayStatus = status === "limited" ? "available" : status;
+      td.append(node("span", u.status[displayStatus], "badge " + displayStatus), node("p", row[lang][i + 1], "cell-copy"));
+      tr.append(td);
+    });
+    body.append(tr);
+  });
+  t.append(body); wrapper.append(t); return wrapper;
+}
+function syncLinks() {
+  const theme = document.documentElement.getAttribute("data-theme");
+  const query = "?scoutTheme=" + encodeURIComponent(theme);
+  const hash = "#lang=" + lang + "&ind=" + industry;
+  $("backLink").href = "index.html" + query + hash;
+  $("updatesLink").href = "updates.html" + query + "#lang=" + lang;
+  $("themeBtn").textContent = UI[lang][theme === "dark" ? "light" : "dark"];
+}
+function syncExpand() {
+  const allOpen = [...document.querySelectorAll(".detail-group")].every(d => d.open);
+  $("expandBtn").textContent = UI[lang][allOpen ? "collapse" : "expand"];
+  $("expandBtn").setAttribute("aria-expanded", String(allOpen));
+}
+function render() {
+  const openIds = new Set([...document.querySelectorAll(".detail-group[open]")].map(d => d.id));
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  document.title = lang === "ja" ? "Copilot Chat と Microsoft 365 Copilot｜無償・有償の機能比較" : "Copilot Chat vs. Microsoft 365 Copilot | Feature comparison";
+  $("title").textContent = u.title; $("lead").textContent = u.lead;
+  $("reviewDate").textContent = u.date + REVIEWED_ON;
+  $("backLink").textContent = u.back; $("langBtn").textContent = lang === "ja" ? "EN" : "日本語";
+  $("langBtn").setAttribute("aria-label", lang === "ja" ? "Switch to English" : "日本語に切り替え");
+  $("scopeText").textContent = u.scope; $("scopeNote").textContent = u.scopeNote;
+  $("overviewTitle").textContent = u.overview; $("detailTitle").textContent = u.details;
+  $("sourceTitle").textContent = u.sources; $("tableHint").textContent = u.hint;
+  $("sourceNote").textContent = u.sourceNote; $("footerText").textContent = u.footer;
+  $("updatesLink").textContent = u.updates;
+  document.querySelector(".topbar").setAttribute("aria-label", lang === "ja" ? "ページ移動" : "Page navigation");
+  $("jump").setAttribute("aria-label", lang === "ja" ? "ページ内の移動" : "On this page");
+  $("jump").replaceChildren();
+  ["overview","details","sources"].forEach(id => {
+    const a = node("a", u[id]); a.href = "#"+id;
+    a.addEventListener("click", event => {
+      event.preventDefault();
+      $(id).scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+      const heading = $(id).querySelector("h2");
+      heading.tabIndex = -1; heading.focus({preventScroll:true});
+    });
+    $("jump").append(a);
+  });
+  $("overviewTable").replaceChildren(table(ROWS.filter(r => r.group === "overview"), u.overview));
+  $("detailGroups").replaceChildren();
+  GROUPS.forEach(group => {
+    const d = node("details", undefined, "detail-group"); d.id = "group-" + group.id;
+    d.open = openIds.has(d.id);
+    const summary = node("summary", group[lang]);
+    d.append(summary, table(ROWS.filter(r => r.group === group.id), group[lang]),
+      node("p", group[lang + "Note"], "detail-note"));
+    d.addEventListener("toggle", syncExpand);
+    $("detailGroups").append(d);
+  });
+  $("sourceList").replaceChildren();
+  Object.entries(SOURCES).forEach(([key, source]) => {
+    const li = node("li"), a = node("a", source[lang]);
+    a.href = source.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    li.dataset.sourceKey = key; li.append(a, node("small", new URL(source.url).hostname));
+    $("sourceList").append(li);
+  });
+  syncExpand(); syncLinks();
+}
+$("expandBtn").addEventListener("click", () => {
+  const groups = [...document.querySelectorAll(".detail-group")];
+  const expand = !groups.every(d => d.open);
+  groups.forEach(d => { d.open = expand; }); syncExpand();
+});
+$("langBtn").addEventListener("click", () => {
+  lang = lang === "ja" ? "en" : "ja";
+  location.hash = "lang=" + lang + "&ind=" + industry;
+});
+$("themeBtn").addEventListener("click", () => {
+  const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", theme); syncLinks();
+});
+window.addEventListener("hashchange", () => { readState(); render(); });
+readState(); render();
+</script>
+</body>
+</html>
