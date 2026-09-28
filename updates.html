@@ -155,6 +155,113 @@ footer.foot p { margin-bottom: 4px; }
 // 新しい月を配列の先頭に追加していく（新しい順に表示）
 const POSTS = [
   {
+    date: "2026年9月",
+    title: "「新しい Copilot」発表 — Home・Code・Autopilot（旧 Scout）が登場",
+    lead: "9月25日、Microsoft は「新しい Copilot」を発表。Chat と Cowork を統合する Home、自然言語でアプリを作る Code、常時稼働の自律エージェント Autopilot（旧称 Scout）という3つの新機能に加え、AI 支出を管理する FinOps for AI を投入しました。",
+    source: "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+    sourceNote: "米国 Microsoft 公式ブログ「Introducing the new Copilot with Home, Code and Autopilot」（2026年9月25日）",
+    groups: [
+      {
+        tag: "Home / Office in Copilot",
+        items: [
+          { name: "Home（新しい起点）", desc: "Chat と Cowork を1か所に統合した新しいスタート地点。最近の活動の振り返り、提案の受け取り、作業の再開ができる。今後はモード選択も不要になり、目的を伝えるだけで Chat / Cowork / Code へ自動振り分け。数週内に Frontier でロールアウト開始。", chips: ["Frontier"] },
+          { name: "Office in Copilot", desc: "Word・Excel・PowerPoint の実力を Copilot に内蔵。Home から資料や予算モデル、スライドを依頼すると、編集可能な実ドキュメントをチーム全体でライブに生成・更新。Office アプリと双方向同期し、@メンションで共同編集も反映。", chips: ["Frontier"] },
+        ]
+      },
+      {
+        tag: "Code / ランタイム",
+        items: [
+          { name: "Code（誰でも作れるソリューション構築）", desc: "アプリ・トラッカー・ダッシュボード・自動化・ワークフローを自然言語で記述すると Copilot が構築。GitHub Copilot と同じ基盤で、サンドボックス実行かつ自社テナント内で安全にホスト可能。月末に Frontier、数週で広範提供、年内に Microsoft 365 Premium / Pro 向けプレビュー。", chips: ["Frontier"] },
+          { name: "Copilot Managed Runtime", desc: "作成したアプリを自社の Microsoft 365 環境内で安全に実行するホスティング基盤。IT がガバナンスし、ユーザーは共有・ライブデータ接続・どこからでもアクセスが容易。Cowork / Code / Copilot Studio のアプリを支え、サードパーティ／プロコード開発者にも開放。プレビュー提供。", chips: ["Preview"] },
+        ]
+      },
+      {
+        tag: "Autopilot（旧 Scout）",
+        items: [
+          { name: "Autopilot（永続・能動・パーソナルなエージェント）", desc: "旧称 Scout。名前・役割・目標を与えると、チャネル監視やスレッド追跡、定例業務、数日後の作業再開までプロンプトなしで自律実行。クラウド常駐で就寝中も稼働。テナント内に独自 ID・メモリ・PC・ワークスペースを持ち、Teams / Outlook 等で同僚のように @メンション可能。月末にプライベート プレビューへ拡大。", chips: ["Preview"] },
+        ]
+      },
+      {
+        tag: "ビジネス コンテキスト（Microsoft IQ）",
+        items: [
+          { name: "Fabric IQ による grounding", desc: "Power BI の2,000万超のセマンティック モデルを含む信頼できるデータ コンテキストを Copilot に取り込み、Chat と Cowork を grounding。本日より両者で一般提供、Code 連携も Frontier で近日対応。", chips: ["GA"] },
+          { name: "Dynamics 365 / Power Platform の grounding", desc: "商談履歴やサポート チケットなどの業務データとワークフローに Copilot が接続。営業が提案書作成中でも、アプリ切替なしで関連データを文書に取り込める。来月パブリック プレビューで順次提供。", chips: ["Preview"] },
+          { name: "新しいプラグイン レジストリ", desc: "Microsoft・パートナー・自社カスタムのプラグインを1つの統合カタログに集約。IT が中央で承認・管理し、開発者は一度公開すれば各体験へ拡張。数週内に各サーフェスで一般提供。", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "価格・FinOps for AI",
+        items: [
+          { name: "USL＋Auto と 従量課金（UBB）", desc: "日常 AI は固定費のユーザー サブスクリプション ライセンス（USL）で、Auto が各リクエストの精度・速度・コストを比較して最適モデルへ自動ルーティング。エージェント業務は従量課金（UBB）で、Cowork・Code・Autopilot やフロンティア モデル（Astra・Fable）を利用。", chips: ["GA"] },
+          { name: "FinOps for AI（AI 支出の管理）", desc: "Agent 365・Insights・Copilot にコスト管理を追加。対象を Cowork / Work IQ API から Code・Copilot Managed Runtime に拡張し、10月に Copilot Studio 対応予定。管理者はポリシーの一括管理・モデル可用性の設定、ユーザーはクレジット利用状況や残高を Copilot 内で確認できる。", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "近日公開",
+        items: [
+          { name: "Home の「Today」", desc: "メール・予定表・Teams スレッド・会議・タスクを横断するプロアクティブな司令塔。見逃し・今対応すべき事項・後回し可を提示し、下書きや日程変更案、フォローアップまで準備。10月に Copilot でプライベート プレビュー、Outlook・Teams にも展開予定。", chips: ["Preview"] },
+          { name: "@Copilot in Teams", desc: "Teams で @Copilot を呼ぶと、チャネル／グループ チャット／会議の共有コンテキストと権限をチーム全員で活用。決定の経緯を横断的に把握し、依存関係・担当・未解決事項を含む部門横断レビューの準備も提案。月末に Teams でプライベート プレビュー。", chips: ["Preview"] },
+        ]
+      }
+    ]
+  },
+  {
+    date: "2026年7月",
+    title: "新モデル GPT-5.6 / Claude Sonnet 5 投入、Cowork のブラウザー自動化とイベント自動実行が拡充",
+    lead: "7月はフロンティア級の新モデル追加が目玉。Cowork のローカル ブラウザー操作やイベント トリガー自動実行、Office 各アプリのブランド統制・コメント運用も強化されました。",
+    source: "https://blogs.windows.com/japan/2026/09/03/whats-new-in-microsoft-365-copilot-july-2026-4538332/",
+    sourceNote: "米国版「What’s New in Microsoft 365 Copilot | July 2026」の日本語抄訳ブログ",
+    groups: [
+      {
+        tag: "新モデル",
+        items: [
+          { name: "OpenAI GPT-5.6 モデル ファミリー", desc: "M365 のナレッジ ワークに最適化。複雑で多段階のタスクの推論を強化し、Word の下書き、Excel の分析、PowerPoint 生成、Chat の応答、Cowork の成果物完遂までを支援。", chips: ["Frontier"] },
+          { name: "Anthropic Claude Sonnet 5", desc: "エージェント的な多段作業向けの新モデル。Copilot in PowerPoint / Word / Cowork で利用でき、タスクに応じたモデル選択の幅が広がる。", chips: ["Frontier"] },
+          { name: "Anthropic Claude Fable 5（Cowork）", desc: "長時間で複雑なプロジェクト向けに持続的な推論と深いコンテキスト処理を強化。既定はオフ。", chips: ["Frontier"] },
+        ]
+      },
+      {
+        tag: "Copilot Chat / Cowork",
+        items: [
+          { name: "Chat に Word/Excel/PowerPoint エージェントを追加", desc: "Copilot Chat のプロンプトで各アプリのエージェントを @メンションするだけで追加。アプリを離れず文書・表・スライドを作成できる。", chips: ["GA"] },
+          { name: "Copilot Search の回答強化", desc: "回答をより簡潔にし、サイドバーの Copilot Chat で会話を継続できることを明示。展開・活用の導線も改善。", chips: ["GA"] },
+          { name: "モバイル アプリのプッシュ通知", desc: "iOS / Android で「今日の予定の概要」「あなたを待っている項目」を通知。開くと応答が既に表示され、複数アプリの手動確認が不要に。", chips: ["GA"] },
+          { name: "Cowork のローカル ブラウザー自動化（Edge）", desc: "Edge にサインイン済みのユーザー向けに、SaaS ツールや社内ポータルなど日常の Web システム全体で Cowork が代理操作を実行。", chips: ["GA"] },
+          { name: "Cowork のイベント トリガー タスク", desc: "送信者・@メンション・キーワード・イベント名で起動する自動タスク。Teams やメール、会議の重要な瞬間を監視し、尋ねる前に応答を準備。", chips: ["Frontier"] },
+          { name: "スキル/プラグインで Cowork をカスタマイズ", desc: ".md・.zip・.skill をドラッグ アンド ドロップでスキル追加。Claude / Open-Plugin の zip も自動変換し、所有権を保ったまま特定メンバーへ共有可能。", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Office アプリ（Word / Excel / PowerPoint）",
+        items: [
+          { name: "Word 作成（ドラフト）ワークフロー", desc: "目次の挿入・更新に加え、ヘッダー、フッター、ページ番号、日付、脚注の管理を支援。手作業なしで整った文書を維持。", chips: ["GA"] },
+          { name: "Excel ブランド キット スキル", desc: "Microsoft 365 ブランド センターの承認済みの色・フォント・ロゴを表やグラフに自動適用し、レポートを会社のブランドに準拠させる。", chips: ["GA"] },
+          { name: "Excel テーマ デザイン スキル / Power BI 分析", desc: "調和のとれたデザイン適用に加え、ガバナンスされた Power BI データを Excel に取り込み、行レベル セキュリティを尊重して分析。8月提供。", chips: ["Preview"] },
+          { name: "PowerPoint ブランド アセット・コメント・iOS/iPad", desc: "会社のロゴ／テーマ／フォントの適用、スライド上でのコメント作成・返信・解決、iOS・iPad での多段階アクションに対応。", chips: ["GA"] },
+          { name: "PowerPoint カスタム ユーザー スキル", desc: "繰り返しの指示を再利用可能なスキル化し、OneDrive で作成・アップロード・更新。8月提供。", chips: ["Preview"] },
+          { name: "Copilot ノートブックの参照ファイル拡充", desc: "Markdown・TXT・RTF をノートブックの参照として追加可能に。TXT/RTF は7月、Markdown は8月提供。", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Teams / SharePoint・OneDrive",
+        items: [
+          { name: "Teams 会議レキャップ アプリ", desc: "AI 生成の会議レキャップを1つのアプリに集約しサイドバーにピン留め。過去30日の閲覧やクイック フィルター、音声レキャップに対応。", chips: ["GA"] },
+          { name: "エージェント アクセス インサイト ヒートマップ", desc: "SharePoint / OneDrive でのエージェント活動を可視化し、管理者がパターンやホットスポット、異常なアクセスを素早く検出。", chips: ["GA"] },
+          { name: "Copilot コネクタの拡充", desc: "金融・製造・ヘルスケアなど幅広い業界向けコネクタが追加。既存の権限とセキュリティを尊重し、業界固有のナレッジを業務の流れに取り込む。", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "管理・ガバナンス",
+        items: [
+          { name: "Web グラウンディングのドメイン除外", desc: "最大1,000件の指定ドメインを Copilot の Web グラウンディング結果から除外し、管理者が Web ソースへの監督を強化。", chips: ["GA"] },
+          { name: "外部メール参照を制限する DLP（Purview）", desc: "外部送信者からのメールを要約・参照・根拠データに使わないよう管理者が制御。パブリック プレビュー。", chips: ["Preview"] },
+          { name: "Agent 365 ダッシュボード（Insights）", desc: "チームのエージェント利用状況や定着率、上位エージェントを可視化。Copilot Studio エージェントの履歴レポートも同一画面で確認可能。", chips: ["GA"] },
+          { name: "コスト管理の更新", desc: "Cowork や Work IQ API など従量課金サービスの支出アラート、ポリシー適用、超過処理、Copilot クレジットの可視性を改善。", chips: ["GA"] },
+        ]
+      }
+    ]
+  },
+  {
     date: "2026年6月",
     title: "Copilot Cowork 一般提供、モデル選択・プラグイン・モバイル対応が拡充",
     lead: "6月はCopilot Coworkの一般提供(GA)が最大のトピック。実行系エージェントの機能が一気に強化されました。",
@@ -192,6 +299,113 @@ const chipClass = c => c === "GA" ? "ga" : (c === "Preview" || c === "Frontier")
 
 // ===== English content (mirrors POSTS) =====
 const EN_POSTS = [
+  {
+    date: "September 2026",
+    title: "Introducing the new Copilot — Home, Code, and Autopilot (formerly Scout)",
+    lead: "On September 25, Microsoft introduced the new Copilot: Home unites Chat and Cowork, Code lets anyone build solutions in natural language, and Autopilot (formerly Scout) is a persistent, proactive agent — plus new FinOps for AI to manage AI spend.",
+    source: "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+    sourceNote: "Microsoft official blog: Introducing the new Copilot with Home, Code and Autopilot (September 25, 2026)",
+    groups: [
+      {
+        tag: "Home / Office in Copilot",
+        items: [
+          { name: "Home (your new starting point)", desc: "A new starting point that brings Chat and Cowork together in one place — review recent activity, get suggestions, and pick up where you left off. Soon you will not need to choose a mode: just state the goal and Copilot routes it to Chat, Cowork, or Code. Rolling out in Frontier in the coming weeks.", chips: ["Frontier"] },
+          { name: "Office in Copilot", desc: "The full power of Word, Excel, and PowerPoint is built into Copilot. From Home, ask Copilot to draft a brief, model a budget, or build a deck, and it creates or updates a real, editable document live for your whole team, staying in sync with the Office apps and supporting @mention co-editing.", chips: ["Frontier"] },
+        ]
+      },
+      {
+        tag: "Code / runtime",
+        items: [
+          { name: "Code (solution building for everyone)", desc: "Describe an app, tracker, dashboard, automation, or workflow in natural language and Copilot builds it. Powered by the same technology as GitHub Copilot, it runs sandboxed and can be hosted securely in your tenant. Rolling out to Frontier at month end, broad availability in the coming weeks, and preview for Microsoft 365 Premium / Pro later this year.", chips: ["Frontier"] },
+          { name: "Copilot Managed Runtime", desc: "Hosting infrastructure that runs your apps safely inside your Microsoft 365 environment. Governed by IT but easy for everyone: share apps, connect to live data, and access from anywhere. It underpins apps built in Cowork, Code, and Copilot Studio, and is open to third-party and pro-code developers. In preview.", chips: ["Preview"] },
+        ]
+      },
+      {
+        tag: "Autopilot (formerly Scout)",
+        items: [
+          { name: "Autopilot (persistent, proactive, personal agent)", desc: "Formerly Scout. Give it a name, role, and goal, and it watches channels, follows up on threads, runs recurring work, and resumes projects days later without a prompt. Cloud-hosted so it keeps working while you sleep. It lives in your tenant with its own identity, memory, computer, and workspace, and you @mention it like a colleague in Teams and Outlook. Expanding to private preview at month end.", chips: ["Preview"] },
+        ]
+      },
+      {
+        tag: "Business context (Microsoft IQ)",
+        items: [
+          { name: "Grounding with Fabric IQ", desc: "Brings trusted data context — including the 20M+ semantic models in Power BI — into Copilot, grounding Chat and Cowork. Generally available in both today, with Code integration coming to Frontier soon.", chips: ["GA"] },
+          { name: "Dynamics 365 / Power Platform grounding", desc: "Copilot is now grounded in business data and workflows like deal history and support tickets, so a salesperson can pull the data straight into a proposal with no app-switching. Rolling out in public preview over the next month.", chips: ["Preview"] },
+          { name: "New plugin registry", desc: "Brings Microsoft, partner, and custom plugins into one unified catalog. IT approves and manages centrally, while developers publish once to extend Copilot across surfaces. Generally available across surfaces in the coming weeks.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Pricing & FinOps for AI",
+        items: [
+          { name: "USL + Auto and usage-based billing (UBB)", desc: "Everyday AI runs on a fixed-cost user subscription license (USL), where Auto weighs accuracy, speed, and cost per request to route to the best model. Agentic work runs on usage-based billing (UBB) — Cowork, Code, Autopilot, and frontier models like Astra and Fable.", chips: ["GA"] },
+          { name: "FinOps for AI (manage AI spend)", desc: "Adds cost management across Agent 365, Insights, and Copilot. Coverage expands from Cowork / Work IQ APIs to Code and Copilot Managed Runtime, with Copilot Studio planned for October. Admins manage spending policies and model availability at scale; end users can view credit usage and balances in Copilot.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Coming soon",
+        items: [
+          { name: "Today in Home", desc: "A proactive command center across mail, calendar, Teams threads, meetings, and tasks — showing what you missed, what needs attention now, and what can wait, with drafts, proposed schedule changes, and follow-ups ready to go. Private preview in Copilot in October, coming to Outlook and Teams too.", chips: ["Preview"] },
+          { name: "@Copilot in Teams", desc: "Invoke @Copilot in Teams and the whole team gets the shared context and permissions of the channel, group chat, or meeting. Ask why a decision was made and Copilot pulls the background, and it can prepare a cross-functional review with dependencies, owners, and open questions. Private preview in Teams by month end.", chips: ["Preview"] },
+        ]
+      }
+    ]
+  },
+  {
+    date: "July 2026",
+    title: "New GPT-5.6 and Claude Sonnet 5 models arrive; Cowork gains browser automation and event-triggered tasks",
+    lead: "July's highlight is a set of new frontier-class models. Cowork adds local browser automation and event-triggered execution, and the Office apps strengthen brand control and comment workflows.",
+    source: "https://blogs.windows.com/japan/2026/09/03/whats-new-in-microsoft-365-copilot-july-2026-4538332/",
+    sourceNote: "Japanese digest blog of the US What’s New in Microsoft 365 Copilot | July 2026",
+    groups: [
+      {
+        tag: "New models",
+        items: [
+          { name: "OpenAI GPT-5.6 model family", desc: "Optimized for knowledge work in M365. Stronger reasoning for complex, multi-step tasks across Word drafting, Excel analysis, PowerPoint generation, Chat responses, and end-to-end Cowork deliverables.", chips: ["Frontier"] },
+          { name: "Anthropic Claude Sonnet 5", desc: "A new model built for agentic, multi-step work. Available in Copilot in PowerPoint, Word, and Cowork, broadening model choice by task.", chips: ["Frontier"] },
+          { name: "Anthropic Claude Fable 5 (Cowork)", desc: "Tuned for long, complex projects with sustained reasoning and deeper context handling. Off by default.", chips: ["Frontier"] },
+        ]
+      },
+      {
+        tag: "Copilot Chat / Cowork",
+        items: [
+          { name: "Add Word/Excel/PowerPoint agents in Chat", desc: "Just @mention an app agent in a Copilot Chat prompt to add it, and create documents, spreadsheets, and presentations without leaving the app.", chips: ["GA"] },
+          { name: "Enhanced Copilot Search answers", desc: "More concise responses, with a clearer prompt to continue the conversation in the sidebar Copilot Chat and a smoother route to adoption.", chips: ["GA"] },
+          { name: "Mobile app push notifications", desc: "On iOS / Android, get Your Day at a Glance and Items waiting for you. Opening a notification shows the response already prepared, reducing manual app checks.", chips: ["GA"] },
+          { name: "Cowork local browser automation (Edge)", desc: "For users signed in to Edge, Cowork acts on their behalf across everyday web systems like SaaS tools and internal portals.", chips: ["GA"] },
+          { name: "Cowork event-triggered tasks", desc: "Create tasks triggered by sender, @mention, keyword, or event name. Cowork watches key moments in Teams and email and prepares a response before you ask.", chips: ["Frontier"] },
+          { name: "Customize Cowork with skills/plugins", desc: "Add skills by dragging .md, .zip, or .skill files; Claude and Open-Plugin zips convert automatically. Share with specific people while keeping ownership.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Office apps (Word / Excel / PowerPoint)",
+        items: [
+          { name: "Word authoring (draft) workflow", desc: "Insert and update a table of contents, plus manage headers, footers, page numbers, dates, and footnotes to keep documents polished without manual work.", chips: ["GA"] },
+          { name: "Excel Brand Kit skill", desc: "Automatically apply your organization's approved colors, fonts, and logos from the Microsoft 365 Brand Center to tables and charts for on-brand reports.", chips: ["GA"] },
+          { name: "Excel Theme Design skill / Power BI analysis", desc: "Apply cohesive design themes and analyze governed Power BI data directly in Excel, respecting existing row-level security. Rolling out in August.", chips: ["Preview"] },
+          { name: "PowerPoint brand assets, comments, iOS/iPad", desc: "Apply company logos, themes, and fonts, create, reply to, and resolve comments on slides, and run multi-step actions on iOS and iPad.", chips: ["GA"] },
+          { name: "PowerPoint custom user skills", desc: "Turn repeated instructions into reusable skills you create, upload, and update in OneDrive. Rolling out in August.", chips: ["Preview"] },
+          { name: "More reference file types in Copilot Notebooks", desc: "Add Markdown, TXT, and RTF files as notebook references. TXT/RTF in July, Markdown in August.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Teams / SharePoint & OneDrive",
+        items: [
+          { name: "Teams Meeting Recap app", desc: "Consolidates AI-generated recaps into one app you can pin to the Teams sidebar, with 30-day history, quick filters, and audio recaps.", chips: ["GA"] },
+          { name: "Agent access insights heatmap", desc: "Visualizes agent activity across SharePoint / OneDrive so admins can quickly spot patterns, hotspots, and unusual access behavior.", chips: ["GA"] },
+          { name: "More Copilot connectors", desc: "New connectors across finance, manufacturing, healthcare, and more bring industry knowledge into the flow of work while respecting existing permissions and security.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Administration & governance",
+        items: [
+          { name: "Web grounding domain exclusions", desc: "Exclude up to 1,000 specified domains from Copilot's web grounding results, giving admins tighter oversight of web-based sources.", chips: ["GA"] },
+          { name: "DLP to restrict external email references (Purview)", desc: "Admins can prevent messages from external senders from being summarized, referenced, or used as grounding data. Public preview.", chips: ["Preview"] },
+          { name: "Agent 365 dashboard (Insights)", desc: "Track team agent usage, retention, and top agents. Copilot Studio agent history reports are available via a toggle in the same dashboard.", chips: ["GA"] },
+          { name: "Cost management updates", desc: "Improved spend alerts, policy enforcement, overage handling, and Copilot credit visibility for usage-based services like Cowork and the Work IQ API.", chips: ["GA"] },
+        ]
+      }
+    ]
+  },
   {
     date: "June 2026",
     title: "Copilot Cowork goes GA; model choice, plugins, and mobile support expand",
