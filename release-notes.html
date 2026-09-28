@@ -218,7 +218,55 @@ const POSTS = [
 ];
 
 // ===== English content (mirrors POSTS by stable source URL). 未翻訳なら日本語にフォールバック。=====
-const EN_POSTS = [];
+const EN_POSTS = [
+  {
+    date: "Published Sept 23, 2026",
+    title: "Release notes digest (shipped Aug 26 – Sep 22, 2026)",
+    lead: "The main new features that reached general availability (Current Channel) in this window. Highlights include Excel edit transparency, admin/governance improvements, and the Planner agent.",
+    source: "https://learn.microsoft.com/ja-jp/microsoft-365/copilot/release-notes?tabs=all",
+    sourceNote: "Microsoft 365 Copilot release notes (official Learn). All listed features are generally available (Current Channel). Roadmap numbers are Microsoft 365 Roadmap IDs.",
+    groups: [
+      {
+        tag: "Excel",
+        items: [
+          { name: "Jump straight to changes from a Copilot response", desc: "Copilot responses include links that take you directly to what changed — new sheets, tables, ranges, charts, or shapes — in one click.", talk: "<b>Why it lands:</b> You can trace exactly where AI edited — edit transparency for audit- and review-conscious customers.", chips: ["GA"] },
+          { name: "See Copilot activity in the Show Changes pane", desc: "Review → Show Changes now displays attribution cards showing where Copilot edited or suggested, tracked alongside manual edits.", talk: "<b>Why it lands:</b> Audit AI contributions separately from manual edits — resonates with IT and change management.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Microsoft 365 Copilot (Search / People / Meetings)",
+        items: [
+          { name: "Email attachments shown as pills in search", desc: "Copilot search results present email attachments as easy-to-scan pills.", talk: "<b>Why it lands:</b> Fewer find-then-open round trips — faster everyday information access.", chips: ["GA"] },
+          { name: "Sort filter for Outlook mail in Copilot Search", desc: "Sort Outlook mail by relevance, date, and more in Copilot Search.", talk: "<b>Why it lands:</b> Reach the one message you need faster from a crowded inbox.", chips: ["GA"] },
+          { name: "New profile cards for buildings, rooms, and desks", desc: "New info cards for facilities and resources, helping locate seats and meeting rooms in hybrid work.", talk: "<b>Why it lands:</b> Improves the 'find a place' experience for return-to-office / hybrid customers.", chips: ["GA", "Roadmap 553219"] },
+          { name: "Find meetings by topic and keyword", desc: "Search past meetings by topic or keyword (iOS / Android / Windows / Mac).", talk: "<b>Why it lands:</b> Instantly answers 'which meeting was that?' — fast retrieval of discussions.", chips: ["GA"] },
+          { name: "Deeper Copilot analysis with enhanced Power BI filtering", desc: "Copilot analysis over Power BI data now supports more refined filtering.", talk: "<b>Why it lands:</b> Encourages natural-language analysis for customers already invested in BI.", chips: ["GA", "Roadmap 559995"] },
+        ]
+      },
+      {
+        tag: "Planner / Outlook",
+        items: [
+          { name: "Planner agent chat", desc: "Adds an agentic chat to Planner so you can build plans conversationally.", talk: "<b>Why it lands:</b> Lowers the barrier to start for task/plan management customers via an agent.", chips: ["GA", "Roadmap 560532"] },
+          { name: "More Outlook triage actions in Copilot", desc: "Copilot's email triage actions have expanded across all platforms.", talk: "<b>Why it lands:</b> Inbox-processing automation — the classic time-savings scenario.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Administration / Governance / FinOps",
+        items: [
+          { name: "Dedicated license request page (admin center)", desc: "A dedicated Copilot license request page in the Microsoft 365 admin center, with sorting, filtering, and bulk approval.", talk: "<b>Why it lands:</b> Reduces IT load during rollout — better control and speed for license distribution.", chips: ["GA", "Roadmap 561206"] },
+          { name: "Admin controls for People Skills deletion/management", desc: "Admins can now control deletion and management of People Skills.", talk: "<b>Why it lands:</b> Stronger data/skill governance — for control-focused customers.", chips: ["GA", "Roadmap 565905"] },
+          { name: "GitHub Copilot AI cost dashboard (Insights)", desc: "A dashboard to visualize GitHub Copilot AI usage costs.", talk: "<b>Why it lands:</b> FinOps angle — for customers seeking visibility and optimization of AI spend.", chips: ["GA"] },
+        ]
+      },
+      {
+        tag: "Copilot app",
+        items: [
+          { name: "Add references to Copilot Notebooks from search quick access", desc: "Add references directly to a Copilot Notebook from the search quick-access section of the Microsoft Copilot app (Web).", talk: "<b>Why it lands:</b> Smoother path into notebooks — supports consolidating project context.", chips: ["GA", "Roadmap 510099"] },
+        ]
+      }
+    ]
+  }
+];
 
 // ===== Language state =====
 let currentLang = "ja";
