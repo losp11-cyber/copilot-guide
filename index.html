@@ -373,7 +373,7 @@ table.matrix.lookup td.task { font-weight:600; }
   <header class="hero">
     <span class="eyebrow" data-i18n="hero_eyebrow">Microsoft Copilot ファミリー</span>
     <h1 data-i18n="hero_h1">製品使い分けガイド<br>― 業務シナリオで見る「どれが100点か」―</h1>
-    <p class="sub" data-i18n="hero_sub">M365 Copilot・Copilot Studio・Copilot Cowork・Microsoft Scout。同じ業務でも「どの製品が、どこまで解決できるか」は役割レベルによって変わります。代表的な業務を例に可視化しました。</p>
+    <p class="sub" data-i18n="hero_sub">M365 Copilot・Copilot Studio・Copilot Cowork・Microsoft Autopilot（旧 Scout）。同じ業務でも「どの製品が、どこまで解決できるか」は役割レベルによって変わります。代表的な業務を例に可視化しました。</p>
     <div class="industry-picker">
       <span class="ip-label">業種を選ぶ：</span>
       <div class="ip-tabs" id="industryTabs"></div>
@@ -449,7 +449,7 @@ table.matrix.lookup td.task { font-weight:600; }
   <section class="section">
     <div class="section-head">
       <h2 data-i18n="s6_h"><span class="num">6</span>実例：同じ定型業務を4製品でやると何が違うか</h2>
-      <p data-i18n="s6_p">「毎月の情報収集 → 要約 → 社内サイト(HTML)を更新 → Teams通知」という<b>定型業務の自動化</b>を題材に、4製品の“できる／できない”を分解します。<span style="color:var(--cp-accent);font-weight:600;">※ この使い分けガイドの「月次アップデート」ページ自体を、実際にScoutが自動更新しています。</span></p>
+      <p data-i18n="s6_p">「毎月の情報収集 → 要約 → 社内サイト(HTML)を更新 → Teams通知」という<b>定型業務の自動化</b>を題材に、4製品の“できる／できない”を分解します。<span style="color:var(--cp-accent);font-weight:600;">※ この使い分けガイドの「月次アップデート」ページ自体を、実際にAutopilotが自動更新しています。</span></p>
     </div>
     <div data-i18n="cmp_body">
     <div class="matrix-scroll">
@@ -460,7 +460,7 @@ table.matrix.lookup td.task { font-weight:600; }
             <th class="prodcol">M365 Copilot</th>
             <th class="prodcol">Copilot Studio</th>
             <th class="prodcol">Copilot Cowork</th>
-            <th class="prodcol">Microsoft Scout</th>
+            <th class="prodcol">Microsoft Autopilot</th>
           </tr>
         </thead>
         <tbody>
@@ -531,12 +531,12 @@ table.matrix.lookup td.task { font-weight:600; }
     </div>
 
     <div class="price-note" style="margin-top:20px;">
-      <div class="pn-title">🎯 Scout と Cowork、どこで選び分けるか</div>
+      <div class="pn-title">🎯 Autopilot と Cowork、どこで選び分けるか</div>
       <p>両者は「定時に自律実行してくれる」点は共通です。<b>分かれ目は2つ ── ①ファイルの置き場所（ローカルPCか、クラウドか）／②ブラウザを"実際に"自動操作するか</b>。</p>
-      <p><b>① ローカルPCのファイルを触るなら Scout</b>（＝今回のケース）：クラウド型のCoworkはローカルのファイルを直接編集できません（公式に <i>"Cloud hosting means files are not stored locally"</i> と明記）。<b>自分のPC上のファイルまで手を動かせるのはScoutだけ</b>。ファイルをOneDrive/SharePointに移せば<b>Coworkのスケジュール実行でも成立</b>します（Coworkにも定期スケジュール／イベントトリガーが公式機能としてあります）。</p>
-      <p><b>② ブラウザを完全自動操作するなら Scout</b>：ログインが要る社内WebやSaaS画面をまたいで“実際にクリック・入力して操作”するのはScoutの領域です（ローカルのファイル・ブラウザ・M365・シェルを横断）。CoworkのブラウザはEdge経由で公式ブログに記載がありますが<b>「Frontier限定」</b>で、<b>GAの公式機能一覧（2026/7/27時点のLearn）には未記載</b>。一般提供の自動ブラウザ操作としては当てにしない方が安全です。</p>
-      <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>一言でいうと</b> ── <b>作って全社展開なら Studio</b>／<b>クラウド完結で頼んで任せるなら Cowork</b>／<b>自分のPC・ブラウザまで先回りで動かすなら Scout</b>。</p>
-      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Copilot Cowork のクラウドホスト／ローカル非保存・USL＋Copilot Credits従量課金は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。スケジュールプロンプト／イベントトリガー／承認チェックポイント／Deep Researchスキルは <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn「Use Copilot Cowork」（2026/7/27更新。同ページの機能一覧にブラウザ自動操作の記載なし）</a>。ScoutのローカルPC操作・ブラウザ自動操作・常時稼働は Microsoft Scout 公式ドキュメントに基づく参考整理です。</p>
+      <p><b>① ローカルPCのファイルを触るなら Autopilot</b>（＝今回のケース）：クラウド型のCoworkはローカルのファイルを直接編集できません（公式に <i>"Cloud hosting means files are not stored locally"</i> と明記）。<b>自分のPC上のファイルまで手を動かせるのはAutopilotだけ</b>。ファイルをOneDrive/SharePointに移せば<b>Coworkのスケジュール実行でも成立</b>します（Coworkにも定期スケジュール／イベントトリガーが公式機能としてあります）。</p>
+      <p><b>② ブラウザを完全自動操作するなら Autopilot</b>：ログインが要る社内WebやSaaS画面をまたいで“実際にクリック・入力して操作”するのはAutopilotの領域です（ローカルのファイル・ブラウザ・M365・シェルを横断）。CoworkのブラウザはEdge経由で公式ブログに記載がありますが<b>「Frontier限定」</b>で、<b>GAの公式機能一覧（2026/7/27時点のLearn）には未記載</b>。一般提供の自動ブラウザ操作としては当てにしない方が安全です。</p>
+      <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>一言でいうと</b> ── <b>作って全社展開なら Studio</b>／<b>クラウド完結で頼んで任せるなら Cowork</b>／<b>自分のPC・ブラウザまで先回りで動かすなら Autopilot</b>。</p>
+      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Copilot Cowork のクラウドホスト／ローカル非保存・USL＋Copilot Credits従量課金は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。スケジュールプロンプト／イベントトリガー／承認チェックポイント／Deep Researchスキルは <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn「Use Copilot Cowork」（2026/7/27更新。同ページの機能一覧にブラウザ自動操作の記載なし）</a>。AutopilotのローカルPC操作・ブラウザ自動操作・常時稼働は Microsoft Autopilot 公式ドキュメントに基づく参考整理です。</p>
     </div>
     </div>
   </section>
@@ -563,7 +563,7 @@ table.matrix.lookup td.task { font-weight:600; }
     <div class="price-note">
       <div class="pn-title">🛡️ 4製品に共通する大前提</div>
       <p>・<b>お客様の既存のアクセス権・IDを尊重</b>：各製品は「そのユーザーが見える情報」しか扱いません。権限のないデータには到達しません。</p>
-      <p>・<b>重要操作の前に人間の承認</b>：メール送信・投稿・ファイル書き込み・コマンド実行などの前に、承認チェックポイントが入ります（Cowork／Scout）。</p>
+      <p>・<b>重要操作の前に人間の承認</b>：メール送信・投稿・ファイル書き込み・コマンド実行などの前に、承認チェックポイントが入ります（Cowork／Autopilot）。</p>
       <p>・<b>テナントのデータは基盤モデルの学習に使われません</b>（Microsoft 365 Copilot の公開コミットメント）。</p>
     </div>
 
@@ -591,7 +591,7 @@ table.matrix.lookup td.task { font-weight:600; }
         <p>・<b>テナント／グループ／ユーザー単位の予算上限・使用量アラート・利用レポート</b>でコストも統制。</p>
       </div>
       <div class="price-note" style="margin:0;border-top:4px solid #0f8a6a;">
-        <div class="pn-title">Microsoft Scout ― ローカルを“粒度の細かい権限”で制御</div>
+        <div class="pn-title">Microsoft Autopilot ― ローカルを“粒度の細かい権限”で制御</div>
         <p>・<b>重要操作の前に必ず承認</b>（メール送信・コマンド実行・ファイル書き込みなど）。</p>
         <p>・<b>細かい権限設定</b>：ファイル／シェル／ブラウザ／M365を<b>カテゴリ単位でオン・オフ</b>。自動承認するシェルコマンドを限定でき、<b>機微なフォルダは常に明示承認</b>。</p>
         <p>・エージェント固有の<b>独自のEntra ID</b>を持ち、誰が何をしたか追跡しやすい設計。</p>
@@ -603,9 +603,9 @@ table.matrix.lookup td.task { font-weight:600; }
     <div class="price-note" style="margin-top:20px;">
       <div class="pn-title">❓ お客様からよく出る3つの不安</div>
       <p><b>Q. 入力したデータがAIの学習に使われませんか？</b><br>A. いいえ。テナントのデータは基盤モデルの学習には使われません（M365 Copilotの公開コミットメント）。</p>
-      <p><b>Q. 自律的に動く＝勝手に危険な操作をしませんか？</b><br>A. 重要操作の前に必ず人間の承認が入ります。Scoutはさらに「カテゴリ単位の権限」「機微フォルダの明示承認」「自動承認コマンドの限定」で制御可能。Coworkは<b>既定オフ</b>で管理者が有効化対象を決めます。</p>
-      <p><b>Q. 情シスで統制・監査できますか？</b><br>A. できます。Coworkは既定オフ＋監査ログ／eDiscovery／インサイダーリスク管理などPurview系の保護面が対象で、予算上限も設定可。Scoutは粒度の細かい権限で範囲を絞れます。</p>
-      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Coworkのセキュリティ／コンプライアンス（既定オフ・監査ログ・DSPM・eDiscovery・インサイダーリスク管理・データライフサイクル管理・コミュニケーションコンプライアンス・DLP近日、秘密度ラベル継承、予算上限）は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。Scoutの承認・粒度権限・機微フォルダ・Frontierプレビューは <a href="https://learn.microsoft.com/en-us/microsoft-scout/overview" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Scout 公式ドキュメント（Learn）</a>。基盤モデル非学習・アクセス権尊重・秘密度ラベルはMicrosoft 365 Copilotの公開情報に基づく整理です。正式・最新の内容は各公式情報をご確認ください。</p>
+      <p><b>Q. 自律的に動く＝勝手に危険な操作をしませんか？</b><br>A. 重要操作の前に必ず人間の承認が入ります。Autopilotはさらに「カテゴリ単位の権限」「機微フォルダの明示承認」「自動承認コマンドの限定」で制御可能。Coworkは<b>既定オフ</b>で管理者が有効化対象を決めます。</p>
+      <p><b>Q. 情シスで統制・監査できますか？</b><br>A. できます。Coworkは既定オフ＋監査ログ／eDiscovery／インサイダーリスク管理などPurview系の保護面が対象で、予算上限も設定可。Autopilotは粒度の細かい権限で範囲を絞れます。</p>
+      <p class="disclaimer">※ 出典（2026年8月時点で確認）：Coworkのセキュリティ／コンプライアンス（既定オフ・監査ログ・DSPM・eDiscovery・インサイダーリスク管理・データライフサイクル管理・コミュニケーションコンプライアンス・DLP近日、秘密度ラベル継承、予算上限）は <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA発表ブログ（2026/6/16）</a>。Autopilotの承認・粒度権限・機微フォルダ・Frontierプレビューは <a href="https://learn.microsoft.com/en-us/microsoft-scout/overview" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Autopilot 公式ドキュメント（Learn）</a>。基盤モデル非学習・アクセス権尊重・秘密度ラベルはMicrosoft 365 Copilotの公開情報に基づく整理です。正式・最新の内容は各公式情報をご確認ください。</p>
     </div>
     </div>
   </section>
@@ -631,8 +631,8 @@ table.matrix.lookup td.task { font-weight:600; }
       <span class="mc-arrow">↗</span>
     </a>
     <div class="price-note" style="margin-top:18px;" data-i18n="cases_note">
-      <div class="pn-title">ℹ️ Copilot Cowork・Microsoft Scout の国内事例について</div>
-      <p>Cowork（2026年6月GA）・Scout（2026年提供開始）は登場して間もないため、<b>日本企業の公開導入事例は現時点で確認されていません</b>。</p>
+      <div class="pn-title">ℹ️ Copilot Cowork・Microsoft Autopilot の国内事例について</div>
+      <p>Cowork（2026年6月GA）・Autopilot（2026年提供開始）は登場して間もないため、<b>日本企業の公開導入事例は現時点で確認されていません</b>。</p>
       <p class="disclaimer">※ 掲載事例はすべてMicrosoft公式ブログ・顧客事例ページ等の公開情報に基づく参考情報です（各カードに出典リンク）。数値・利用者数は出典公表時点のもので、最新状況は変動する可能性があります。提案時は必ず出典と最新情報をご確認ください。</p>
     </div>
   </section>
@@ -664,7 +664,7 @@ const PRODUCTS = {
     form:"構築プラットフォーム（Copilot Creditsで利用）",
     price:"従量 $0.01/クレジット、またはプリペイドパック 25,000クレジット/月 ≒ $200/テナント/月",
     tags:["エージェント構築","自社システム連携","全社配布"] },
-  scout:  { name: "Microsoft Scout",color: "#0f8a6a", level: "Proactive ｜ 先回り",    desc: "常時オンで先回り。ローカルPC・ブラウザ・M365を横断し、依頼を待たず自律的に実行。",
+  scout:  { name: "Microsoft Autopilot（旧 Scout）",color: "#0f8a6a", level: "Proactive ｜ 先回り",    desc: "常時オンで先回り。ローカルPC・ブラウザ・M365を横断し、依頼を待たず自律的に実行。",
     what:"常時オンで先回りする“個人の自律エージェント”。ローカルPCのファイル操作・ブラウザ・M365を横断して実際に手を動かし、監視・条件トリガー・定例スケジュールで、依頼を待たずに動きます。",
     who:"個人（自分の作業を代行させたい人）",
     form:"常時オンの個人エージェント（プレビュー/先行提供）",
@@ -759,7 +759,7 @@ function renderMatrix(){
       <th class="prodcol">M365<br>Copilot</th>
       <th class="prodcol">Copilot<br>Cowork</th>
       <th class="prodcol">Copilot<br>Studio</th>
-      <th class="prodcol">Microsoft<br>Scout</th>
+      <th class="prodcol">Microsoft<br>Autopilot</th>
     </tr></thead>
     <tbody>
     ${D('TASKS').map(t => `<tr>
@@ -816,15 +816,15 @@ const SCEN = [
     { tag:"（対比）この使い分け資料そのものをCoworkで作るなら",
       story:"「4製品の使い分けを説明する提案デッキ(PPT)を作って。①役割レベル ②タスク×製品カバレッジ表 ③各製品の100点シナリオ3つ ④動き方フロー を含め、比較マトリクスのExcelと1枚概要のWordも」→ 1回の依頼で PPT＋Excel＋Word の完成物一式が返る。",
       win:"そのまま配れる完成度の高いOffice資料が短時間で一式。役員提出・メール添付・全社配布に強い。",
-      limit:"インタラクティブ性（クリック展開・タブ）と、会話テンポの即時微修正、ローカル完結は持てない。“触れる/その場で作り込む”成果物はScoutの領域。",
+      limit:"インタラクティブ性（クリック展開・タブ）と、会話テンポの即時微修正、ローカル完結は持てない。“触れる/その場で作り込む”成果物はAutopilotの領域。",
       chips:["PowerPoint","Excelマトリクス","Word概要","一式生成"],
       rebuttal:{
-        q:"Scout版（HTML）とどう違う？──成果物フォーマットの選び方",
+        q:"Autopilot版（HTML）とどう違う？──成果物フォーマットの選び方",
         points:[
           "<b>Coworkにするなら成果物はOffice形式に翻訳</b>：主役はPPT、補助にExcel(比較表)とWord(1枚概要)。インタラクティブHTMLの双方向性は諦める前提。",
           "<b>作り方は“一撃委任→まとめて修正”</b>：1回の依頼で一式生成。修正は「シナリオ追加」など<b>まとまった単位</b>で再依頼（数十秒ごとの微修正ループではない）。",
-          "<b>使い分けの一言</b>：<b>“配る資料”ならCowork（PPT/Excel/Word）、“その場で一緒に作り込む・触れる成果物”ならScout（HTML）</b>。",
-          "<b>同じ内容でも狙いが違う</b>：Coworkは提出・配布向けの静的資料、Scoutは商談で見せる/触らせる生きたデモ。用途で選ぶ。"
+          "<b>使い分けの一言</b>：<b>“配る資料”ならCowork（PPT/Excel/Word）、“その場で一緒に作り込む・触れる成果物”ならAutopilot（HTML）</b>。",
+          "<b>同じ内容でも狙いが違う</b>：Coworkは提出・配布向けの静的資料、Autopilotは商談で見せる/触らせる生きたデモ。用途で選ぶ。"
         ]
       } },
   ]},
@@ -839,7 +839,7 @@ const SCEN = [
       story:{ generic:"自社サイトやTeamsに、サービスマニュアル・FAQ・在庫/契約APIと連携した「カスタマーサポートエージェント」を公開。問い合わせに即回答し、複雑な案件は担当へエスカレーション。",
               manufacturing:"自社サイトやTeamsに、製品マニュアル・FAQ・部品在庫APIと連携した「カスタマーサポートエージェント」を公開。型番から適合部品や納期を即回答し、複雑な問い合わせは担当へエスカレーション。" },
       win:"社外チャネルへ展開でき、24時間・多言語で一次対応を自動化。問い合わせ件数の削減に直結。",
-      limit:"個人が“自分のPC上で”行う作業代行ではない。個人業務の先回りはScoutの領域。",
+      limit:"個人が“自分のPC上で”行う作業代行ではない。個人業務の先回りはAutopilotの領域。",
       chips:{ generic:["外部公開","FAQ/API連携","多言語","エスカレーション"], manufacturing:["外部公開","FAQ/在庫API","多言語","エスカレーション"] } },
     { tag:"基幹プロセスの自動化フロー（承認・起票）",
       story:{ generic:"「問題発生時に、記録から対応票を自動起票し、担当者承認をTeamsのAdaptive Cardで回し、基幹システムに登録する」ワークフローを構築。人は承認ボタンを押すだけ。",
@@ -850,8 +850,8 @@ const SCEN = [
   ]},
   { key:"scout", scenarios:[
     { tag:"常時オンで先回り、個人環境を横断して自律実行",
-      story:{ generic:"営業個人のScoutが毎朝自動で —— 担当顧客の関連メール/Teamsを監視、関連ニュースをブラウザ収集、商談前にブリーフィングを準備、リスク顧客をアラート。PCローカルの提案ファイルも直接操作。",
-              manufacturing:"営業個人のScoutが毎朝自動で —— 担当顧客の生産トラブル関連メール/Teamsを監視、関連ニュースをブラウザ収集、商談前にブリーフィングを準備、リスク顧客をアラート。PCローカルの見積ファイルも直接操作。" },
+      story:{ generic:"営業個人のAutopilotが毎朝自動で —— 担当顧客の関連メール/Teamsを監視、関連ニュースをブラウザ収集、商談前にブリーフィングを準備、リスク顧客をアラート。PCローカルの提案ファイルも直接操作。",
+              manufacturing:"営業個人のAutopilotが毎朝自動で —— 担当顧客の生産トラブル関連メール/Teamsを監視、関連ニュースをブラウザ収集、商談前にブリーフィングを準備、リスク顧客をアラート。PCローカルの見積ファイルも直接操作。" },
       win:"依頼を待たず“先回り”。ローカル/ブラウザ含む個人の実行代行と、継続監視ができる唯一の存在。",
       limit:{ generic:"業績分析のような“一回きりのタスク”には不要。チーム全体の業務自動化はStudioの領域。", manufacturing:"売上分析のような“一回きりのタスク”には不要。チーム全体の業務自動化はStudioの領域。" },
       chips:["常時オン","先回り","ローカル操作","ブラウザ横断","継続監視"] },
@@ -862,21 +862,21 @@ const SCEN = [
       limit:"全社で標準化・統制したい業務は、専用エージェント化できるStudioが適切。",
       chips:["イベント駆動","ローカル検索","ブラウザ参照","下書き準備"] },
     { tag:"定例レポートの自動組み立て（ローカル×Web×M365）",
-      story:{ generic:"毎週金曜、Scoutが自動で —— ローカルの実績CSVを集計し、社内ポータルと外部サイトから最新値をブラウザ取得、M365の関連メールを加味して「週次サマリー」を組み立て、上長に共有ドラフトを用意。",
-              manufacturing:"毎週金曜、Scoutが自動で —— ローカルの生産実績CSVを集計し、社内ポータルとサプライヤーサイトから最新値をブラウザ取得、M365の関連メールを加味して「週次サマリー」を組み立て、上長に共有ドラフトを用意。" },
+      story:{ generic:"毎週金曜、Autopilotが自動で —— ローカルの実績CSVを集計し、社内ポータルと外部サイトから最新値をブラウザ取得、M365の関連メールを加味して「週次サマリー」を組み立て、上長に共有ドラフトを用意。",
+              manufacturing:"毎週金曜、Autopilotが自動で —— ローカルの生産実績CSVを集計し、社内ポータルとサプライヤーサイトから最新値をブラウザ取得、M365の関連メールを加味して「週次サマリー」を組み立て、上長に共有ドラフトを用意。" },
       win:"ローカル・Web・M365をまたいで手を動かし、定例業務を継続的に自動化。個人の“もう一人の自分”。",
       limit:"クラウド完結の重量級ワンショットはCowork、全社配布の仕組み化はStudioが向く。",
       chips:["スケジュール実行","CSV集計","Web取得","週次レポート"] },
     { tag:"ローカル資料の対話リアルタイム共作（← この資料はこれで作成）",
       story:"「製品比較のインタラクティブHTMLを作って」→ ローカルにファイルを生成。続けて「シナリオを3つ追加」「各製品のフローも入れて」と会話しながら、その場でファイルを直接編集・保存。数十秒単位で反映され、営業がすぐ客先に持ち出せる形に仕上がる。",
-      win:"ローカルファイルを直接操作し、会話のテンポで反復編集。この資料自体がScoutで作られた“生きたデモ”になる。",
-      limit:"Coworkは一式を“投げて待つ”モデルでクラウド生成は得意だが、ローカルファイルの直接操作と対話的な微修正の往復はScoutの領域（少し足りない）。",
+      win:"ローカルファイルを直接操作し、会話のテンポで反復編集。この資料自体がAutopilotで作られた“生きたデモ”になる。",
+      limit:"Coworkは一式を“投げて待つ”モデルでクラウド生成は得意だが、ローカルファイルの直接操作と対話的な微修正の往復はAutopilotの領域（少し足りない）。",
       chips:["ローカル直接編集","対話で反復","即時反映","コード実行/ブラウザ横断"],
       rebuttal:{
         q:"「これ、Coworkでもできそうじゃない？」と言われたら",
         points:[
           "<b>成果物の種類が違う</b>：Coworkが得意なのはOffice成果物(Word/Excel/PPT/PDF)。今回は<b>任意のHTML＋コード実行(PowerShell)＋ブラウザ確認</b>を横断する“開発的”な作り方で、これはCoworkの想定外。",
-          "<b>作り方が違う（委任 vs 共作）</b>：Coworkは「投げて背景で実行し完成物を返す」委任型。今回は<b>数十秒テンポで差分編集→確認→また修正</b>という密な往復。この対話ループはScoutの土俵。",
+          "<b>作り方が違う（委任 vs 共作）</b>：Coworkは「投げて背景で実行し完成物を返す」委任型。今回は<b>数十秒テンポで差分編集→確認→また修正</b>という密な往復。この対話ループはAutopilotの土俵。",
           "<b>実行環境が違う</b>：この作業は<b>あなたのPC上</b>でファイルを直接いじり、ローカルのツールを実行している。Coworkはクラウド(M365)側で動くため、ローカル環境そのものを操作する動きはしない。",
           "<b>クラウドに置いても本質は残る</b>：ファイルをOneDriveに置けば“アクセス”はできるが、埋まるのは「置き場所」だけ。<b>任意コード実行×対話反復という“作り方”のギャップは場所を変えても消えない</b>。"
         ]
@@ -1033,9 +1033,9 @@ function renderLookup(){
 // Section 7: FAQ
 const FAQ = [
   { q:"「M365 Copilotがあれば十分では？」",
-    a:"M365 Copilotは“Officeの中で人が主導する日常業務”の土台です。ただし<b>分析→レポート→デッキ→送信まで一式を丸ごと任せる</b>のはCowork、<b>自社システム連携の全社エージェント</b>はStudio、<b>常時オンで先回り＋ローカル実行</b>はScoutの領域。土台＋αの関係で、競合ではなく役割分担です。" },
-  { q:"「CoworkとScoutは何が違うの？」",
-    a:"<b>Cowork＝“投げて待つ”委任型</b>（クラウドでOffice成果物を一式生成）。<b>Scout＝“一緒に手を動かす”先回り型</b>（常時オン・ローカルPC/ブラウザ横断・対話反復）。配る資料はCowork、その場で作り込む/触れる成果物・継続監視はScout、と覚えると迷いません。" },
+    a:"M365 Copilotは“Officeの中で人が主導する日常業務”の土台です。ただし<b>分析→レポート→デッキ→送信まで一式を丸ごと任せる</b>のはCowork、<b>自社システム連携の全社エージェント</b>はStudio、<b>常時オンで先回り＋ローカル実行</b>はAutopilotの領域。土台＋αの関係で、競合ではなく役割分担です。" },
+  { q:"「CoworkとAutopilotは何が違うの？」",
+    a:"<b>Cowork＝“投げて待つ”委任型</b>（クラウドでOffice成果物を一式生成）。<b>Autopilot＝“一緒に手を動かす”先回り型</b>（常時オン・ローカルPC/ブラウザ横断・対話反復）。配る資料はCowork、その場で作り込む/触れる成果物・継続監視はAutopilot、と覚えると迷いません。" },
   { q:"「Copilot StudioとCoworkの境目は？」",
     a:"<b>Studio＝作る</b>（自社データ連携の専用エージェントを構築し、繰り返し・全社で使う）。<b>Cowork＝実行する</b>（その場で重い複合タスクを委任し完成物を得る）。“繰り返し・全社標準化”ならStudio、“一回性の重いタスク”ならCowork。" },
   { q:"「ChatGPTなど他のAIと何が違うの？」",
@@ -1043,7 +1043,7 @@ const FAQ = [
   { q:"「料金が使った分だけ（従量）だと読めない/不安」",
     a:"<b>M365 Copilotライセンス保有者の社内利用は多くが0円</b>で、Cowork等の重い実行分だけがCopilot Credits（$0.01/クレジット）の対象です。<b>プリペイドパックや上限設定</b>で予算管理も可能。まずは対象業務を絞ってスモールスタートするのが定石です。" },
   { q:"「セキュリティ・情報漏えいが心配」",
-    a:"各製品はM365のテナント境界・権限（アクセス権/機密ラベル等）の中で動作し、<b>ユーザーが見られないデータは参照しません</b>。Coworkは重要操作の前に<b>承認ポイント</b>を挟み、Studio/Scoutも管理者ポリシーで制御可能。まずは限定スコープのPoCから始められます。" },
+    a:"各製品はM365のテナント境界・権限（アクセス権/機密ラベル等）の中で動作し、<b>ユーザーが見られないデータは参照しません</b>。Coworkは重要操作の前に<b>承認ポイント</b>を挟み、Studio/Autopilotも管理者ポリシーで制御可能。まずは限定スコープのPoCから始められます。" },
 ];
 const faqEl = document.getElementById("faq");
 function renderFaq(){
@@ -1136,7 +1136,7 @@ let EN_DATA = {
       form:"Build platform (consumes Copilot Credits)",
       price:"Usage $0.01/credit, or prepaid pack 25,000 credits/month ≈ $200/tenant/month",
       tags:["Agent building","Connect your systems","Company-wide rollout"] },
-    scout: { name:"Microsoft Scout", color:"#0f8a6a", level:"Proactive",
+    scout: { name:"Microsoft Autopilot (formerly Scout)", color:"#0f8a6a", level:"Proactive",
       desc:"Always on and proactive. Works across your local PC, browser, and M365, acting autonomously without waiting to be asked.",
       what:"An always-on “personal autonomous agent.” It actually takes action across your local PC files, the browser, and M365 — via monitoring, condition triggers, and scheduled runs — moving before you ask.",
       who:"Individuals (who want their own work done for them)",
@@ -1196,15 +1196,15 @@ let EN_DATA = {
       { tag:"(Contrast) If you built this very guide with Cowork",
         story:"“Make a proposal deck (PPT) explaining the four products, including ① role levels ② a task × product coverage table ③ three 100-point scenarios per product ④ how-they-work flows, plus a comparison-matrix Excel and a one-page Word overview” → one request returns a PPT + Excel + Word set.",
         win:"A polished, ready-to-share Office set in a short time. Strong for exec submission, email attachment, company-wide distribution.",
-        limit:"It can't offer interactivity (click-to-expand, tabs), instant conversational tweaks, or local-only operation. “Touchable / built-on-the-spot” deliverables are Scout's territory.",
+        limit:"It can't offer interactivity (click-to-expand, tabs), instant conversational tweaks, or local-only operation. “Touchable / built-on-the-spot” deliverables are Autopilot's territory.",
         chips:["PowerPoint","Excel matrix","Word overview","Set generation"],
         rebuttal:{
-          q:"How is it different from the Scout (HTML) version? — choosing the deliverable format",
+          q:"How is it different from the Autopilot (HTML) version? — choosing the deliverable format",
           points:[
             "<b>If you go with Cowork, translate deliverables into Office formats</b>: PPT as the lead, with a comparison Excel and a one-page Word as support. You give up the two-way interactivity of interactive HTML.",
             "<b>The build style is “delegate once → fix in batches”</b>: one request generates the set. Revisions are re-requested in <b>meaningful chunks</b> (e.g., “add a scenario”), not a tweak-every-few-seconds loop.",
-            "<b>Rule of thumb</b>: <b>for “materials to distribute,” Cowork (PPT/Excel/Word); for “a deliverable you build together and can touch on the spot,” Scout (HTML)</b>.",
-            "<b>Same content, different intent</b>: Cowork makes static materials for submission/distribution; Scout makes a living demo you show and let people touch in the meeting. Choose by purpose."
+            "<b>Rule of thumb</b>: <b>for “materials to distribute,” Cowork (PPT/Excel/Word); for “a deliverable you build together and can touch on the spot,” Autopilot (HTML)</b>.",
+            "<b>Same content, different intent</b>: Cowork makes static materials for submission/distribution; Autopilot makes a living demo you show and let people touch in the meeting. Choose by purpose."
           ]
         } },
     ]},
@@ -1219,7 +1219,7 @@ let EN_DATA = {
         story:{ generic:"Publish a “customer-support agent” on your site or in Teams, integrated with service manuals, FAQs, and inventory/contract APIs. It answers inquiries instantly and escalates complex cases to a human.",
                 manufacturing:"Publish a “customer-support agent” on your site or in Teams, integrated with product manuals, FAQs, and parts-inventory APIs. It answers compatible parts and lead times from a model number instantly and escalates complex inquiries to a human." },
         win:"Deploy to external channels and automate first-line response 24/7 and multilingual. Directly cuts inquiry volume.",
-        limit:"It's not doing an individual's work “on their PC.” Proactive personal work is Scout's territory.",
+        limit:"It's not doing an individual's work “on their PC.” Proactive personal work is Autopilot's territory.",
         chips:{ generic:["External publishing","FAQ/API integration","Multilingual","Escalation"], manufacturing:["External publishing","FAQ/inventory API","Multilingual","Escalation"] } },
       { tag:"Core-process automation flow (approval & ticketing)",
         story:{ generic:"Build a workflow that, when an issue occurs, auto-creates a response ticket from records, routes approver sign-off via a Teams Adaptive Card, and registers it in the core system. People just press the approve button.",
@@ -1230,8 +1230,8 @@ let EN_DATA = {
     ]},
     { key:"scout", scenarios:[
       { tag:"Always on and proactive, executing autonomously across your personal environment",
-        story:{ generic:"A salesperson's personal Scout, every morning automatically — monitors related emails/Teams for accounts, gathers relevant news via the browser, prepares a pre-meeting briefing, and alerts on at-risk accounts. It also directly operates proposal files on the local PC.",
-                manufacturing:"A salesperson's personal Scout, every morning automatically — monitors emails/Teams about customers' production troubles, gathers relevant news via the browser, prepares a pre-meeting briefing, and alerts on at-risk accounts. It also directly operates quote files on the local PC." },
+        story:{ generic:"A salesperson's personal Autopilot, every morning automatically — monitors related emails/Teams for accounts, gathers relevant news via the browser, prepares a pre-meeting briefing, and alerts on at-risk accounts. It also directly operates proposal files on the local PC.",
+                manufacturing:"A salesperson's personal Autopilot, every morning automatically — monitors emails/Teams about customers' production troubles, gathers relevant news via the browser, prepares a pre-meeting briefing, and alerts on at-risk accounts. It also directly operates quote files on the local PC." },
         win:"Proactive, without being asked. The only one that can act on your behalf across local/browser and keep monitoring continuously.",
         limit:{ generic:"Not needed for one-off tasks like performance analysis. Team-wide automation is Studio's territory.", manufacturing:"Not needed for one-off tasks like sales analysis. Team-wide automation is Studio's territory." },
         chips:["Always on","Proactive","Local operation","Cross-browser","Continuous monitoring"] },
@@ -1242,21 +1242,21 @@ let EN_DATA = {
         limit:"Work you want standardized and governed company-wide is better as a dedicated agent in Studio.",
         chips:["Event-driven","Local search","Browser reference","Draft prep"] },
       { tag:"Auto-assembling a recurring report (local × Web × M365)",
-        story:{ generic:"Every Friday, Scout automatically — aggregates local results CSVs, fetches the latest figures from the intranet and external sites via the browser, factors in related M365 emails, assembles a “weekly summary,” and prepares a share-ready draft for your manager.",
-                manufacturing:"Every Friday, Scout automatically — aggregates local production-results CSVs, fetches the latest figures from the intranet and supplier sites via the browser, factors in related M365 emails, assembles a “weekly summary,” and prepares a share-ready draft for your manager." },
+        story:{ generic:"Every Friday, Autopilot automatically — aggregates local results CSVs, fetches the latest figures from the intranet and external sites via the browser, factors in related M365 emails, assembles a “weekly summary,” and prepares a share-ready draft for your manager.",
+                manufacturing:"Every Friday, Autopilot automatically — aggregates local production-results CSVs, fetches the latest figures from the intranet and supplier sites via the browser, factors in related M365 emails, assembles a “weekly summary,” and prepares a share-ready draft for your manager." },
         win:"Takes action across local, Web, and M365 to continuously automate recurring work. Your “second self.”",
         limit:"Cloud-only heavyweight one-shots suit Cowork; company-wide systematization suits Studio.",
         chips:["Scheduled run","CSV aggregation","Web fetch","Weekly report"] },
       { tag:"Real-time co-creation of local materials (← this guide was made this way)",
         story:"“Make an interactive product-comparison HTML” → generates the file locally. Then, conversationally: “add three scenarios,” “include each product's flow,” editing and saving the file directly on the spot. Changes land in seconds, ready for sales to take to a customer.",
-        win:"Directly operates local files and iterates at the pace of conversation. This very guide is a “living demo” built with Scout.",
-        limit:"Cowork's “throw it and wait” model is good at cloud generation, but direct local-file operation and the interactive tweak loop are Scout's territory (a bit beyond Cowork).",
+        win:"Directly operates local files and iterates at the pace of conversation. This very guide is a “living demo” built with Autopilot.",
+        limit:"Cowork's “throw it and wait” model is good at cloud generation, but direct local-file operation and the interactive tweak loop are Autopilot's territory (a bit beyond Cowork).",
         chips:["Direct local editing","Iterate by conversation","Instant reflection","Code exec / cross-browser"],
         rebuttal:{
           q:"If someone says “couldn't Cowork do this too?”",
           points:[
             "<b>The deliverable type differs</b>: Cowork excels at Office deliverables (Word/Excel/PPT/PDF). This was a “developer-style” build spanning <b>arbitrary HTML + code execution (PowerShell) + browser checks</b> — outside Cowork's assumptions.",
-            "<b>The build style differs (delegate vs. co-create)</b>: Cowork is delegation — “throw it, run in the background, return a deliverable.” This was a tight loop of <b>diff-edit → check → edit again every few seconds</b>. That conversational loop is Scout's turf.",
+            "<b>The build style differs (delegate vs. co-create)</b>: Cowork is delegation — “throw it, run in the background, return a deliverable.” This was a tight loop of <b>diff-edit → check → edit again every few seconds</b>. That conversational loop is Autopilot's turf.",
             "<b>The runtime differs</b>: this work directly edited files <b>on your PC</b> and ran local tools. Cowork runs on the cloud (M365) side, so it doesn't operate the local environment itself.",
             "<b>Moving to the cloud doesn't remove the core gap</b>: putting files on OneDrive gets you “access,” but only fills the “location” gap. <b>The “how you build” gap — arbitrary code execution × conversational iteration — doesn't disappear by changing location</b>."
           ]
@@ -1313,9 +1313,9 @@ let EN_DATA = {
   ],
   FAQ: [
     { q:"“Isn't M365 Copilot enough on its own?”",
-      a:"M365 Copilot is the foundation for “everyday work a person drives inside Office.” But <b>delegating the whole analyze→report→deck→send set</b> is Cowork; <b>a company-wide agent integrated with your systems</b> is Studio; <b>always-on, proactive + local execution</b> is Scout. It's foundation-plus-α — a division of roles, not competition." },
-    { q:"“What's the difference between Cowork and Scout?”",
-      a:"<b>Cowork = “throw it and wait” delegation</b> (generates an Office deliverable set in the cloud). <b>Scout = “work hands-on together” proactive</b> (always on, spanning local PC/browser, iterating conversationally). Materials to distribute → Cowork; deliverables you build/touch on the spot and continuous monitoring → Scout. That keeps it clear." },
+      a:"M365 Copilot is the foundation for “everyday work a person drives inside Office.” But <b>delegating the whole analyze→report→deck→send set</b> is Cowork; <b>a company-wide agent integrated with your systems</b> is Studio; <b>always-on, proactive + local execution</b> is Autopilot. It's foundation-plus-α — a division of roles, not competition." },
+    { q:"“What's the difference between Cowork and Autopilot?”",
+      a:"<b>Cowork = “throw it and wait” delegation</b> (generates an Office deliverable set in the cloud). <b>Autopilot = “work hands-on together” proactive</b> (always on, spanning local PC/browser, iterating conversationally). Materials to distribute → Cowork; deliverables you build/touch on the spot and continuous monitoring → Autopilot. That keeps it clear." },
     { q:"“Where's the line between Copilot Studio and Cowork?”",
       a:"<b>Studio = build</b> (create a dedicated agent integrated with your data, used repeatedly, company-wide). <b>Cowork = execute</b> (delegate a heavy composite task on the spot and get a deliverable). “Repeated, company-wide standard” → Studio; “one-off heavy task” → Cowork." },
     { q:"“How is this different from other AI like ChatGPT?”",
@@ -1323,7 +1323,7 @@ let EN_DATA = {
     { q:"“Pay-as-you-go pricing feels unpredictable / worrying”",
       a:"<b>Internal use by M365 Copilot license holders is largely $0</b>; only heavy execution like Cowork consumes Copilot Credits ($0.01/credit). <b>Prepaid packs and spending limits</b> keep budgets in control. The standard play is to start small on a focused set of tasks." },
     { q:"“I'm worried about security / data leakage”",
-      a:"Each product operates within M365's tenant boundary and permissions (access rights, sensitivity labels, etc.) and <b>never references data the user can't see</b>. Cowork inserts <b>approval checkpoints</b> before important actions, and Studio/Scout are controllable via admin policies. You can start from a limited-scope PoC." },
+      a:"Each product operates within M365's tenant boundary and permissions (access rights, sensitivity labels, etc.) and <b>never references data the user can't see</b>. Cowork inserts <b>approval checkpoints</b> before important actions, and Studio/Autopilot are controllable via admin policies. You can start from a limited-scope PoC." },
   ],
   CASES: [
     { company:"Santen Pharmaceutical", sector:"Manufacturing / Pharma", prod:"m365", featured:true,
@@ -1360,7 +1360,7 @@ const D = k => (currentLang === "en" && EN_DATA[k]) ? EN_DATA[k] : JA_DATA[k];
 let STATIC = {
   hero_eyebrow: `The Microsoft Copilot family`,
   hero_h1: `Product Selection Guide<br>— “Which one scores 100?”, seen through business scenarios —`,
-  hero_sub: `M365 Copilot, Copilot Studio, Copilot Cowork, Microsoft Scout. Even for the same work, “which product solves it, and how far” changes by role level. We've visualized it through representative tasks.`,
+  hero_sub: `M365 Copilot, Copilot Studio, Copilot Cowork, Microsoft Autopilot (formerly Scout). Even for the same work, “which product solves it, and how far” changes by role level. We've visualized it through representative tasks.`,
   hero_pill: `Click each scenario to expand the details`,
   hero_updates: `📅 View monthly updates →`,
   hero_comparison: `Compare free vs. paid features →`,
@@ -1379,7 +1379,7 @@ let STATIC = {
   s5_h: `<span class="num">5</span>Extra: how each product “works”`,
   s5_p: `Even the same “AI” works — i.e., gets the job done — in completely different ways. Switch tabs to see each product's flow.`,
   s6_h: `<span class="num">6</span>In practice: the same routine task across the four products`,
-  s6_p: `Taking <b>automating a routine task</b> — “monthly info gathering → summarize → update an internal site (HTML) → notify in Teams” — we break down what each of the four products can and can't do. <span style="color:var(--cp-accent);font-weight:600;">※ The “monthly updates” page of this very guide is actually auto-updated by Scout.</span>`,
+  s6_p: `Taking <b>automating a routine task</b> — “monthly info gathering → summarize → update an internal site (HTML) → notify in Teams” — we break down what each of the four products can and can't do. <span style="color:var(--cp-accent);font-weight:600;">※ The “monthly updates” page of this very guide is actually auto-updated by Autopilot.</span>`,
   s7_h: `<span class="num">7</span>Reverse lookup — “in this case, use this”`,
   s7_p: `A cheat sheet to quickly find the recommended product from what the customer says. For instant answers mid-meeting.`,
   s8_h: `<span class="num">8</span>Security & data governance`,
@@ -1389,7 +1389,7 @@ let STATIC = {
   s10_h: `<span class="num">10</span>Japan customer cases (4 products)`,
   s10_p: `Officially published cases of Japanese companies for Microsoft 365 Copilot / Copilot Studio (with source links).`,
   more_cases: `<span class="mc-text"><b>See more cases</b><br><span class="mc-sub">Search Japanese Copilot customer stories on Microsoft's official site</span></span><span class="mc-arrow">↗</span>`,
-  cases_note: `<div class="pn-title">ℹ️ About Japan cases for Copilot Cowork & Microsoft Scout</div><p>Because Cowork (GA June 2026) and Scout (2026 availability) are so new, <b>no publicly disclosed Japanese-company cases have been confirmed yet</b>.</p><p class="disclaimer">※ All listed cases are reference information based on public sources such as Microsoft official blogs and customer-story pages (source link on each card). Figures and user counts are as of publication and may change. Always confirm the source and the latest information when proposing.</p>`,
+  cases_note: `<div class="pn-title">ℹ️ About Japan cases for Copilot Cowork & Microsoft Autopilot</div><p>Because Cowork (GA June 2026) and Autopilot (2026 availability) are so new, <b>no publicly disclosed Japanese-company cases have been confirmed yet</b>.</p><p class="disclaimer">※ All listed cases are reference information based on public sources such as Microsoft official blogs and customer-story pages (source link on each card). Figures and user counts are as of publication and may change. Always confirm the source and the latest information when proposing.</p>`,
   foot1: `Microsoft Copilot Product Selection Guide (by business scenario)`,
   foot2: `This site is a reference summary based on public information on the internet (Microsoft official blogs, Microsoft Learn, etc.). Please confirm the latest availability and pricing via official sources.`,
   cmp_body: `<div class="matrix-scroll">
@@ -1399,7 +1399,7 @@ let STATIC = {
         <th class="prodcol">M365 Copilot</th>
         <th class="prodcol">Copilot Studio</th>
         <th class="prodcol">Copilot Cowork</th>
-        <th class="prodcol">Microsoft Scout</th>
+        <th class="prodcol">Microsoft Autopilot</th>
       </tr></thead>
       <tbody>
         <tr><td class="task"><span class="tasknum">1</span>Auto-start on schedule (scheduled runs)</td><td class="mark"><b class="mk-no">×</b></td><td class="mark"><b class="mk-ok">○</b></td><td class="mark"><b class="mk-best">◎</b></td><td class="mark"><b class="mk-best">◎</b></td></tr>
@@ -1420,17 +1420,17 @@ let STATIC = {
     <span><b class="mk-no">×</b>Not possible / not suited</span>
   </div>
   <div class="price-note" style="margin-top:20px;">
-    <div class="pn-title">🎯 Scout vs. Cowork — where to draw the line</div>
+    <div class="pn-title">🎯 Autopilot vs. Cowork — where to draw the line</div>
     <p>Both share the ability to run autonomously on a schedule. <b>Two things separate them — ① where the files live (local PC or cloud) / ② whether it “actually” automates the browser</b>.</p>
-    <p><b>① If it touches files on the local PC, use Scout</b> (= this case): cloud-based Cowork can't directly edit local files (officially stated: <i>“Cloud hosting means files are not stored locally”</i>). <b>Only Scout can act on files on your own PC.</b> Move files to OneDrive/SharePoint and <b>Cowork's scheduled runs work too</b> (Cowork also offers recurring schedules / event triggers as official features).</p>
-    <p><b>② If it fully automates the browser, use Scout</b>: actually clicking and typing across logged-in intranet or SaaS screens is Scout's domain (spanning local files, browser, M365, and shell). Cowork's browser use via Edge is mentioned on the official blog but is <b>“Frontier-only,”</b> and <b>not listed in the GA official feature list (Learn, as of 2026/7/27)</b>. It's safer not to rely on it as generally available automated browser control.</p>
-    <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>In a nutshell</b> — <b>build & roll out company-wide → Studio</b> / <b>cloud-only, delegate-and-wait → Cowork</b> / <b>drive your own PC & browser proactively → Scout</b>.</p>
-    <p class="disclaimer">※ Sources (verified as of Aug 2026): Cowork's cloud hosting / no local storage and USL + Copilot Credits usage-based billing — <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA announcement blog (2026/6/16)</a>. Scheduled prompts / event triggers / approval checkpoints / Deep Research skill — <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn “Use Copilot Cowork” (updated 2026/7/27; the feature list on that page does not mention automated browser control)</a>. Scout's local-PC operation, browser automation, and always-on running are a reference summary based on Microsoft Scout official docs.</p>
+    <p><b>① If it touches files on the local PC, use Autopilot</b> (= this case): cloud-based Cowork can't directly edit local files (officially stated: <i>“Cloud hosting means files are not stored locally”</i>). <b>Only Autopilot can act on files on your own PC.</b> Move files to OneDrive/SharePoint and <b>Cowork's scheduled runs work too</b> (Cowork also offers recurring schedules / event triggers as official features).</p>
+    <p><b>② If it fully automates the browser, use Autopilot</b>: actually clicking and typing across logged-in intranet or SaaS screens is Autopilot's domain (spanning local files, browser, M365, and shell). Cowork's browser use via Edge is mentioned on the official blog but is <b>“Frontier-only,”</b> and <b>not listed in the GA official feature list (Learn, as of 2026/7/27)</b>. It's safer not to rely on it as generally available automated browser control.</p>
+    <p style="border-top:1px solid var(--cp-border);padding-top:10px;"><b>In a nutshell</b> — <b>build & roll out company-wide → Studio</b> / <b>cloud-only, delegate-and-wait → Cowork</b> / <b>drive your own PC & browser proactively → Autopilot</b>.</p>
+    <p class="disclaimer">※ Sources (verified as of Aug 2026): Cowork's cloud hosting / no local storage and USL + Copilot Credits usage-based billing — <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA announcement blog (2026/6/16)</a>. Scheduled prompts / event triggers / approval checkpoints / Deep Research skill — <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Learn “Use Copilot Cowork” (updated 2026/7/27; the feature list on that page does not mention automated browser control)</a>. Autopilot's local-PC operation, browser automation, and always-on running are a reference summary based on Microsoft Autopilot official docs.</p>
   </div>`,
   sec_body: `<div class="price-note">
     <div class="pn-title">🛡️ Shared premises across all four products</div>
     <p>・<b>Respects your existing access rights & identity</b>: each product only handles “what that user can see.” It never reaches data you lack permission for.</p>
-    <p>・<b>Human approval before important actions</b>: an approval checkpoint precedes sending email, posting, writing files, running commands, and the like (Cowork / Scout).</p>
+    <p>・<b>Human approval before important actions</b>: an approval checkpoint precedes sending email, posting, writing files, running commands, and the like (Cowork / Autopilot).</p>
     <p>・<b>Your tenant data is not used to train the foundation models</b> (Microsoft 365 Copilot's public commitment).</p>
   </div>
   <div style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:20px;">
@@ -1457,7 +1457,7 @@ let STATIC = {
       <p>・<b>Spending limits, usage alerts, and usage reporting at tenant/group/user level</b> keep cost governed too.</p>
     </div>
     <div class="price-note" style="margin:0;border-top:4px solid #0f8a6a;">
-      <div class="pn-title">Microsoft Scout — controls local with “granular permissions”</div>
+      <div class="pn-title">Microsoft Autopilot — controls local with “granular permissions”</div>
       <p>・<b>Always requires approval before important actions</b> (sending email, running commands, writing files, etc.).</p>
       <p>・<b>Granular permission settings</b>: turn files / shell / browser / M365 <b>on or off by category</b>. You can limit which shell commands auto-approve, and <b>sensitive folders always require explicit approval</b>.</p>
       <p>・Has an agent-specific <b>dedicated Entra ID</b>, designed to make “who did what” easy to trace.</p>
@@ -1468,9 +1468,9 @@ let STATIC = {
   <div class="price-note" style="margin-top:20px;">
     <div class="pn-title">❓ Three worries customers raise most</div>
     <p><b>Q. Will my input data be used to train the AI?</b><br>A. No. Tenant data is not used to train the foundation models (M365 Copilot's public commitment).</p>
-    <p><b>Q. It acts autonomously — won't it do something dangerous on its own?</b><br>A. Human approval always precedes important actions. Scout adds “per-category permissions,” “explicit approval for sensitive folders,” and “limiting auto-approved commands.” Cowork is <b>off by default</b>, with admins deciding who to enable it for.</p>
-    <p><b>Q. Can IT govern and audit it?</b><br>A. Yes. Cowork is off by default plus a Purview-based protected surface (audit log / eDiscovery / Insider Risk Management, etc.), with spending limits configurable. Scout narrows scope via granular permissions.</p>
-    <p class="disclaimer">※ Sources (verified as of Aug 2026): Cowork's security/compliance (off by default, audit log, DSPM, eDiscovery, Insider Risk Management, Data Lifecycle Management, Communication Compliance, DLP soon, sensitivity-label inheritance, spending limits) — <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA announcement blog (2026/6/16)</a>. Scout's approvals, granular permissions, sensitive folders, and Frontier preview — <a href="https://learn.microsoft.com/en-us/microsoft-scout/overview" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Scout official docs (Learn)</a>. No foundation-model training, respect for access rights, and sensitivity labels are a summary based on Microsoft 365 Copilot public information. Confirm the formal, latest details via each official source.</p>
+    <p><b>Q. It acts autonomously — won't it do something dangerous on its own?</b><br>A. Human approval always precedes important actions. Autopilot adds “per-category permissions,” “explicit approval for sensitive folders,” and “limiting auto-approved commands.” Cowork is <b>off by default</b>, with admins deciding who to enable it for.</p>
+    <p><b>Q. Can IT govern and audit it?</b><br>A. Yes. Cowork is off by default plus a Purview-based protected surface (audit log / eDiscovery / Insider Risk Management, etc.), with spending limits configurable. Autopilot narrows scope via granular permissions.</p>
+    <p class="disclaimer">※ Sources (verified as of Aug 2026): Cowork's security/compliance (off by default, audit log, DSPM, eDiscovery, Insider Risk Management, Data Lifecycle Management, Communication Compliance, DLP soon, sensitivity-label inheritance, spending limits) — <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener" style="color:var(--cp-link);">Copilot Cowork GA announcement blog (2026/6/16)</a>. Autopilot's approvals, granular permissions, sensitive folders, and Frontier preview — <a href="https://learn.microsoft.com/en-us/microsoft-scout/overview" target="_blank" rel="noopener" style="color:var(--cp-link);">Microsoft Autopilot official docs (Learn)</a>. No foundation-model training, respect for access rights, and sensitivity labels are a summary based on Microsoft 365 Copilot public information. Confirm the formal, latest details via each official source.</p>
   </div>`,
 };
 function applyStatic(){
