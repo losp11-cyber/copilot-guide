@@ -99,6 +99,11 @@ header.hero { text-align: center; padding: 20px 10px 8px; }
 .post-title { font-size: 1.4rem; letter-spacing:-0.01em; }
 .post-lead { color: var(--cp-text-muted); font-size: 0.95rem; margin-top: 6px; }
 .post-body { padding: 22px 26px 24px; }
+.post-video { margin-bottom: 20px; border: 1px solid var(--cp-accent); border-radius: 14px; padding: 14px 16px; background: var(--cp-accent-soft); }
+.post-video .v-label { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cp-accent); margin-bottom: 4px; }
+.post-video a { color: var(--cp-link); font-weight: 800; text-decoration: none; }
+.post-video a:hover { text-decoration: underline; }
+.post-video .v-note { color: var(--cp-text-muted); font-size: 0.88rem; margin-top: 4px; }
 
 .upd-group { margin-bottom: 20px; }
 .upd-group:last-child { margin-bottom: 0; }
@@ -160,6 +165,9 @@ const POSTS = [
     lead: "9月25日、Microsoft は「新しい Copilot」を発表。Chat と Cowork を統合する Home、自然言語でアプリを作る Code、常時稼働の自律エージェント Autopilot（旧称 Scout）という3つの新機能に加え、AI 支出を管理する FinOps for AI を投入しました。",
     source: "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
     sourceNote: "米国 Microsoft 公式ブログ「Introducing the new Copilot with Home, Code and Autopilot」（2026年9月25日）",
+    videoUrl: "https://livesend.microsoft.com/i/bnHpfxsdZI8PQDwyfHu3cRSnoKecBkRYTcewh979GR8xIqWyMsR6OTFkEVeNzuvL4ONDJVbsEnDjOysLg1hGMllPLUSSIGNrWoAwXQQdUwxGt___Dr5qNTD___p9smwwHpu6DiOxJbD",
+    videoLabel: "New Copilot 紹介動画（2026/10/09・31分）",
+    videoNote: "アップデートの全体像を録画で確認できます。LiveSend 共有ページが開きます。",
     groups: [
       {
         tag: "Home / Office in Copilot",
@@ -305,6 +313,9 @@ const EN_POSTS = [
     lead: "On September 25, Microsoft introduced the new Copilot: Home unites Chat and Cowork, Code lets anyone build solutions in natural language, and Autopilot (formerly Scout) is a persistent, proactive agent — plus new FinOps for AI to manage AI spend.",
     source: "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
     sourceNote: "Microsoft official blog: Introducing the new Copilot with Home, Code and Autopilot (September 25, 2026)",
+    videoUrl: "https://livesend.microsoft.com/i/bnHpfxsdZI8PQDwyfHu3cRSnoKecBkRYTcewh979GR8xIqWyMsR6OTFkEVeNzuvL4ONDJVbsEnDjOysLg1hGMllPLUSSIGNrWoAwXQQdUwxGt___Dr5qNTD___p9smwwHpu6DiOxJbD",
+    videoLabel: "New Copilot overview video (Oct 9, 2026 / 31 min)",
+    videoNote: "Watch the update overview recording. Opens the LiveSend shared video page.",
     groups: [
       {
         tag: "Home / Office in Copilot",
@@ -481,6 +492,12 @@ function renderPosts(){
         <div class="post-lead">${p.lead}</div>
       </div>
       <div class="post-body">
+        ${p.videoUrl ? `
+        <div class="post-video">
+          <div class="v-label">${currentLang==="en" ? "Overview video" : "説明動画"}</div>
+          <a href="${p.videoUrl}" target="_blank" rel="noopener">▶ ${p.videoLabel}</a>
+          <div class="v-note">${p.videoNote}</div>
+        </div>` : ""}
         ${p.groups.map(g => `
           <div class="upd-group">
             <h3><span class="tagpill">${g.tag}</span></h3>
