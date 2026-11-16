@@ -160,6 +160,55 @@ footer.foot p { margin-bottom: 4px; }
 // 新しい月を配列の先頭に追加していく（新しい順に表示）
 const POSTS = [
   {
+    date: "2026年10月",
+    title: "Copilot Home の刷新と Cowork・Office・ガバナンスの強化",
+    lead: "Copilot の新しい作業画面、Cowork や Office の機能、管理・セキュリティの主な更新をまとめました。提供範囲と時期は機能ごとに異なります。",
+    source: "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/what%E2%80%99s-new-in-microsoft-copilot--october-2026/4568528",
+    sourceNote: "Microsoft 公式ブログ「What's New in Microsoft Copilot | October 2026」。提供状況は記事掲載時点で、段階的な展開や予定を含みます。",
+    groups: [
+      {
+        tag: "Copilot Home / Chat / Cowork",
+        items: [
+          { name: "新しい Home と共通ナビゲーション", desc: "Chat と Cowork を一つの画面にまとめ、エージェント、Automations、Workspaces、Projects、会話履歴にアクセス。10月に Frontier、11月に世界展開を予定。", chips: ["Frontier"] },
+          { name: "Projects", desc: "会話、ファイル、会議、タスクや共通指示をプロジェクトにまとめ、作業の文脈を維持。Cowork で10月に展開、Copilot Chat は11月展開予定。", chips: ["10月展開"] },
+          { name: "Copilot Chat の Skills", desc: "自然言語で Skill を作成し、組織や同僚が共有した Skill も利用できる。11月に展開予定。", chips: ["11月展開予定"] },
+          { name: "Autopilot", desc: "目標を受けて継続的に作業を進めるクラウド型のパーソナル エージェント。アクセス制御や承認を伴い、11月に Frontier へ展開予定。", chips: ["Frontier"] },
+          { name: "Cowork の職種別プラグイン", desc: "営業、サービス、教育、法務、財務の業務向けに、会議準備や契約レビューなどの事前定義された Skills を提供。10月に展開。", chips: ["10月展開"] },
+          { name: "Cowork の OneNote / Planner 連携", desc: "ノートの読み取り・更新や、プランとタスクの表示・作成・更新を支援。書き戻しにはユーザーの承認が必要。10月に Frontier、11月に世界展開予定。", chips: ["Frontier"] },
+          { name: "Cowork のタスク カタログと過去の会話の参照", desc: "職種別のタスク候補から作業を始められ、過去の Copilot Chat や Cowork タスクも新しい依頼の文脈として参照できる。10月に展開。", chips: ["10月展開"] }
+        ]
+      },
+      {
+        tag: "Workspaces / SharePoint / OneDrive",
+        items: [
+          { name: "Copilot Workspaces", desc: "Notebooks の進化版として、チームの情報、メンバー、作業ファイルをまとめて共同作業できる。10月に Frontier へ展開。", chips: ["Frontier"] },
+          { name: "Workspace 内で Office ファイルを編集", desc: "Word、Excel、PowerPoint のファイルを Workspace 内で作成・編集し、共同作業できる。10月に Frontier、1月に世界展開予定。", chips: ["Frontier"] },
+          { name: "Audio Overview の拡張", desc: "トピック別エピソード、秘密度ラベルの継承、メールや会議などの参照に対応。10月に Frontier、11月に世界展開予定。", chips: ["Frontier"] },
+          { name: "SharePoint の Knowledge base", desc: "メール、メッセージ、会議、SharePoint の情報を、ユーザーや Copilot、エージェントが活用する知識ベースにまとめる。10月に Frontier へ展開。", chips: ["Frontier"] },
+          { name: "OneDrive の Prompt Gallery", desc: "ファイルの作成・分析・検索・共同作業に役立つ既成プロンプトを選べる。10月に展開。", chips: ["10月展開"] }
+        ]
+      },
+      {
+        tag: "Excel / PowerPoint / Word",
+        items: [
+          { name: "Excel の Accounting skills と Clean data", desc: "会計業務の照合や分析を支援し、重複や書式の不一致などの修正を提案。Accounting skills は10月に Frontier、11月に世界展開予定。", chips: ["Frontier"] },
+          { name: "Excel の Interactive canvas", desc: "データから可視化や指標を含むレポートを作成し、元データに応じて更新。10月に Insiders、11月に世界展開予定。", chips: ["Insiders"] },
+          { name: "PowerPoint のブランドとスライド作成", desc: "Brand Kit の設定・公開管理、インタラクティブ スライド、テンプレート評価や操作のスキル化を強化。10月に展開。", chips: ["10月展開"] },
+          { name: "Word の Legal plugin と Markdown 対応", desc: "法務向けの契約書作成・レビューを支援。Markdown のショートカットや Word との変換にも対応。10月に展開。", chips: ["10月展開"] }
+        ]
+      },
+      {
+        tag: "Teams / 管理・ガバナンス",
+        items: [
+          { name: "文字起こしを保存しない会議の要約", desc: "会議後に文字起こしを保持せず、AI による会議の要約を利用できる。公式記事では10月に世界展開と記載。", chips: ["10月世界展開"] },
+          { name: "Insights Agent", desc: "エージェントのアクティブ ユーザーや導入傾向などを自然言語で確認できる。10月に展開。", chips: ["10月展開"] },
+          { name: "Purview で Copilot メモリを保持", desc: "保持ポリシーを使って保存済みの Copilot メモリを保持し、調査やデータ ライフサイクル管理に活用できる。10月に展開。", chips: ["10月展開"] },
+          { name: "Cowork 向け Purview DLP", desc: "Copilot Chat と Cowork に共通の DLP ポリシーを適用し、機密情報を含むプロンプトや参照を制御。10月にパブリック プレビューへ展開。", chips: ["Preview"] }
+        ]
+      }
+    ]
+  },
+  {
     date: "2026年9月",
     title: "「新しい Copilot」発表 — Home・Code・Autopilot（旧 Scout）が登場",
     lead: "9月25日、Microsoft は「新しい Copilot」を発表。Chat と Cowork を統合する Home、自然言語でアプリを作る Code、常時稼働の自律エージェント Autopilot（旧称 Scout）という3つの新機能に加え、AI 支出を管理する FinOps for AI を投入しました。",
@@ -307,6 +356,55 @@ const chipClass = c => c === "GA" ? "ga" : (c === "Preview" || c === "Frontier")
 
 // ===== English content (mirrors POSTS) =====
 const EN_POSTS = [
+  {
+    date: "October 2026",
+    title: "A refreshed Copilot Home and expanded Cowork, Office, and governance capabilities",
+    lead: "Highlights include the new Copilot work experience, Cowork and Office features, and admin and security updates. Availability and timing vary by feature.",
+    source: "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/what%E2%80%99s-new-in-microsoft-copilot--october-2026/4568528",
+    sourceNote: "Microsoft's What's New in Microsoft Copilot | October 2026. Availability reflects the article and includes phased and planned rollouts.",
+    groups: [
+      {
+        tag: "Copilot Home / Chat / Cowork",
+        items: [
+          { name: "New Home and shared navigation", desc: "Chat and Cowork come together with access to agents, Automations, Workspaces, Projects, and conversation history. Frontier rollout in October; worldwide rollout planned for November.", chips: ["Frontier"] },
+          { name: "Projects", desc: "Keep conversations, files, meetings, tasks, and shared instructions together to preserve context. Rolled out in Cowork in October; Copilot Chat rollout is planned for November.", chips: ["October rollout"] },
+          { name: "Skills in Copilot Chat", desc: "Create skills using natural language and discover skills shared by colleagues or the organization. Rollout is planned for November.", chips: ["November rollout planned"] },
+          { name: "Autopilot", desc: "A cloud-based personal agent that carries work forward from user-defined goals, with access controls and approval safeguards. Frontier rollout is planned for November.", chips: ["Frontier"] },
+          { name: "Role-based plugins in Cowork", desc: "Prebuilt skills support sales, service, education, legal, and finance scenarios such as meeting preparation and contract review. Rolled out in October.", chips: ["October rollout"] },
+          { name: "OneNote and Planner in Cowork", desc: "Read and update notes and view, create, or update plans and tasks. Changes are written back with user approval. Frontier rollout in October; worldwide rollout planned for November.", chips: ["Frontier"] },
+          { name: "Cowork task catalog and references to prior work", desc: "Start from role-based task suggestions and use earlier Copilot Chat conversations or Cowork tasks as context for new requests. Rolled out in October.", chips: ["October rollout"] }
+        ]
+      },
+      {
+        tag: "Workspaces / SharePoint / OneDrive",
+        items: [
+          { name: "Copilot Workspaces", desc: "An evolution of Notebooks, bringing team context, members, and working files together for collaboration. Rolled out to Frontier in October.", chips: ["Frontier"] },
+          { name: "Edit Office files in Workspaces", desc: "Create, edit, and collaborate on Word, Excel, and PowerPoint files inside a Workspace. Frontier rollout in October; worldwide rollout planned for January.", chips: ["Frontier"] },
+          { name: "Audio Overview enhancements", desc: "Adds topic-based episodes, sensitivity-label inheritance, and references including emails and meetings. Frontier rollout in October; worldwide rollout planned for November.", chips: ["Frontier"] },
+          { name: "Knowledge base in SharePoint", desc: "Bring email, messages, meetings, and SharePoint content together as shared knowledge for people, Copilot, and agents. Rolled out to Frontier in October.", chips: ["Frontier"] },
+          { name: "Prompt Gallery in OneDrive", desc: "Choose ready-made prompts for creating, analyzing, finding, and collaborating on files. Rolled out in October.", chips: ["October rollout"] }
+        ]
+      },
+      {
+        tag: "Excel / PowerPoint / Word",
+        items: [
+          { name: "Accounting skills and Clean data in Excel", desc: "Support accounting reconciliation and analysis, and recommend fixes for duplicates or inconsistent formatting. Accounting skills reached Frontier in October, with worldwide rollout planned for November.", chips: ["Frontier"] },
+          { name: "Interactive canvas in Excel", desc: "Create a report with visualizations and metrics that updates as source data changes. Rolled out to Insiders in October; worldwide rollout planned for November.", chips: ["Insiders"] },
+          { name: "PowerPoint branding and slide creation", desc: "Improvements cover Brand Kit setup and publishing, interactive slides, template assessment, and recording reusable skills. Rolled out in October.", chips: ["October rollout"] },
+          { name: "Legal plugin and Markdown support in Word", desc: "Support legal drafting and contract review, plus Markdown shortcuts and conversion between Word and Markdown. Rolled out in October.", chips: ["October rollout"] }
+        ]
+      },
+      {
+        tag: "Teams / administration and governance",
+        items: [
+          { name: "Meeting recap without retaining a transcript", desc: "Use AI-generated meeting recaps without keeping the transcript after the meeting. The article reports worldwide rollout in October.", chips: ["Worldwide rollout in October"] },
+          { name: "Insights Agent", desc: "Ask natural-language questions about agent active users and adoption trends. Rolled out in October.", chips: ["October rollout"] },
+          { name: "Retain Copilot memory with Purview", desc: "Apply retention policies to saved Copilot memories for investigations and data lifecycle management. Rolled out in October.", chips: ["October rollout"] },
+          { name: "Purview DLP for Cowork", desc: "Apply a shared DLP policy to Copilot Chat and Cowork to control supported sensitive prompts and references. Rolled out to public preview in October.", chips: ["Preview"] }
+        ]
+      }
+    ]
+  },
   {
     date: "September 2026",
     title: "Introducing the new Copilot — Home, Code, and Autopilot (formerly Scout)",
