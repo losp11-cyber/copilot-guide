@@ -169,6 +169,159 @@ footer.foot p { margin-bottom: 4px; }
 // chips 例: "GA" / "Preview" / "Roadmap 561206"（Roadmap は青チップ＋リンク化）
 const POSTS = [
   {
+    date: "2026年11月4日 公開",
+    title: "リリースノート要約（2026/10/28〜11/3 リリース分）",
+    lead: "エージェントの利用状況と検索の管理機能、SharePoint リスト エージェント、Cowork のブラウザー操作などが追加されました。",
+    source: "https://learn.microsoft.com/ja-jp/microsoft-365/copilot/release-notes?tabs=all",
+    sourceNote: "Microsoft 365 Copilot 公式リリースノート。一般提供の機能は段階的に展開されます。Roadmap 番号は Microsoft 365 ロードマップの ID。",
+    groups: [
+      {
+        tag: "Excel",
+        items: [
+          { name: "Copilot の応答からブックの変更箇所へ移動", desc: "チャットの応答内のリンクから、Copilot が作成・変更したシート、テーブル、範囲、グラフなどに直接移動できます。Windows、Web、Mac に対応します。", talk: "<b>刺さり所:</b> レビュー担当者が AI の変更箇所をすぐ確認でき、編集の透明性を高められます。", chips: ["GA"] }
+        ]
+      },
+      {
+        tag: "Microsoft 365 管理センター",
+        items: [
+          { name: "エージェントの使用状況レポート", desc: "Copilot と Copilot Chat のエージェントについて、ユーザー数やエージェント数をライセンスや発行元の種類別に確認できます。ユーザーやエージェント単位の詳細も表示されます。", talk: "<b>刺さり所:</b> 管理者がエージェントの定着状況を把握し、展開やガバナンスの改善につなげられます。", chips: ["GA", "Roadmap 497999"] },
+          { name: "Copilot 検索の信頼できるコンテンツ管理", desc: "管理センターで最大 100 の SharePoint サイトを信頼できるコンテンツとして指定し、Copilot 検索の関連性とランキングを改善できます。", talk: "<b>刺さり所:</b> 情報管理者が信頼できる社内情報を見つけやすくし、検索品質の改善を図れます。", chips: ["GA", "Roadmap 503553"] }
+        ]
+      },
+      {
+        tag: "Microsoft 365 Copilot",
+        items: [
+          { name: "SharePoint リスト エージェント", desc: "自然言語の指示に基づき、Microsoft Lists の列構成や設定を生成してリストを作成します。", talk: "<b>刺さり所:</b> 各部門が管理表を設計する手間を減らし、情報の整理と追跡を素早く始められます。", chips: ["GA", "Roadmap 534606"] },
+          { name: "Edge の Copilot 新しいタブ ページ", desc: "Edge の新しいタブで検索とチャットを一つの検索ボックスにまとめ、提案されたアクションや仕事のコンテンツなどを表示します。", talk: "<b>刺さり所:</b> 日々の業務で検索やチャットを始める導線をまとめ、情報へのアクセスを簡単にできます。", chips: ["GA", "Roadmap 558256"] },
+          { name: "Copilot Cowork のローカル Edge ブラウザー操作", desc: "Cowork がローカルの Edge を使い、サインイン済みのサイトを含む Web ページの移動、情報収集、フォーム入力などに対応します。ユーザーは会話で進行状況を確認し、必要に応じて承認や操作を行います。", talk: "<b>刺さり所:</b> Web をまたぐ作業を行う部門が、確認や承認を伴う複数ステップの業務を委任できます。", chips: ["GA"] }
+        ]
+      },
+      {
+        tag: "Microsoft 365 Copilot の拡張機能",
+        items: [
+          { name: "リサーチツールの HubSpot コネクタ", desc: "リサーチツール エージェントで HubSpot コネクタを利用し、HubSpot の情報を調査結果に活用できます。", talk: "<b>刺さり所:</b> 営業・マーケティング担当者が CRM 情報を調査に組み込みやすくなります。", chips: ["GA", "Roadmap 501292"] }
+        ]
+      },
+      {
+        tag: "Outlook",
+        items: [
+          { name: "予定表の Copilot サイド ペインでアカウントを選択", desc: "新しい Outlook の予定表で、複数の Copilot 対応アカウントをサイド ペインから確認・切り替えできます。", talk: "<b>刺さり所:</b> 複数アカウントを使う担当者が、意図したアカウントで予定表の Copilot を利用できます。", chips: ["GA", "Roadmap 559991"] }
+        ]
+      },
+      {
+        tag: "PowerPoint",
+        items: [
+          { name: "既存デッキのスタイルを参照してプレゼンテーションを作成", desc: "既存の PowerPoint ファイルを添付し、そのテーマとスタイルを新しいプレゼンテーションに適用できます。Windows と Mac 向けの掲載です。", talk: "<b>刺さり所:</b> 資料作成者が既存のデザインを活用し、書式調整の負担を減らせます。", chips: ["GA", "Roadmap 555878", "Roadmap 555880"] }
+        ]
+      },
+      {
+        tag: "Teams",
+        items: [
+          { name: "ワークフロー アプリの AI ワークフロー", desc: "Teams のワークフロー アプリで AI を活用したテンプレートやスケジュール済みプロンプトを使えます。利用には管理者による設定が必要です。", talk: "<b>刺さり所:</b> 業務担当者が繰り返し作業を Teams 内で標準化し、手作業を減らせます。", chips: ["GA", "Roadmap 500379"] }
+        ]
+      }
+    ]
+  },
+  {
+    date: "2026年10月27日 公開",
+    title: "リリースノート要約（2026/10/13〜10/27 リリース分）",
+    lead: "学習エージェント、Copilot ノートブックの拡充、コネクタや Work IQ API の機能強化などが掲載されました。",
+    source: "https://learn.microsoft.com/ja-jp/microsoft-365/copilot/release-notes?tabs=all",
+    sourceNote: "Microsoft 365 Copilot 公式リリースノート。一般提供の機能は段階的に展開されます。Roadmap 番号は Microsoft 365 ロードマップの ID。",
+    groups: [
+      {
+        tag: "Microsoft 365 Copilot",
+        items: [
+          { name: "Microsoft 365 Copilot の学習エージェント", desc: "役割やタスクに合ったマイクロラーニングと構造化された学習パスを Copilot から利用できます。", talk: "<b>刺さり所:</b> 従業員が日々の業務の中で必要な学びを見つけ、スキルアップに取り組めます。", chips: ["GA", "Roadmap 490154"] },
+          { name: "Copilot の新しい利用メトリクス", desc: "Copilot アプリや Edge、OneNote、Office アプリでのアクションやユースケースをダッシュボードなどで確認できます。", talk: "<b>刺さり所:</b> 導入担当者がアプリや用途ごとの利用を把握し、展開やトレーニングに活用できます。", chips: ["GA", "Roadmap 557981"] }
+        ]
+      },
+      {
+        tag: "Microsoft 365 Copilot アプリ",
+        items: [
+          { name: "Copilot ノートブックの参照として Web リンクを追加", desc: "Copilot ノートブックの参照ソースとして Web リンクを追加できます。", talk: "<b>刺さり所:</b> 調査担当者が Web 上の情報もノートブックに集約し、Copilot が参照する文脈を広げられます。", chips: ["GA", "Roadmap 516040"] },
+          { name: "iOS 版 Copilot ノートブックの新デザイン", desc: "iOS アプリのノートブックにチャット、生成したコンテンツ、参照をまとめ、蓄積した文脈を使ってセッションをまたいで作業できます。", talk: "<b>刺さり所:</b> 外出先の利用者がプロジェクトの背景を毎回入力し直さずに作業を続けられます。", chips: ["GA", "Roadmap 566318"] }
+        ]
+      },
+      {
+        tag: "Microsoft 365 Copilot の拡張機能",
+        items: [
+          { name: "リサーチツールの Canva コネクタ", desc: "リサーチツールで Canva コネクタを使用し、接続された Canva の情報を調査に含められます。", talk: "<b>刺さり所:</b> 調査担当者が Canva の情報を取り込み、作業中のアプリ切り替えを減らせます。", chips: ["GA"] },
+          { name: "カスタム MCP コネクタの作成と展開", desc: "管理者は Microsoft 365 管理センターでカスタム MCP コネクタを作成し、組織全体に展開できます。", talk: "<b>刺さり所:</b> 管理者が組織独自のデータを管理しながら Copilot で活用できるようにします。", chips: ["GA", "Roadmap 501585"] },
+          { name: "検索結果のコネクタ エンティティ カード", desc: "コネクタの検索結果に、メタデータや属性を含む詳細なエンティティ カードが表示されます。", talk: "<b>刺さり所:</b> 利用者が検索結果から情報源と内容を見分け、目的のデータを探しやすくなります。", chips: ["GA", "Roadmap 502533"] },
+          { name: "Work IQ API の使用量ベースの請求", desc: "事前にライセンスを割り当てずに Work IQ のエージェントやモデルを呼び出し、呼び出しに応じた課金が可能になります。", talk: "<b>刺さり所:</b> 開発者が利用に応じた課金で Work IQ API をアプリに組み込めます。", chips: ["GA", "Roadmap 559017"] },
+          { name: "Work IQ API から宣言型エージェントにアクセス", desc: "Work IQ エンドポイントから、Microsoft やテナントが定義した宣言型エージェントをプログラムで呼び出せます。", talk: "<b>刺さり所:</b> 開発者が業務に特化したエージェントを既存のアプリやワークフローに組み込めます。", chips: ["GA", "Roadmap 559019"] }
+        ]
+      },
+      {
+        tag: "OneNote",
+        items: [
+          { name: "Android で Copilot ノートブックのマルチモーダル キャプチャ", desc: "音声の録音・文字起こし、画像、メモを一度に取り込み、分析情報を含むページとして選択したノートブックに保存できます。", talk: "<b>刺さり所:</b> 対面会議の参加者が会話やホワイトボードを音声・画像・メモでまとめて記録できます。", chips: ["GA", "Roadmap 567895"] }
+        ]
+      },
+      {
+        tag: "Outlook",
+        items: [
+          { name: "従来の Outlook for Windows の Copilot 設定", desc: "従来の Outlook for Windows 内から Copilot の各種設定にアクセスできます。", talk: "<b>刺さり所:</b> 利用者が Outlook を離れずに設定を調整できます。", chips: ["GA", "Roadmap 561491"] }
+        ]
+      },
+      {
+        tag: "PowerPoint",
+        items: [
+          { name: "既存デッキのスタイルを参照してプレゼンテーションを作成", desc: "既存の PowerPoint ファイルを添付し、そのテーマとスタイルを新しいプレゼンテーションに適用できます。Windows と Web 向けの掲載です。", talk: "<b>刺さり所:</b> 資料作成者が既存のデザインを活用し、書式調整の負担を減らせます。", chips: ["GA", "Roadmap 555879"] },
+          { name: "プレゼンテーションの作成時に画像を添付して参照", desc: "PowerPoint の Copilot でプレゼンテーションを作成するとき、添付した画像を参照情報として利用できます。", talk: "<b>刺さり所:</b> 資料作成者が画像を手掛かりに、意図やビジュアルに沿ったスライドを作りやすくなります。", chips: ["GA", "Roadmap 555890", "Roadmap 555881", "Roadmap 555882"] }
+        ]
+      },
+      {
+        tag: "Teams",
+        items: [
+          { name: "キュー アプリの録音済み通話で Copilot Chat を利用", desc: "キュー アプリの通話履歴から録音済み通話を開き、要約タブの Copilot Chat で要約や通話内容への質問ができます。", talk: "<b>刺さり所:</b> 顧客対応の担当者が録音を聞き直さずに通話の要点を確認できます。", chips: ["GA", "Roadmap 568933"] }
+        ]
+      }
+    ]
+  },
+  {
+    date: "2026年10月6日 公開",
+    title: "リリースノート要約（2026/9/22〜10/6 リリース分）",
+    lead: "検索とチャットの統合、コネクタ設定の編集、SharePoint の権限レポート、PowerPoint の新機能、Cowork の利用分析が追加されました。",
+    source: "https://learn.microsoft.com/ja-jp/microsoft-365/copilot/release-notes?tabs=all",
+    sourceNote: "Microsoft 365 Copilot 公式リリースノート。一般提供の機能は段階的に展開されます。Roadmap 番号は Microsoft 365 ロードマップの ID。",
+    groups: [
+      {
+        tag: "Microsoft 365 Copilot",
+        items: [
+          { name: "検索とチャットのシームレスな統合", desc: "Copilot 検索の結果を基に、同じ画面で追加質問、情報の要約、コンテンツ生成ができます。Windows と Web 向けです。", talk: "<b>刺さり所:</b> 社内情報を探す利用者が、検索から活用までを一つの画面で進められます。", chips: ["GA", "Roadmap 512429"] },
+          { name: "応答を再生成して別の回答を取得", desc: "最新の応答に対して再試行やモデルの切り替えを選び、別の回答を取得できます。Web 向けです。", talk: "<b>刺さり所:</b> 利用者がプロンプトを入力し直さずに回答の選択肢を比較できます。", chips: ["GA"] }
+        ]
+      },
+      {
+        tag: "Microsoft 365 Copilot の拡張機能",
+        items: [
+          { name: "Copilot コネクタのクエリ文字列とユーザー ID マッピングを編集", desc: "管理者がコネクタ作成後も、クエリ文字列とユーザー ID マッピングのルールをサポートへの依頼なしで変更できます。", talk: "<b>刺さり所:</b> 管理者が接続範囲や ID マッピングの問題を自分で修正できます。", chips: ["GA"] }
+        ]
+      },
+      {
+        tag: "Microsoft 365 SharePoint",
+        items: [
+          { name: "広範な SharePoint グループの権限詳細レポート", desc: "SharePoint Advanced Management の管理者が、すべてのユーザーと外部ユーザーを除くすべてのユーザーに付与された権限をアイテム単位で確認できます。", talk: "<b>刺さり所:</b> 管理者が意図しない広範な共有を特定し、権限監査に役立てられます。", chips: ["GA", "Roadmap 561038"] }
+        ]
+      },
+      {
+        tag: "PowerPoint",
+        items: [
+          { name: "Copilot in PowerPoint のカスタム スキルを作成", desc: "プレゼンテーション作成の用途に合わせ、独自のコマンドやワークフローをカスタム スキルとして定義できます。Windows 向けです。", talk: "<b>刺さり所:</b> 資料作成者が繰り返し行う作業を自分の業務に合わせて効率化できます。", chips: ["GA"] },
+          { name: "SharePoint と OneDrive のファイルを参照してプレゼンテーションを作成", desc: "Copilot にプレゼンテーションの作成を依頼する際、SharePoint ライブラリや OneDrive フォルダー内のファイルを参照できます。Windows と Mac 向けです。", talk: "<b>刺さり所:</b> 資料作成者がクラウド上の既存資料を活用し、プレゼンテーションを作り始めやすくなります。", chips: ["GA", "Roadmap 555895", "Roadmap 555897"] }
+        ]
+      },
+      {
+        tag: "Viva Insights",
+        items: [
+          { name: "Copilot 分析で Cowork の導入と影響を分析", desc: "ダッシュボードで Cowork の利用状況や影響を確認・エクスポートでき、高度な分析のクエリでも分析できます。", talk: "<b>刺さり所:</b> 分析担当者が Cowork の利用とクレジット消費を把握し、投資判断に役立てられます。", chips: ["GA", "Roadmap 567005"] }
+        ]
+      }
+    ]
+  },
+  {
     date: "2026年9月23日 公開",
     title: "リリースノート要約（2026/8/26〜9/22 リリース分）",
     lead: "この期間に一般提供（最新チャネル）となった主な新機能です。Excel の編集透明性、管理・ガバナンス系の強化、Planner エージェントなどが目立ちます。",
